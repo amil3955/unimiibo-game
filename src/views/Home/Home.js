@@ -1,72 +1,20 @@
 import React from "react";
+import AmiiboBg from '../../assets/Background/amiibo_bg.jpg'
+import AmiiboBgMobile from '../../assets/Background/amiibo_bg_mobile.jpg'
+// import LogoWhUnimiibo from '../../assets/LogoUnimiibo/unimiibo_logo_wh.png'
+import './Home.css'
 
 function Home() {
     return (
-        <div className="container flex-grow-1" >
-            <div className="row justify-content-center ">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam, animi commodi cumque
-                    eaque enim, eveniet explicabo impedit in incidunt modi molestias mollitia nisi nobis, omnis
-                    optio perspiciatis repellat repudiandae sapiente sed tempora voluptas voluptate! Animi
-                    asperiores at dicta eos molestias nemo obcaecati qui quo sequi unde? Dolore, non,
-                    voluptatibus.
-                </p>
+        <div className="flex-grow-1 position-relative ">
+            <div className="d-none d-md-block mt-4">
+                <img className="img-fluid w-100" src={AmiiboBg} alt="Home background (pc)"/>
+            </div>
+            <div className="d-md-none">
+                <img className="img-fluid w-100" src={AmiiboBgMobile} alt="Home background (mobile)"/>
+            </div>
+            <div className="container">
+
             </div>
         </div>
     );

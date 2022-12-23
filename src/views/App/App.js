@@ -7,7 +7,7 @@ function App() {
     let courseLink = "https://www.disco.unimib.it/it";
 
     return (
-        <div style={{height: "100vh"}}>
+        <div>
             <MainTemplate footerCourseName={courseName} footerCourseLink={courseLink}>
                 <Home/>
             </MainTemplate>

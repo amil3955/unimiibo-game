@@ -4,26 +4,29 @@ import Header from "../Header/Header";
 
 function MainTemplate({children, footerCourseName, footerCourseLink})
 {
-    let footerLinks = [
+    let navLinks = [
         {
             name: "Home",
-            link: "#"
+            link: "/",
+            isActive: true
         },
         {
-            name: "Pokédex",
-            link: "#"
+            name: "Amiibo",
+            link: "/amiibo",
+            isActive: false
         },
         {
-            name: "Info",
-            link: "#"
+            name: "About",
+            link: "/about",
+            isActive: false
         }
     ];
 
     return (
         <div className="d-flex flex-column vh-100">
-            <Header/>
+            <Header navLinks={navLinks}/>
             {children}
-            <Footer footerLinks={footerLinks} courseName={footerCourseName} courseLink={footerCourseLink}/>
+            <Footer footerLinks={navLinks} courseName={footerCourseName} courseLink={footerCourseLink}/>
         </div>
     );
 }
