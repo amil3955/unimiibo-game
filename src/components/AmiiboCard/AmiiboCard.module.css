@@ -1,0 +1,139 @@
+:root
+{
+    --anim-params: all ease-in-out 0.2s;
+    --gradient-rotation: -20deg;
+}
+
+.myCard
+{
+    border-radius: .75rem;
+    position: relative;
+    height: 20rem;
+    width: 15rem;
+    transition: var(--anim-params);
+}
+
+.myCard:hover
+{
+    z-index: 1;
+    scale: 102%;
+    box-shadow: 0 10px 20px rgba(16, 37, 55, 0.3);
+}
+
+.myCard .bgCard
+{
+    border-radius: .575rem;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../../assets/Background/amiibo_card_bg.jpg');
+    background-size: 8rem;
+    background-repeat: repeat;
+    border: 0.15rem solid rgb(232, 240, 244);
+}
+
+.myCard .bgCard::after
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10%;
+    height: 55%;
+    width: 100%;
+    rotate: -10deg;
+    scale: 120%;
+    border: 0.15rem solid rgb(232, 240, 244);
+}
+
+.redGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), rgb(172, 11, 11) 0%, rgb(205, 72, 72) 100%);
+}
+
+.blueGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), rgb(11, 86, 172) 0%, rgb(72, 147, 205) 100%);
+}
+
+.greenGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), rgb(11, 172, 32) 0%, rgb(85, 210, 121) 100%);
+}
+
+.yellowGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), rgb(172, 164, 11) 0%, rgb(230, 213, 93) 100%);
+}
+
+.orangeGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), rgb(185, 84, 15) 0%, rgb(212, 123, 65) 100%);
+}
+
+.purpleGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), rgb(78, 11, 172) 0%, rgb(132, 72, 205) 100%);
+}
+
+.darkGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), rgb(31, 31, 31) 0%, rgb(53, 53, 53) 100%);
+}
+
+.amiiboImg
+{
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 60%;
+    position: absolute;
+    transition: var(--anim-params);
+    filter: drop-shadow(0 10px 5px rgba(0,0,0,.15));
+}
+
+.myCard:hover > .amiiboImg
+{
+    scale: 120%;
+    transform: translate(0, -1.1rem);
+    filter: drop-shadow(0 10px 10px rgba(16, 37, 55, 0.3));
+}
+
+.myCardTextPosition
+{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    padding: 1rem;
+}
+
+.myCardTextPosition .myCardTextWrapper
+{
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    letter-spacing: .1rem;
+}
+
+.myCardTextPosition .myCardTextWrapper .myCardTextName
+{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.myCardTextPosition .myCardTextWrapper .myCardTextSeries
+{
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}

@@ -23,9 +23,11 @@ function MainTemplate({children, footerCourseName, footerCourseLink})
     ];
 
     return (
-        <div className="d-flex flex-column vh-100">
+        <div className="d-flex flex-column vh-100 ">
             <Header navLinks={navLinks}/>
-            {children}
+            <div className="flex-grow-1 position-relative">
+                {children}
+            </div>
             <Footer footerLinks={navLinks} courseName={footerCourseName} courseLink={footerCourseLink}/>
         </div>
     );
