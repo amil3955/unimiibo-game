@@ -1,7 +1,7 @@
 import React from 'react';
 import MainTemplate from "../../components/MainTemplate/MainTemplate";
 import Home from "../Home/Home";
-import AmiiboList from "../AmiiboList/AmiiboList";
+import AmiiboOverview from "../AmiiboOverview/AmiiboOverview";
 import {Route, Routes} from "react-router-dom";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
             name: "Amiibo",
             link: "/amiibo",
             isActive: false,
-            jsx: <AmiiboList/>
+            jsx: <AmiiboOverview/>
         },
         {
             name: "About",

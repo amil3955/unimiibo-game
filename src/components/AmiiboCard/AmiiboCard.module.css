@@ -2,15 +2,37 @@
 {
     --anim-params: all ease-in-out 0.2s;
     --gradient-rotation: -20deg;
+    --card-border-radius: 1rem;
+
+    --dark-pink: rgb(181, 54, 107);
+    --dark-red: rgb(172, 11, 11);
+    --dark-orange: rgb(206, 93, 17);
+    --dark-yellow: rgb(172, 164, 11);
+    --dark-green: rgb(11, 172, 32);
+    --dark-blue: rgb(11, 86, 172);
+    --dark-purple: rgb(97, 19, 182);
+    --dark-grey: rgb(52, 52, 52);
+
+    --light-pink: rgb(224, 117, 179);
+    --light-red: rgb(205, 72, 72);
+    --light-orange: rgb(249, 130, 51);
+    --light-yellow: rgb(230, 213, 93);
+    --light-green: rgb(85, 210, 121);
+    --light-blue: rgb(72, 147, 205);
+    --light-purple: rgb(132, 72, 205);
+    --light-grey: rgb(69, 69, 69);
 }
 
 .myCard
 {
-    border-radius: .75rem;
+    border-radius: var(--card-border-radius);
     position: relative;
-    height: 20rem;
-    width: 15rem;
+    width: 100%;
+    aspect-ratio: 15/22;
     transition: var(--anim-params);
+    background-image: url('../../assets/Background/amiibo_card_bg.jpg');
+    background-size: 8rem;
+    background-repeat: repeat;
 }
 
 .myCard:hover
@@ -22,19 +44,15 @@
 
 .myCard .bgCard
 {
-    border-radius: .575rem;
+    border-radius: var(--card-border-radius);
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     height: 100%;
     width: 100%;
-    position: relative;
+    position: absolute;
     overflow: hidden;
-    background-image: url('../../assets/Background/amiibo_card_bg.jpg');
-    background-size: 8rem;
-    background-repeat: repeat;
-    border: 0.15rem solid rgb(232, 240, 244);
 }
 
 .myCard .bgCard::after
@@ -47,43 +65,99 @@
     height: 55%;
     width: 100%;
     rotate: -10deg;
-    scale: 120%;
-    border: 0.15rem solid rgb(232, 240, 244);
+    scale: 150% 100%;
+}
+
+.pinkGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), var(--dark-pink) 0%, var(--light-pink) 100%);
 }
 
 .redGradient::after
 {
-    background: linear-gradient(var(--gradient-rotation), rgb(172, 11, 11) 0%, rgb(205, 72, 72) 100%);
-}
-
-.blueGradient::after
-{
-    background: linear-gradient(var(--gradient-rotation), rgb(11, 86, 172) 0%, rgb(72, 147, 205) 100%);
-}
-
-.greenGradient::after
-{
-    background: linear-gradient(var(--gradient-rotation), rgb(11, 172, 32) 0%, rgb(85, 210, 121) 100%);
-}
-
-.yellowGradient::after
-{
-    background: linear-gradient(var(--gradient-rotation), rgb(172, 164, 11) 0%, rgb(230, 213, 93) 100%);
+    background: linear-gradient(var(--gradient-rotation), var(--dark-red) 0%, var(--light-red) 100%);
 }
 
 .orangeGradient::after
 {
-    background: linear-gradient(var(--gradient-rotation), rgb(185, 84, 15) 0%, rgb(212, 123, 65) 100%);
+    background: linear-gradient(var(--gradient-rotation), var(--dark-orange) 0%, var(--light-orange) 100%);
+}
+
+.yellowGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), var(--dark-yellow) 0%, var(--light-yellow) 100%);
+}
+
+.greenGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), var(--dark-green) 0%, var(--light-green) 100%);
+}
+
+.blueGradient::after
+{
+    background: linear-gradient(var(--gradient-rotation), var(--dark-blue) 0%, var(--light-blue) 100%);
 }
 
 .purpleGradient::after
 {
-    background: linear-gradient(var(--gradient-rotation), rgb(78, 11, 172) 0%, rgb(132, 72, 205) 100%);
+    background: linear-gradient(var(--gradient-rotation), var(--dark-purple) 0%, var(--light-purple) 100%);
 }
 
-.darkGradient::after
+.greyGradient::after
 {
-    background: linear-gradient(var(--gradient-rotation), rgb(31, 31, 31) 0%, rgb(53, 53, 53) 100%);
+    background: linear-gradient(var(--gradient-rotation), var(--dark-grey) 0%, var(--light-grey) 100%);
+}
+
+.myCard .border
+{
+    border-radius: var(--card-border-radius);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.border.pinkBorder
+{
+    border: 0.15rem solid var(--dark-pink);
+}
+
+.border.redBorder
+{
+    border: 0.15rem solid var(--dark-red);
+}
+
+.border.orangeBorder
+{
+    border: 0.15rem solid var(--dark-orange);
+}
+
+.border.yellowBorder
+{
+    border: 0.15rem solid var(--dark-yellow);
+}
+
+.border.greenBorder
+{
+    border: 0.15rem solid var(--dark-green);
+}
+
+.border.blueBorder
+{
+    border: 0.15rem solid var(--dark-blue);
+}
+
+.border.purpleBorder
+{
+    border: 0.15rem solid var(--dark-purple);
+}
+
+.border.greyBorder
+{
+    border: 0.15rem solid var(--dark-grey);
 }
 
 .amiiboImg
@@ -93,9 +167,63 @@
     right: 0;
     margin: auto;
     height: 60%;
+    max-width: 90%;
+    object-fit: contain;
+    object-position: bottom;
     position: absolute;
     transition: var(--anim-params);
-    filter: drop-shadow(0 10px 5px rgba(0,0,0,.15));
+    filter: drop-shadow(0 10px 5px rgba(0,0,0,.1));
+}
+
+.loadingSpinner
+{
+    top: 25%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    object-fit: contain;
+    object-position: bottom;
+    position: absolute;
+}
+
+.pink
+{
+    color: var(--dark-pink);
+}
+
+.red
+{
+    color: var(--dark-red);
+}
+
+.orange
+{
+    color: var(--dark-orange);
+}
+
+.yellow
+{
+    color: var(--dark-yellow);
+}
+
+.green
+{
+    color: var(--dark-green);
+}
+
+.blue
+{
+    color: var(--dark-blue);
+}
+
+.purple
+{
+    color: var(--dark-purple);
+}
+
+.grey
+{
+    color: var(--dark-grey);
 }
 
 .myCard:hover > .amiiboImg
@@ -120,20 +248,73 @@
 .myCardTextPosition .myCardTextWrapper
 {
     color: white;
+    padding: .1rem 1rem;
     text-align: center;
     overflow: hidden;
-    letter-spacing: .1rem;
+    width: 100%;
+}
+
+.myCardTextPosition .myCardTextWrapper .myCardTextCharacter
+{
+    font-size: .8rem;
+    letter-spacing: .05rem;
+    margin-bottom: -.25rem;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextName
 {
-    font-size: 2rem;
-    margin-bottom: 0;
+    font-size: 1.6rem;
+    letter-spacing: .12rem;
+    margin-bottom: .25rem;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextSeries
 {
     font-weight: 300;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    letter-spacing: .05rem;
+    margin-bottom: .25rem;
+}
+
+@media (max-width: 768px)
+{
+    .myCardTextPosition .myCardTextWrapper .myCardTextCharacter
+    {
+        font-size: 1rem;
+        letter-spacing: .1rem;
+        margin-bottom: -.5rem;
+    }
+
+    .myCardTextPosition .myCardTextWrapper .myCardTextName
+    {
+        font-size: 2.5rem;
+        letter-spacing: .25rem;
+        margin-bottom: .25rem;
+    }
+
+    .myCardTextPosition .myCardTextWrapper .myCardTextSeries
+    {
+        font-size: 1.5rem;
+        letter-spacing: .1rem;
+        margin-bottom: .5rem;
+    }
+}
+
+@media (max-width: 576px)
+{
+    .myCardTextPosition .myCardTextWrapper .myCardTextCharacter
+    {
+        font-size: 3vw;
+        letter-spacing: 0.2vw;
+        margin-bottom: -1vw;
+    }
+    .myCardTextPosition .myCardTextWrapper .myCardTextName
+    {
+        font-size: 8vw;
+    }
+    .myCardTextPosition .myCardTextWrapper .myCardTextSeries
+    {
+        font-size: 5vw;
+        margin-bottom: 1vw;
+    }
 }
