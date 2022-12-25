@@ -7,18 +7,15 @@ function MainTemplate({children, footerCourseName, footerCourseLink})
     let navLinks = [
         {
             name: "Home",
-            link: "/",
-            isActive: true
+            link: "/"
         },
         {
             name: "Amiibo",
-            link: "/amiibo",
-            isActive: false
+            link: "/amiibo"
         },
         {
             name: "About",
-            link: "/about",
-            isActive: false
+            link: "/about"
         }
     ];
 

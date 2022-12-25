@@ -6,7 +6,7 @@ import './AmiiboOverview.css'
 function AmiiboOverview() {
 
     const [amiibos, setAmiibos] = useState(null);
-    const [displayGrid, setDisplayGrid] = useState(true);
+    const [displayGrid, setDisplayGrid] = useState(false);
 
     useEffect(() => {
         fetch("https://www.amiiboapi.com/api/amiibo/?type=Figure")

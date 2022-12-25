@@ -1,6 +1,6 @@
 import CompactLogo from '../../assets/LogoUnimiibo/unimiibo_logo_compact.png';
 import FullLogo from '../../assets/LogoUnimiibo/unimiibo_logo_small.png';
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 function Header({navLinks}) {
     return (
@@ -21,11 +21,14 @@ function Header({navLinks}) {
                     <ul className="navbar-nav me-auto mb-2 mb-md-0">
                         {navLinks.map((navLink, idx) => (
                             <li className="nav-item" key={idx}>
-                                <Link className={`nav-link ${navLink.isActive ? 'active' : ''}`}
-                                   aria-current={navLink.isActive ? 'page' : ''}
-                                   to={navLink.link}>
+                                <NavLink
+                                   to={navLink.link}
+                                   activeClassName="active"
+                                   className={isActive =>
+                                       "nav-link" + (!isActive ? " unselected" : "")
+                                   }>
                                     {navLink.name}
-                                </Link>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>

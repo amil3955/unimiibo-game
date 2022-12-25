@@ -1,38 +1,50 @@
 import React from "react";
+import AmiiboTableRow from "../AmiiboTableRow/AmiiboTableRow";
+import {useNavigate} from "react-router-dom";
+
+const mapNameKeys = {
+    'id': 'id',
+    'name': 'Amiibo name',
+    'character': 'Character',
+    'series': 'Game series',
+    'type': 'Amiibo type',
+    'img': ' '
+}
 
 function AmiiboList({amiibos}) {
+
+    const navigate = useNavigate();
+
+    const keys = Object.keys(amiibos[0]) ?? [];
+    let headers = [...keys];
+
+    let idxID = headers.indexOf('id');
+    if(idxID !== -1) headers.splice(idxID,1);
+    let idxImg = headers.indexOf('img');
+    if(idxImg !== -1) headers.splice(idxImg,1);
+
+    headers = ['img', ...headers];
+
     return (
-        <>
-            <table className="table">
+        <div className="table-responsive">
+            <table className="table align-middle fs-5">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    {headers.map((header) => (
+                        <th key={header} scope="col">{mapNameKeys[header]}</th>
+                    ))}
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colSpan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+
+                {amiibos.map((amiibo, idx) => (
+                    <tr key={idx} onClick={() => navigate(`/amiibo-details/${amiibo['id']}`)}>
+                        <AmiiboTableRow amiibo={amiibo} fields={headers}/>
+                    </tr>
+                ))}
                 </tbody>
             </table>
-        </>
+        </div>
     )
 }
 

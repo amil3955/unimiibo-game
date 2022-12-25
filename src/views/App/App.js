@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 import MainTemplate from "../../components/MainTemplate/MainTemplate";
 import Home from "../Home/Home";
 import AmiiboOverview from "../AmiiboOverview/AmiiboOverview";
