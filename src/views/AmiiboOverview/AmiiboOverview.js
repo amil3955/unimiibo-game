@@ -6,7 +6,7 @@ import './AmiiboOverview.css'
 function AmiiboOverview() {
 
     const [amiibos, setAmiibos] = useState(null);
-    const [displayGrid, setDisplayGrid] = useState(false);
+    const [displayGrid, setDisplayGrid] = useState(true);
 
     useEffect(() => {
         fetch("https://www.amiiboapi.com/api/amiibo/?type=Figure")
@@ -17,7 +17,7 @@ function AmiiboOverview() {
                     name: amiibo.name,
                     character: amiibo.character,
                     series: amiibo.gameSeries,
-                    type: amiibo.type,
+                    // type: amiibo.type,
                     img: amiibo.image
                 }
             })));
@@ -26,15 +26,15 @@ function AmiiboOverview() {
     if (amiibos !== null) {
         return (
             <div className="container">
-                <div className="row my-4">
+                <div className="row my-4 pt-3">
                     <div className="col d-flex justify-content-center">
                         <div className="btn-group px-3 px-md-0" role="group" aria-label="Grid vs. List">
                             <button type="button"
-                                    className={`btn ${displayGrid ? 'btn-dark' : 'btn-outline-dark'}`}
+                                    className={`pt-2 btn ${displayGrid ? 'btn-dark' : 'btn-outline-dark'}`}
                                     onClick={() => setDisplayGrid(true)}
-                            ><span className="me-2"><i className="fa-solid fa-grip"></i></span>Grid</button>
+                            ><span className="me-2 pt-"><i className="fa-solid fa-grip"></i></span>Grid</button>
                             <button type="button"
-                                    className={`btn ${!displayGrid ? 'btn-dark' : 'btn-outline-dark'}`}
+                                    className={`pt-2 btn ${!displayGrid ? 'btn-dark' : 'btn-outline-dark'}`}
                                     onClick={() => setDisplayGrid(false)}
                             ><span className="me-2"><i className="fa-solid fa-list-ul"></i></span>List</button>
                         </div>

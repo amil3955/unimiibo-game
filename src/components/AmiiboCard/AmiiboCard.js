@@ -47,8 +47,9 @@ function indexSeries(series)
     return strHashCode(series) % paletteKeys.length;
 }
 
-function AmiiboCard({id, name, character, series, type, img}) {
+function AmiiboCard({amiibo}) {
 
+    const {id, name, character, series, img} = amiibo;
     const [isLoading, setIsLoading] = useState(true);
 
     let index = indexSeries(series);

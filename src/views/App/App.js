@@ -4,6 +4,7 @@ import MainTemplate from "../../components/MainTemplate/MainTemplate";
 import Home from "../Home/Home";
 import AmiiboOverview from "../AmiiboOverview/AmiiboOverview";
 import {Route, Routes} from "react-router-dom";
+import AmiiboDetails from "../AmiiboDetails/AmiiboDetails";
 
 function App() {
     let courseName = "Applicazioni Web: Progettazione e Sviluppo";
@@ -13,26 +14,32 @@ function App() {
         {
             name: "Home",
             link: "/",
-            isActive: true,
+            show: true,
             jsx: <Home/>
         },
         {
             name: "Amiibo",
             link: "/amiibo",
-            isActive: false,
+            show: true,
             jsx: <AmiiboOverview/>
+        },
+        {
+            name: "Amiibo Details",
+            link: "/amiibo-details/:id",
+            show: false,
+            jsx: <AmiiboDetails/>
         },
         {
             name: "About",
             link: "/about",
-            isActive: false,
+            show: true,
             jsx: <Home/>
         }
     ];
 
     return (
         <div>
-            <MainTemplate footerCourseName={courseName} footerCourseLink={courseLink}>
+            <MainTemplate navLinks={navLinks} footerCourseName={courseName} footerCourseLink={courseLink}>
                 <Routes>
                     {navLinks.map((navLink, idx) => (
                         <Route key={idx} path={navLink.link} element={navLink.jsx}/>

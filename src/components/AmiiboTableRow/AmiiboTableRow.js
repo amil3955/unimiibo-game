@@ -39,16 +39,12 @@ function indexSeries(series)
 }
 function AmiiboTableRow({amiibo, fields})
 {
+    const {series} = amiibo;
     const [isLoading, setIsLoading] = useState(true);
 
-    let series = amiibo['series'];
     let index = indexSeries(series);
     let color = palette[seriesMapPalette[series]] ? seriesMapPalette[series] : paletteKeys[index];
     let chosenPalette = palette[color];
-
-    //
-    // // let amiiboId = amiibo.id;
-    // delete amiibo.id;
 
     return (
         <>
@@ -57,7 +53,7 @@ function AmiiboTableRow({amiibo, fields})
                     {
                         key !== 'img' ?
                             (
-                                <td>{amiibo[key]}</td>
+                                <td className={`${key === 'name' ? 'fw-bold' : ''}`}>{amiibo[key]}</td>
                             ) :
                             (
                                 <td className={style.imgWrapper}>

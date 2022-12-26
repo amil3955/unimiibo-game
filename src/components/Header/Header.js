@@ -6,24 +6,25 @@ function Header({navLinks}) {
     return (
         <nav className="navbar navbar-expand-md navbar-light bg-white">
             <div className="container-fluid">
-                <Link className="navbar-brand d-none d-md-block" to="/">
-                    <img src={FullLogo} alt="" height="40"/>
+                <Link className="navbar-brand ms-2 d-none d-md-block" to="/">
+                    <img src={FullLogo} alt="" height="50"/>
                 </Link>
                 <Link className="navbar-brand d-md-none" to="/">
-                    <img src={CompactLogo} alt="" height="40"/>
+                    <img src={CompactLogo} alt="" height="50"/>
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className="collapse navbar-collapse mt-2" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-md-0">
                         {navLinks.map((navLink, idx) => (
-                            <li className="nav-item" key={idx}>
+                            <li className="nav-item fs-5" key={idx}>
                                 <NavLink
                                    to={navLink.link}
-                                   activeClassName="active"
+                                   // activeClassName={isActive =>
+                                   //     (isActive ? " active" : "")}
                                    className={isActive =>
                                        "nav-link" + (!isActive ? " unselected" : "")
                                    }>

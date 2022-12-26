@@ -1,7 +1,7 @@
 :root
 {
     --anim-params: all ease-in-out 0.2s;
-    --gradient-rotation: -20deg;
+    --gradient-rotation: -50deg;
     --card-border-radius: 1rem;
 }
 
@@ -161,15 +161,14 @@
 .myCardTextPosition .myCardTextWrapper .myCardTextName
 {
     font-size: 1.5rem;
-    letter-spacing: .12rem;
+    letter-spacing: .05rem;
     margin-bottom: 0;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextSeries
 {
-    font-weight: 300;
     font-size: 1rem;
-    letter-spacing: .05rem;
+    letter-spacing: .15rem;
     margin-bottom: .25rem;
 }
 

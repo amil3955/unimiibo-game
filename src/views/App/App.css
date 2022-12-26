@@ -30,80 +30,80 @@
 
 .pinkBorder
 {
-    border: 0.15rem solid var(--dark-pink);
+    border: 0.15rem solid var(--light-pink);
 }
 
 .redBorder
 {
-    border: 0.15rem solid var(--dark-red);
+    border: 0.15rem solid var(--light-red);
 }
 
 .orangeBorder
 {
-    border: 0.15rem solid var(--dark-orange);
+    border: 0.15rem solid var(--light-orange);
 }
 
 .yellowBorder
 {
-    border: 0.15rem solid var(--dark-yellow);
+    border: 0.15rem solid var(--light-yellow);
 }
 
 .greenBorder
 {
-    border: 0.15rem solid var(--dark-green);
+    border: 0.15rem solid var(--light-green);
 }
 
 .blueBorder
 {
-    border: 0.15rem solid var(--dark-blue);
+    border: 0.15rem solid var(--light-blue);
 }
 
 .purpleBorder
 {
-    border: 0.15rem solid var(--dark-purple);
+    border: 0.15rem solid var(--light-purple);
 }
 
 .greyBorder
 {
-    border: 0.15rem solid var(--dark-grey);
+    border: 0.15rem solid var(--light-grey);
 }
 
 .pink
 {
-    color: var(--dark-pink);
+    color: var(--light-pink);
 }
 
 .red
 {
-    color: var(--dark-red);
+    color: var(--light-red);
 }
 
 .orange
 {
-    color: var(--dark-orange);
+    color: var(--light-orange);
 }
 
 .yellow
 {
-    color: var(--dark-yellow);
+    color: var(--light-yellow);
 }
 
 .green
 {
-    color: var(--dark-green);
+    color: var(--light-green);
 }
 
 .blue
 {
-    color: var(--dark-blue);
+    color: var(--light-blue);
 }
 
 .purple
 {
-    color: var(--dark-purple);
+    color: var(--light-purple);
 }
 
 .grey
 {
-    color: var(--dark-grey);
+    color: var(--light-grey);
 }

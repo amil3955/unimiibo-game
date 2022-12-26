@@ -2,26 +2,11 @@ import React from 'react';
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
-function MainTemplate({children, footerCourseName, footerCourseLink})
+function MainTemplate({children, navLinks, footerCourseName, footerCourseLink})
 {
-    let navLinks = [
-        {
-            name: "Home",
-            link: "/"
-        },
-        {
-            name: "Amiibo",
-            link: "/amiibo"
-        },
-        {
-            name: "About",
-            link: "/about"
-        }
-    ];
-
     return (
         <div className="d-flex flex-column vh-100 ">
-            <Header navLinks={navLinks}/>
+            <Header navLinks={navLinks.filter((navLink) => navLink.show)}/>
             <div className="flex-grow-1 position-relative">
                 {children}
             </div>
