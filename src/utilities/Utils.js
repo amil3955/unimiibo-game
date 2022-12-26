@@ -11,3 +11,26 @@ export function strHashCode(str)
     }
     return Math.abs(hash);
 }
+
+export function createAmiibo(amiiboData, hasGameInfo)
+{
+    let amiibo = {
+        id: amiiboData.head + amiiboData.tail,
+        name: amiiboData.name,
+        character: amiiboData.character,
+        series: amiiboData.gameSeries,
+        img: amiiboData.image,
+    }
+
+    if(hasGameInfo) {
+        amiibo = {
+            ...amiibo,
+            release: amiiboData.release,
+            games3DS: amiiboData.games3DS,
+            gamesWiiU: amiiboData.gamesWiiU,
+            gamesSwitch: amiiboData.gamesSwitch,
+        }
+    }
+
+    return amiibo;
+}
