@@ -1,0 +1,25 @@
+.imgFlag
+{
+    --flag-size: 1.7rem;
+    vertical-align: bottom;
+    width: var(--flag-size);
+    height: var(--flag-size);
+    filter: drop-shadow(0 0 0 rgba(0,0,0,1));
+}
+
+.imgReadWrite
+{
+    border-radius: .2rem;
+    --flag-size: 1.3rem;
+    width: var(--flag-size);
+    height: var(--flag-size);
+}
+
+.cardWrapper
+{
+    width: 15rem;
+}
+
+* {
+    /*background-color: rgba(0,0,0,0.1);*/
+}

@@ -114,7 +114,6 @@
     object-position: bottom;
     position: absolute;
     transition: var(--anim-params);
-    /*filter: drop-shadow(0 10px 5px rgba(0,0,0,.1));*/
 }
 
 .loadingSpinner
@@ -172,24 +171,24 @@
     margin-bottom: .25rem;
 }
 
-@media (max-width: 768px)
+@media (max-width: 767.98px)
 {
     .myCardTextPosition .myCardTextWrapper .myCardTextName
     {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         letter-spacing: .25rem;
         margin-bottom: .25rem;
     }
 
     .myCardTextPosition .myCardTextWrapper .myCardTextSeries
     {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         letter-spacing: .1rem;
         margin-bottom: .5rem;
     }
 }
 
-@media (max-width: 576px)
+@media (max-width: 333px)
 {
     .myCardTextPosition .myCardTextWrapper .myCardTextName
     {

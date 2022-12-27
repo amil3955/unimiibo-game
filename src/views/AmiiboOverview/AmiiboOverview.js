@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import AmiiboGrid from "../../components/AmiiboGrid/AmiiboGrid";
 import AmiiboList from "../../components/AmiiboList/AmiiboList";
 import './AmiiboOverview.css'
+import {createAmiibo} from "../../utilities/Utils";
 
 function AmiiboOverview() {
 
@@ -12,14 +13,7 @@ function AmiiboOverview() {
         fetch("https://www.amiiboapi.com/api/amiibo/?type=Figure")
             .then(response => response.json())
             .then(data => setAmiibos(data['amiibo'].map(amiibo => {
-                return {
-                    id: amiibo.head + amiibo.tail,
-                    name: amiibo.name,
-                    character: amiibo.character,
-                    series: amiibo.gameSeries,
-                    // type: amiibo.type,
-                    img: amiibo.image
-                }
+                return createAmiibo(amiibo, false);
             })));
     },[])
 

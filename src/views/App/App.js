@@ -33,7 +33,13 @@ function App() {
             name: "About",
             link: "/about",
             show: true,
-            jsx: <Home/>
+            jsx: <Home/> //TODO
+        },
+        {
+            name: "*",
+            link: "*",
+            show: false,
+            jsx: <Home/> //TODO
         }
     ];
 
