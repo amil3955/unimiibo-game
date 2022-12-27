@@ -10,7 +10,7 @@ function MainTemplate({children, navLinks, footerCourseName, footerCourseLink})
             <div className="flex-grow-1 position-relative">
                 {children}
             </div>
-            <Footer footerLinks={navLinks} courseName={footerCourseName} courseLink={footerCourseLink}/>
+            <Footer courseName={footerCourseName} courseLink={footerCourseLink}/>
         </div>
     );
 }

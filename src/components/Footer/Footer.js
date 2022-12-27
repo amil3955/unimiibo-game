@@ -3,33 +3,38 @@ import style from './Footer.module.css';
 import logoUnimib from '../../assets/LogoBicocca/logo_uni.png'
 import logoDisco from '../../assets/LogoBicocca/logo_disco.png'
 
-function Footer({footerLinks, courseName, courseLink}) {
+function Footer({courseName, courseLink}) {
     return (
-        <div>
-            <div className={`container-fluid p-3 m-0 ${style.footer}`}>
-                <div className="row p-0 m-0">
-                    <div className={`col-12 col-md-6 p-0 position-relative ${style.footerCol}`}>
-                        <ul className={`m-0 ${style.footerUl}`}>
-                            {footerLinks.map((course, index) => {
-                                return (
-                                    <li key={index}>
-                                        <a className={style.textColorRed} href={course.link}>{course.name}</a>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
-                    <div className={`col-12 col-md-6 p-0 mt-3 mt-md-0 position-relative d-flex ${style.footerCol}`}>
-                        <ul className={`m-0 me-auto ${style.footerUl}`}>
-                            <li>
-                                <a className={style.textColorRed} href={courseLink}>{courseName}</a>
-                            </li>
-                        </ul>
-                        <div className={`p-0 ps-3 d-flex justify-content-end align-items-center ${style.footerImgs}`}>
-                            <img src={logoUnimib} alt=""/>
-                            <img src={logoDisco} alt=""/>
-                        </div>
-                    </div>
+        <div className="container-fluid bg-dark text-light p-3 fs-6">
+            <div className="row text-center mt-3">
+                <div className="col-12">
+                    <p>Developed by <span className="fw-bold">Roberto Di Stefano</span></p>
+                </div>
+            </div>
+            <div className="row text-center">
+                <div className="col-12">
+                    <p>
+                        Course of <a className="link-light" href={courseLink}><span className="fw-bold">{courseName}</span></a> 2022/2023, University of Milano-Bicocca (Milan, Italy)
+                    </p>
+                </div>
+            </div>
+            <div className="row">
+                <div className={`col-12 d-flex justify-content-center`}>
+                    <a className={style.footerImgs} href="https://en.unimib.it/">
+                        <img src={logoUnimib} alt="Logo Unimib"/>
+                    </a>
+                    <a className={style.footerImgs} href="https://www.disco.unimib.it/en">
+                        <img src={logoDisco} alt="Logo Disco"/>
+                    </a>
+                </div>
+            </div>
+            <div className="row text-center mt-5">
+                <div className="col-12">
+                    <p className="text-light text-opacity-75">
+                        <span className="fw-bold">Disclaimer! </span>
+                        This website has no affiliation with Nintendo or any other companies that own the rights to it.
+                        The official Amiibo website is reachable <a className="link-light text-light text-opacity-75" href="https://www.nintendo.com/amiibo/"><span className="fw-bold">here</span></a>.
+                    </p>
                 </div>
             </div>
         </div>

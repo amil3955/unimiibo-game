@@ -7,10 +7,10 @@ function Header({navLinks}) {
         <nav className="navbar navbar-expand-md navbar-light bg-white">
             <div className="container-fluid">
                 <Link className="navbar-brand ms-2 d-none d-md-block" to="/">
-                    <img src={FullLogo} alt="" height="50"/>
+                    <img src={FullLogo} alt="Full logo Unimiibo" height="50"/>
                 </Link>
                 <Link className="navbar-brand d-md-none" to="/">
-                    <img src={CompactLogo} alt="" height="50"/>
+                    <img src={CompactLogo} alt="Icon logo Unimiibo" height="50"/>
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -23,12 +23,11 @@ function Header({navLinks}) {
                             <li className="nav-item fs-5" key={idx}>
                                 <NavLink
                                    to={navLink.link}
-                                   // activeClassName={isActive =>
-                                   //     (isActive ? " active" : "")}
-                                   className={isActive =>
-                                       "nav-link" + (!isActive ? " unselected" : "")
-                                   }>
-                                    {navLink.name}
+                                   className={({isActive}) =>
+                                       (isActive ? 'active ' : '') + 'nav-link'
+                                   }
+                                >
+                                    <i className={`bi ${navLink.icon} me-1`}></i>{navLink.name}
                                 </NavLink>
                             </li>
                         ))}

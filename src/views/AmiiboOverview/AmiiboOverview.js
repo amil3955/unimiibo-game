@@ -26,11 +26,11 @@ function AmiiboOverview() {
                             <button type="button"
                                     className={`pt-2 btn ${displayGrid ? 'btn-dark' : 'btn-outline-dark'}`}
                                     onClick={() => setDisplayGrid(true)}
-                            ><span className="me-2 pt-"><i className="fa-solid fa-grip"></i></span>Grid</button>
+                            ><span className="me-2"><i className="bi bi-grid-3x2-gap-fill"></i></span>Grid</button>
                             <button type="button"
                                     className={`pt-2 btn ${!displayGrid ? 'btn-dark' : 'btn-outline-dark'}`}
                                     onClick={() => setDisplayGrid(false)}
-                            ><span className="me-2"><i className="fa-solid fa-list-ul"></i></span>List</button>
+                            ><span className="me-2"><i className="bi bi-list-ul"></i></span>List</button>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import AmiiboBg from '../../assets/Background/amiibo_bg.jpg'
 import AmiiboBgMobile from '../../assets/Background/amiibo_bg_mobile.jpg'
-// import LogoWhUnimiibo from '../../assets/LogoUnimiibo/'
 import './Home.css'
 
 function Home() {
@@ -15,6 +14,7 @@ function Home() {
             </div>
             <div className="container">
 
+                <i className="bi-alarm-clock"></i>
             </div>
         </div>
     );

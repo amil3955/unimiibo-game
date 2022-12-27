@@ -1,44 +1,12 @@
-.footer
+.footerImgs
 {
-    background-color: #242424;
-}
-
-.footerCol::before
-{
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background-color: #585858;
-}
-
-.footerUl
-{
-    position: relative;
-    padding: 0 calc(1rem + 2px);
-}
-
-.footerUl li a
-{
-    text-decoration: none;
-    list-style-type: none;
-}
-
-.textColorRed
-{
-    color: #dd092f;
-}
-
-.textColorRed:hover
-{
-    color: #f70931;
+    margin: 0 .5rem;
 }
 
 .footerImgs img
-{
-    --size: 90px;
-    width: var(--size);
-    height: var(--size);
-    margin-left: 1rem;
-    background-color: white;
-}
+ {
+     --size: 50px;
+     width: var(--size);
+     height: var(--size);
+     background-color: white;
+ }
