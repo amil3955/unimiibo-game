@@ -22,10 +22,10 @@ function Header({navLinks}) {
                         {navLinks.map((navLink, idx) => (
                             <li className="nav-item fs-5" key={idx}>
                                 <NavLink
-                                   to={navLink.link}
-                                   className={({isActive}) =>
-                                       (isActive ? 'active ' : '') + 'nav-link'
-                                   }
+                                    to={navLink.link}
+                                    className={({isActive}) =>
+                                        (isActive ? 'active ' : '') + 'nav-link'
+                                    }
                                 >
                                     <i className={`bi ${navLink.icon} me-1`}></i>{navLink.name}
                                 </NavLink>

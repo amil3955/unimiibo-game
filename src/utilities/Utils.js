@@ -34,3 +34,8 @@ export function createAmiibo(amiiboData, hasGameInfo)
 
     return amiibo;
 }
+
+export function nintendoShopUrl(game)
+{
+    return `https://www.nintendo.com/search/?q=${encodeURIComponent(game)}&p=1&cat=gme&sort=df`
+}

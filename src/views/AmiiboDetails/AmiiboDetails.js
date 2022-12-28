@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
+import {createAmiibo, nintendoShopUrl} from "../../utilities/Utils";
+import AmiiboCard from "../../components/AmiiboCard/AmiiboCard";
 import AUFlag from '../../assets/Flag/au.png';
 import EUFlag from '../../assets/Flag/eu.png';
 import JPFlag from '../../assets/Flag/jp.png';
 import NAFlag from '../../assets/Flag/na.png';
 import ReadOnlyIcon from '../../assets/ReadWrite/Amiibo_read-only_icon.jpg';
 import ReadWriteIcon from '../../assets/ReadWrite/Amiibo_read-write_icon.jpg';
-import AmiiboCard from "../../components/AmiiboCard/AmiiboCard";
-import {createAmiibo} from "../../utilities/Utils";
 import './AmiiboDetails.css'
 
 function getCurrentAmiibo(amiiboData, tail) {
@@ -132,7 +132,7 @@ function AmiiboDetails() {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-12 col-md-6 mt-5 text-center">
+                                <div className="col-12 col-md-6 mt-5">
                                     <p className="h3 fw-bold mb-3">
                                         Release dates:
                                     </p>
@@ -144,8 +144,7 @@ function AmiiboDetails() {
                                                     className="imgFlag"
                                                     alt={releaseZone + " tag"}/>
                                                 <span className="ms-2">
-                                                    {mapReleaseZone[releaseZone].name}: <span
-                                                    className="text-secondary text-opacity-75">{formatDate(currentAmiibo.release[releaseZone])}</span>
+                                                    {mapReleaseZone[releaseZone].name}: <span className="text-secondary text-opacity-75">{formatDate(currentAmiibo.release[releaseZone])}</span>
                                                 </span>
                                             </p>
                                         ))
@@ -176,7 +175,7 @@ function AmiiboDetails() {
                                                             currentAmiibo[gameConsole].map((game, idx) => (
                                                                 <li key={idx} className="mb-4">
                                                                     <p className="mb-2">
-                                                                        <a href={`https://www.nintendo.com/search/?q=${encodeURIComponent(game.gameName)}&p=1&cat=gme&sort=df`}>
+                                                                        <a href={nintendoShopUrl(game.gameName)}>
                                                                             {game.gameName}
                                                                         </a>
                                                                     </p>

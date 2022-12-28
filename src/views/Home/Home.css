@@ -1,0 +1,31 @@
+.imgAmiibos
+{
+    object-fit: cover;
+    width: 100%;
+    object-position: top;
+}
+
+.imgAmiibosLandscape
+{
+    max-height: 28vw;
+}
+
+.imgAmiibosPortrait
+{
+    min-height: 35vh;
+}
+
+.imgUnimiibo
+{
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    max-width: 35rem;
+    padding: 0 2rem;
+}
+
+.imgGames
+{
+    object-fit: cover;
+    object-position: center;
+}
