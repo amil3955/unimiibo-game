@@ -209,12 +209,11 @@ function AmiiboDetails() {
                                 <div className="col-12 mt-5 d-flex justify-content-center">
                                     <div>
                                         <div className="text-center">
-                                            <div className="spinner-border text-secondary" role="status">
+                                            <div className="spinner-border text-secondary opacity-75" role="status">
                                                 <span className="visually-hidden">Loading...</span>
                                             </div>
                                         </div>
-                                        <p className="text-center fs-1 fw-bold text-secondary">Loading amiibo
-                                            data...</p>
+                                        <p className="text-center fs-2 text-secondary opacity-75">Loading amiibo data...</p>
                                     </div>
                                 </div>
                             </div>

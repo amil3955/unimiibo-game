@@ -35,7 +35,7 @@ function App() {
             link: "/about",
             icon: "bi-info-square",
             show: true,
-            jsx: <Home/> //TODO
+            jsx: <div className="m-5 p-5">Work in progress...</div> //TODO
         },
         {
             name: "*",
