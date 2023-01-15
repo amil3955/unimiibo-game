@@ -3,17 +3,31 @@
     object-fit: cover;
     width: 100%;
     object-position: top;
+    transition: opacity 1.5s ease-out;
+    z-index: -1;
 }
 
-.imgAmiibosLandscape
+.imgAmiibosWrapper
 {
-    max-height: 28vw;
+    height: 35vh;
 }
 
-.imgAmiibosPortrait
+@media (min-width: 768px)
 {
-    min-height: 35vh;
+    .imgAmiibosWrapper
+    {
+        height: 40vw;
+    }
 }
+
+@media (min-width: 992px)
+{
+    .imgAmiibosWrapper
+    {
+        height: 35vw;
+    }
+}
+
 
 .imgUnimiibo
 {

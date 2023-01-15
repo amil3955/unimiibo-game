@@ -11,27 +11,19 @@
     border-radius: var(--card-border-radius);
     position: relative;
     width: 100%;
-    aspect-ratio: 15/22;
+    aspect-ratio: 15 / 22;
     transition: var(--anim-params);
     background-image: url('../../assets/LogoUnimiibo/unimiibo_logo_bg.png');
-    background-size: 3.25rem;
+    background-size: 3.5rem;
     background-repeat: repeat;
     background-position: center;
 }
 
 @media (width < 576px)
 {
-    .myCard.myCardSmall
+    .myCard
     {
-        background-size: calc(18vw);
-    }
-}
-
-@media (width >= 576px)
-{
-    .myCard.myCardBig
-    {
-        background-size: 3.25rem;
+        background-size: 17.5vw;
     }
 }
 
@@ -193,8 +185,8 @@
 .myCardTextPosition .myCardTextWrapper .myCardTextSeries
 {
     font-weight: 300;
-    font-size: .75rem;
-    letter-spacing: .05rem;
+    font-size: .9rem;
+    letter-spacing: .1rem;
 }
 
 @media (max-width: 576px)
@@ -205,6 +197,6 @@
     }
     .myCardTextPosition .myCardTextWrapper .myCardTextSeries
     {
-        font-size: calc(10vw - 1rem);
+        font-size: calc(9vw - 1rem);
     }
 }

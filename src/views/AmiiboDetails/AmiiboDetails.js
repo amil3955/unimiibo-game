@@ -9,6 +9,7 @@ import NAFlag from '../../assets/Flag/na.png';
 import ReadOnlyIcon from '../../assets/ReadWrite/Amiibo_read-only_icon.jpg';
 import ReadWriteIcon from '../../assets/ReadWrite/Amiibo_read-write_icon.jpg';
 import './AmiiboDetails.css'
+import UnimiiboLoading from "../../components/UnimiiboLoading/UnimiiboLoading";
 
 function getCurrentAmiibo(amiiboData, tail) {
     return amiiboData['amiibo'].filter((amiibo) => amiibo.tail === tail)[0];
@@ -103,7 +104,7 @@ function AmiiboDetails() {
                             </div>
 
                             <div className="row mt-3 mt-md-4">
-                                <div className="col-12 d-flex justify-content-center px-5">
+                                <div className="col-12 d-flex justify-content-center px-4">
                                     <div className="cardWrapper">
                                         <AmiiboCard amiibo={currentAmiibo}/>
                                     </div>
@@ -204,20 +205,7 @@ function AmiiboDetails() {
                     )
                     :
                     (
-                        <div className="container">
-                            <div className="row mt-5">
-                                <div className="col-12 mt-5 d-flex justify-content-center">
-                                    <div>
-                                        <div className="text-center">
-                                            <div className="spinner-border text-secondary opacity-75" role="status">
-                                                <span className="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-                                        <p className="text-center fs-2 text-secondary opacity-75">Loading amiibo data...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <UnimiiboLoading text="Loading amiibo details..."/>
                     )
             }
         </>

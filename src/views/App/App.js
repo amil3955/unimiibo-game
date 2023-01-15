@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import Home from "../Home/Home";
 import AmiiboOverview from "../AmiiboOverview/AmiiboOverview";
 import AmiiboDetails from "../AmiiboDetails/AmiiboDetails";
+import About from "../About/About"
 import Page404 from "../Page404/Page404";
 import MainTemplate from "../../components/MainTemplate/MainTemplate";
 import './App.css'
@@ -35,7 +36,7 @@ function App() {
             link: "/about",
             icon: "bi-info-square",
             show: true,
-            jsx: <div className="m-5 p-5">Work in progress...</div> //TODO
+            jsx: <About/>
         },
         {
             name: "*",

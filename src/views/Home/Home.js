@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {nintendoShopUrl} from "../../utilities/Utils";
 import AmiiboBg from '../../assets/Background/amiibo_bg.jpg'
 import LogoWhUnimiibo from '../../assets/LogoUnimiibo/unimiibo_logo_wh.png'
@@ -6,6 +6,7 @@ import ImgAC from '../../assets/Background/game_ac.jpg'
 import ImgSM3DW from '../../assets/Background/game_sm3dw.jpg'
 import ImgSMBU from '../../assets/Background/game_smbu.jpg'
 import './Home.css'
+import UnimiiboLoading from "../../components/UnimiiboLoading/UnimiiboLoading";
 
 function clickableNintendoLink(game)
 {
@@ -51,13 +52,23 @@ const games = [
 ];
 
 function Home() {
+
+    const [isLoadingImg, setIsLoadingImg] = useState(true);
+
     return (
-        <div className="flex-grow-1 position-relative ">
-            <div className="d-none d-md-block mt-4">
-                <img className="img-fluid imgAmiibos imgAmiibosLandscape" src={AmiiboBg} alt="Home background (pc)"/>
-            </div>
-            <div className="d-md-none">
-                <img className="img-fluid imgAmiibos imgAmiibosPortrait" src={AmiiboBg} alt="Home background (mobile)"/>
+        <div className="flex-grow-1 position-relative">
+            <div className="imgAmiibosWrapper position-relative">
+                {isLoadingImg && (
+                    <div className="h-100 d-flex flex-column justify-content-center position-absolute start-0 end-0">
+                        <UnimiiboLoading displayText={false} big={true} my={0} py={0}/>
+                    </div>
+                )}
+                <img className={`imgAmiibos h-100 position-absolute ${isLoadingImg ? 'opacity-0' : 'opacity-100'}`}
+                     src={AmiiboBg}
+                     alt="Home background"
+                     onError={(e) => console.log(e)}
+                     onLoad={() => setIsLoadingImg(false)}
+                />
             </div>
             <div className="container-fluid bg-dark p-3 py-5">
                 <div className="row">
@@ -67,7 +78,7 @@ function Home() {
                 </div>
                 <div className="row mt-5">
                     <div className="col-12 text-center text-light h4">
-                        <p>An unique and fun way to interact with your favourite character and games.</p>
+                        <p>A fun and original way to interact with your favorite characters and games.</p>
                         <p className='h3'>Touch, Connect and Collect!</p>
                     </div>
                 </div>
