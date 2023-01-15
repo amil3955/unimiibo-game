@@ -2,7 +2,8 @@
 {
     --anim-params: all ease-in-out 0.2s;
     --gradient-rotation: -50deg;
-    --card-border-radius: 1rem;
+    --factor-radius: .25;
+    --card-border-radius: calc(22% * var(--factor-radius)) / calc(15% * var(--factor-radius));
 }
 
 .myCard
@@ -12,9 +13,31 @@
     width: 100%;
     aspect-ratio: 15/22;
     transition: var(--anim-params);
-    background-image: url('../../assets/Background/amiibo_card_bg.jpg');
-    background-size: 8rem;
+    background-image: url('../../assets/LogoUnimiibo/unimiibo_logo_bg.png');
+    background-size: 3.25rem;
     background-repeat: repeat;
+    background-position: center;
+}
+
+@media (width < 576px)
+{
+    .myCard.myCardSmall
+    {
+        background-size: calc(18vw);
+    }
+}
+
+@media (width >= 576px)
+{
+    .myCard.myCardBig
+    {
+        background-size: 3.25rem;
+    }
+}
+
+.myCard.myCardNormalPointer
+{
+    cursor: default;
 }
 
 .myCard:hover
@@ -46,7 +69,7 @@
     bottom: -10%;
     height: 55%;
     width: 100%;
-    rotate: -10deg;
+    rotate: -15deg;
     scale: 150% 100%;
 }
 
@@ -143,60 +166,66 @@
     display: flex;
     justify-content: center;
     z-index: 2;
-    padding: .5rem;
+    padding: 5%;
+    height: 36%;
 }
 
 .myCardTextPosition .myCardTextWrapper
 {
     color: white;
-    padding: .1rem .5rem;
+    padding: 10% 5%;
     text-align: center;
     overflow: hidden;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 /* ----------------------------------------------- */
 
 .myCardTextPosition .myCardTextWrapper .myCardTextName
 {
+    font-family: 'Rowdies', cursive;
+    font-weight: 300;
     font-size: 1.5rem;
     letter-spacing: .05rem;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextSeries
 {
-    font-size: 1rem;
-    letter-spacing: .15rem;
-    margin-bottom: .25rem;
+    font-family: 'Rowdies', cursive;
+    font-weight: 300;
+    font-size: .75rem;
+    letter-spacing: .05rem;
+    margin: 0;
 }
 
-@media (max-width: 767.98px)
+@media (max-width: 576px)
 {
     .myCardTextPosition .myCardTextWrapper .myCardTextName
     {
-        font-size: 1.8rem;
-        letter-spacing: .25rem;
-        margin-bottom: .25rem;
-    }
-
-    .myCardTextPosition .myCardTextWrapper .myCardTextSeries
-    {
-        font-size: 1.2rem;
-        letter-spacing: .1rem;
-        margin-bottom: .5rem;
-    }
-}
-
-@media (max-width: 333px)
-{
-    .myCardTextPosition .myCardTextWrapper .myCardTextName
-    {
-        font-size: 8vw;
+        font-size: calc(15vw - 1.5rem);
+        overflow: visible;
     }
     .myCardTextPosition .myCardTextWrapper .myCardTextSeries
     {
-        font-size: 5vw;
-        margin-bottom: 1vw;
+        font-size: calc(10vw - 1rem);
+        overflow: visible;
     }
 }
+
+/*@media (max-width: 333px)*/
+/*{*/
+/*    .myCardTextPosition .myCardTextWrapper .myCardTextName*/
+/*    {*/
+/*        font-size: calc(15vw - 1rem);*/
+/*        overflow: visible;*/
+/*    }*/
+/*    .myCardTextPosition .myCardTextWrapper .myCardTextSeries*/
+/*    {*/
+/*        font-size: calc(7.5vw - .5rem);*/
+/*        overflow: visible;*/
+/*    }*/
+/*}*/

@@ -16,9 +16,9 @@ export function createAmiibo(amiiboData, hasGameInfo)
 {
     let amiibo = {
         id: amiiboData.head + amiiboData.tail,
-        name: amiiboData.name,
-        character: amiiboData.character,
-        series: amiiboData.gameSeries,
+        name: amiiboData.name ?? "Unknown",
+        character: amiiboData.character ?? "Unknown",
+        series: amiiboData.gameSeries ?? "Unknown",
         img: amiiboData.image,
     }
 
