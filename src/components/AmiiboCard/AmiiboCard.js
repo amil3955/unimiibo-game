@@ -8,46 +8,45 @@ import {strHashCode} from "../../utilities/Utils";
 const palette = {
     pink: {
         gradient: style.pinkGradient,
-        border:   'pinkBorder'
+        border: 'pinkBorder'
     },
     red: {
         gradient: style.redGradient,
-        border:   'redBorder'
+        border: 'redBorder'
     },
     orange: {
         gradient: style.orangeGradient,
-        border:   'orangeBorder'
+        border: 'orangeBorder'
     },
     yellow: {
         gradient: style.yellowGradient,
-        border:   'yellowBorder'
+        border: 'yellowBorder'
     },
     green: {
         gradient: style.greenGradient,
-        border:   'greenBorder'
+        border: 'greenBorder'
     },
     blue: {
         gradient: style.blueGradient,
-        border:   'blueBorder'
+        border: 'blueBorder'
     },
     purple: {
         gradient: style.purpleGradient,
-        border:   'purpleBorder'
+        border: 'purpleBorder'
     },
     grey: {
         gradient: style.greyGradient,
-        border:   'greyBorder'
+        border: 'greyBorder'
     }
 };
 
 let paletteKeys = Object.keys(palette);
 
-function indexSeries(series)
-{
+function indexSeries(series) {
     return strHashCode(series) % paletteKeys.length;
 }
 
-function AmiiboCard({amiibo}) {
+function AmiiboCard({amiibo, reactive = false}) {
 
     const {id, name, character, series, img} = amiibo;
     const [isLoading, setIsLoading] = useState(true);
@@ -56,35 +55,47 @@ function AmiiboCard({amiibo}) {
     let color = palette[seriesMapPalette[series]] ? seriesMapPalette[series] : paletteKeys[index];
     let chosenPalette = palette[color];
 
-    return (
-        <div className="d-flex justify-content-center">
-            <Link to={`/amiibo-details/${id}`} className={`${style.myCard}`}>
-                <div className={`${style.bgCard} ${chosenPalette.gradient}`}/>
-                <div className={`${style.border} ${chosenPalette.border}`}/>
-                {!isLoading ? '' : (
-                    <div className={`${style.loadingSpinner}`}>
-                        <div className="text-center">
-                            <div className={`spinner-border ${color}`} role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
+    const card = (
+        <>
+            <div className={`${style.bgCard} ${chosenPalette.gradient}`}/>
+            <div className={`${style.border} ${chosenPalette.border}`}/>
+            {!isLoading ? '' : (
+                <div className={`${style.loadingSpinner}`}>
+                    <div className="text-center">
+                        <div className={`spinner-border ${color}`} role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
                     </div>
-                )}
-                <img className={`${style.amiiboImg} ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-                     src={img}
-                     loading="lazy"
-                     placeholder={placeholder404}
-                     alt={`[${character}] - ${name}`}
-                     onError={(e) => e.target.src = placeholder404}
-                     onLoad={() => setIsLoading(false)}
-                />
-                <div className={style.myCardTextPosition}>
-                    <div className={`${style.myCardTextWrapper}`}>
-                        <p className={`${style.myCardTextName} text-truncate`}>{name}</p>
-                        <p className={`${style.myCardTextSeries} text-truncate`}>{series}</p>
-                    </div>
                 </div>
-            </Link>
+            )}
+            <img className={`${style.amiiboImg} ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                 src={img}
+                 loading="lazy"
+                 placeholder={placeholder404}
+                 alt={`[${character}] - ${name}`}
+                 onError={(e) => e.target.src = placeholder404}
+                 onLoad={() => setIsLoading(false)}
+            />
+            <div className={style.myCardTextPosition}>
+                <div className={`${style.myCardTextWrapper}`}>
+                    <p className={`${style.myCardTextName} text-truncate`}>{name}</p>
+                    <p className={`${style.myCardTextSeries} text-truncate`}>{series}</p>
+                </div>
+            </div>
+        </>
+    );
+
+    return (
+        <div className="d-flex justify-content-center">
+            {
+                reactive ?
+                <Link to={`/amiibo-details/${id}`} className={`${style.myCard}`}>
+                    {card}
+                </Link> :
+                <div className={`${style.myCard}`}>
+                    {card}
+                </div>
+            }
         </div>
     );
 }
