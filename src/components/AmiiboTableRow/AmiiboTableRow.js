@@ -53,12 +53,12 @@ function AmiiboTableRow({amiibo, fields})
                     {
                         key !== 'img' ?
                             (
-                                <td className={`${key === 'name' ? 'fw-bold' : ''}`}>{amiibo[key]}</td>
+                                <td className={`${key !== 'name' ? style.textAmiiboName : ''}`}>{amiibo[key]}</td>
                             ) :
                             (
                                 <td className={style.imgWrapper}>
                                     <div className={`${style.imgWrapperBg} ${chosenPalette.border}`}>
-                                        {!isLoading ? '' : (
+                                        {isLoading && (
                                             <div className={`${style.loadingSpinner}`}>
                                                 <div className="text-center">
                                                     <div className={`spinner-border ${color}`} role="status">

@@ -78,8 +78,8 @@ function AmiiboCard({amiibo, reactive = false}) {
             />
             <div className={style.myCardTextPosition}>
                 <div className={`${style.myCardTextWrapper}`}>
-                    <p className={`${style.myCardTextName} text-truncate`}>{name}</p>
-                    <p className={`${style.myCardTextSeries} text-truncate`}>{series}</p>
+                    <div className={`${style.myCardTextName} text-truncate`}>{name}</div>
+                    <div className={`${style.myCardTextSeries} text-truncate`}>{series}</div>
                 </div>
             </div>
         </>

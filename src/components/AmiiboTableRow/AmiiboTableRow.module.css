@@ -7,17 +7,18 @@
 
 .imgWrapper .imgWrapperBg
 {
-    background-image: url('../../assets/Background/amiibo_card_bg.jpg');
+    background-image: url('../../assets/LogoUnimiibo/unimiibo_logo_bg.png');
     background-repeat: repeat;
-    background-size: 4rem;
+    background-size: 2.5rem;
+    background-position: center;
     padding: .05rem;
-    border-radius: 5rem;
+    border-radius: 10%;
     transition: all .25s ease-in-out;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-width: 0.2rem;
+    border-width: 0.15rem;
 }
 
 tbody > tr
@@ -27,8 +28,7 @@ tbody > tr
 
 tr:hover > .imgWrapper > .imgWrapperBg
 {
-    scale: 1.1;
-    filter: drop-shadow(0 5px 5px rgba(76, 84, 87, 0.29));
+    scale: 1.15;
 }
 
 tr:hover > td
@@ -48,11 +48,16 @@ tr:hover > td
 
 tr:hover > .imgWrapper > .imgWrapperBg > .imgAmiibo
 {
-    scale: 1.3;
-    transform: translate(0, -1rem);
+    scale: 1.5;
+    transform: translate(0, -.5rem);
 }
 
 .loadingSpinner
 {
     position: absolute;
+}
+
+.textAmiiboName
+{
+    font-weight: 300;
 }
