@@ -89,7 +89,7 @@ function AmiiboCard({amiibo, reactive = false}) {
         <div className="d-flex justify-content-center">
             {
                 reactive ?
-                <Link to={`/amiibo-details/${id}`} className={`${style.myCard}`}>
+                <Link to={`/unimiibo/amiibo-details/${id}`} className={`${style.myCard}`}>
                     {card}
                 </Link> :
                 <div className={`${style.myCard}`}>

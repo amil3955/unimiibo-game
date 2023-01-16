@@ -13,27 +13,27 @@ function App() {
     let navLinks = [
         {
             name: "Home",
-            link: "/",
+            link: "/unimiibo/",
             icon: "bi-house",
             show: true,
             jsx: <Home/>
         },
         {
             name: "Amiibo",
-            link: "/amiibo",
+            link: "/unimiibo/amiibo",
             icon: "bi-file-person",
             show: true,
             jsx: <AmiiboOverview/>
         },
         {
             name: "Amiibo Details",
-            link: "/amiibo-details/:id",
+            link: "/unimiibo/amiibo-details/:id",
             show: false,
             jsx: <AmiiboDetails/>
         },
         {
             name: "About",
-            link: "/about",
+            link: "/unimiibo/about",
             icon: "bi-info-square",
             show: true,
             jsx: <About/>
