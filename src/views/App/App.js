@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import Home from "../Home/Home";
 import AmiiboOverview from "../AmiiboOverview/AmiiboOverview";
 import AmiiboDetails from "../AmiiboDetails/AmiiboDetails";
@@ -52,7 +52,7 @@ function App() {
     }
 
     return (
-        <div>
+        <HashRouter>
             <MainTemplate
                 navLinks={navLinks}
                 footerCourseName={courseDetails.courseName}
@@ -65,7 +65,7 @@ function App() {
                     }
                 </Routes>
             </MainTemplate>
-        </div>
+        </HashRouter >
     );
 }
 
