@@ -61,9 +61,9 @@ function AmiiboOverview() {
             .then(data => data.sort((a1,a2) => compareAmiibo(a1,a2,{
                 sortOrder: [
                     { key: 'series', orderASC: false },
-                    { key: 'release', orderASC: true },
                     { key: 'character', orderASC: true },
                     { key: 'name', orderASC: true },
+                    { key: 'release', orderASC: true },
                 ],
                 sortComparator: {
                     release: dateComparator,
