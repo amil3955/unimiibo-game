@@ -20,12 +20,12 @@ export function createAmiibo(amiiboData, hasGameInfo)
         character: amiiboData.character ?? "-- unknown --",
         series: amiiboData.gameSeries ?? "-- unknown --",
         img: amiiboData.image,
+        release: amiiboData.release,
     }
 
     if(hasGameInfo) {
         amiibo = {
             ...amiibo,
-            release: amiiboData.release,
             games3DS: amiiboData.games3DS,
             gamesWiiU: amiiboData.gamesWiiU,
             gamesSwitch: amiiboData.gamesSwitch,

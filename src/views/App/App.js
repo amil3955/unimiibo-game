@@ -46,16 +46,23 @@ function App() {
         }
     ];
 
-    const courseName = "Applicazioni Web: Progettazione e Sviluppo";
-    const courseLink = "https://elearning.unimib.it/course/info.php?id=44672#en";
+    const courseDetails = {
+        courseName: "Applicazioni Web: Progettazione e Sviluppo",
+        courseLink: "https://elearning.unimib.it/course/info.php?id=44672#en",
+    }
 
     return (
         <div>
-            <MainTemplate navLinks={navLinks} footerCourseName={courseName} footerCourseLink={courseLink}>
+            <MainTemplate
+                navLinks={navLinks}
+                footerCourseName={courseDetails.courseName}
+                footerCourseLink={courseDetails.courseLink}>
                 <Routes>
-                    {navLinks.map(({link, jsx}, idx) => (
-                        <Route key={idx} path={link} element={jsx}/>
-                    ))}
+                    {
+                        navLinks.map(({link, jsx}, idx) => (
+                            <Route key={idx} path={link} element={jsx}/>
+                        ))
+                    }
                 </Routes>
             </MainTemplate>
         </div>

@@ -5,6 +5,50 @@ import './AmiiboOverview.css'
 import {createAmiibo} from "../../utilities/Utils";
 import UnimiiboLoading from "../../components/UnimiiboLoading/UnimiiboLoading";
 
+function getDate(release)
+{
+    const dates = [];
+    for(let dateKey in release)
+    {
+        let date = release[dateKey];
+        if(date)
+        {
+            dates.push(new Date(date));
+        }
+    }
+
+    return dates.reduce(minDate);
+}
+
+function minDate(dateA, dateB) {
+    return dateA < dateB ? dateA : dateB;
+}
+
+function dateComparator(release1, release2)
+{
+    return getDate(release1).getTime() - getDate(release2).getTime();
+}
+
+function stringComparator(str1, str2)
+{
+    return str1.localeCompare(str2);
+}
+
+function compareAmiibo(a1, a2, {sortOrder, sortComparator})
+{
+    for(let sortRule of sortOrder)
+    {
+        const {key, orderASC} = sortRule;
+
+        let comparison = sortComparator[key] ?
+            sortComparator[key](a1[key], a2[key]) :
+            a1[key] - a2[key];
+
+        if(comparison !== 0)
+            return orderASC ? comparison : -comparison;
+    }
+}
+
 function AmiiboOverview() {
 
     const [amiibos, setAmiibos] = useState(null);
@@ -13,9 +57,22 @@ function AmiiboOverview() {
     useEffect(() => {
         fetch("https://www.amiiboapi.com/api/amiibo/?type=Figure")
             .then(response => response.json())
-            .then(data => setAmiibos(data['amiibo'].map(amiibo => {
-                return createAmiibo(amiibo, false);
-            })));
+            .then(data => data['amiibo'].map(amiibo => createAmiibo(amiibo, false)))
+            .then(data => data.sort((a1,a2) => compareAmiibo(a1,a2,{
+                sortOrder: [
+                    { key: 'series', orderASC: false },
+                    { key: 'release', orderASC: true },
+                    { key: 'character', orderASC: true },
+                    { key: 'name', orderASC: true },
+                ],
+                sortComparator: {
+                    release: dateComparator,
+                    series: stringComparator,
+                    character: stringComparator,
+                    name: stringComparator,
+                }
+            })))
+            .then(data => setAmiibos(data));
     },[])
 
     return (
