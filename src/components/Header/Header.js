@@ -6,10 +6,10 @@ function Header({navLinks}) {
     return (
         <nav className="navbar navbar-expand-md navbar-light bg-white">
             <div className="container-fluid">
-                <Link className="navbar-brand ms-2 d-none d-md-block" to="/">
+                <Link className="navbar-brand ms-2 d-none d-md-block" to="/unimiibo/">
                     <img src={FullLogo} alt="Full logo Unimiibo" height="50"/>
                 </Link>
-                <Link className="navbar-brand d-md-none" to="/">
+                <Link className="navbar-brand d-md-none" to="/unimiibo/">
                     <img src={CompactLogo} alt="Icon logo Unimiibo" height="50"/>
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
