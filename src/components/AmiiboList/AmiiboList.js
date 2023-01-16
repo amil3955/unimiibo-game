@@ -40,7 +40,7 @@ function AmiiboList({amiibos}) {
                 <tbody>
 
                 {amiibos.map((amiibo, idx) => (
-                    <tr key={idx} onClick={() => navigate(`/unimiibo/amiibo-details/${amiibo['id']}`)}>
+                    <tr key={idx} onClick={() => navigate(`/amiibo-details/${amiibo['id']}`)}>
                         <AmiiboTableRow amiibo={amiibo} fields={headers}/>
                     </tr>
                 ))}

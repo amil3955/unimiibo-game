@@ -15,7 +15,7 @@ function Page404() {
             </div>
             <div className="row mb-5">
                 <div className="col text-center">
-                    <button className="btn btn-dark pt-2 fs-5" onClick={() => navigator('/unimiibo/')}>
+                    <button className="btn btn-dark pt-2 fs-5" onClick={() => navigator('/')}>
                         <span className="me-2"><i className="bi bi-house"></i></span>Back to Home page</button>
                 </div>
             </div>
