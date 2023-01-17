@@ -27,7 +27,7 @@ async function fetchAmiiboDataByID(id) {
 }
 
 async function fetchAmiiboDataByNAME(name, tail) {
-    const amiiboData = await fetch(`https://www.amiiboapi.com/api/amiibo/?name=${name}&showusage`);
+    const amiiboData = await fetch(`https://www.amiiboapi.com/api/amiibo/?name=${encodeURIComponent(name)}&showusage`);
     const amiiboResponse = await amiiboData.json();
     return getCurrentAmiibo(amiiboResponse, tail);
 }

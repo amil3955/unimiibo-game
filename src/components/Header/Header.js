@@ -1,8 +1,18 @@
 import CompactLogo from '../../assets/LogoUnimiibo/unimiibo_logo_compact.png';
 import FullLogo from '../../assets/LogoUnimiibo/unimiibo_logo_small.png';
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useLocation} from "react-router-dom";
+import {useEffect} from "react";
 
 function Header({navLinks}) {
+
+    // const idNavbarToggle = useRef();
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        // idNavbarToggle.current.click();
+    }, [pathname]);
+
     return (
         <nav className="navbar navbar-expand-md navbar-light bg-white">
             <div className="container-fluid">
@@ -18,7 +28,7 @@ function Header({navLinks}) {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse mt-2" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-md-0">
+                    <ul className="navbar-nav navbar-nav-scroll me-auto mb-2 mb-md-0">
                         {navLinks.map((navLink, idx) => (
                             <li className="nav-item fs-5" key={idx}>
                                 <NavLink

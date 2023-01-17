@@ -4,6 +4,8 @@
     --gradient-rotation: -50deg;
     --factor-radius: .25;
     --card-border-radius: calc(22% * var(--factor-radius)) / calc(15% * var(--factor-radius));
+
+    --saturate-val: 4;
 }
 
 .myCard
@@ -64,6 +66,48 @@
     rotate: -15deg;
     scale: 150% 100%;
 }
+
+.pinkGradient
+{
+    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(150deg);
+}
+
+.redGradient
+{
+    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(160deg);
+}
+
+.orangeGradient
+{
+    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(200deg);
+}
+
+.yellowGradient
+{
+    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(230deg);
+}
+
+.greenGradient
+{
+    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(310deg);
+}
+
+.blueGradient
+{
+    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(30deg);
+}
+
+.purpleGradient
+{
+    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(80deg);
+}
+
+.greyGradient
+{
+    backdrop-filter: saturate(var(--saturate-val)) grayscale(1);
+}
+
+
 
 .pinkGradient::after
 {
