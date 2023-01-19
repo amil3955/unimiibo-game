@@ -12,7 +12,7 @@ function clickableNintendoLink(game)
 {
     const URL = nintendoShopUrl(game);
     return (
-        <a href={URL}>
+        <a href={URL} target="_blank" rel="noopener noreferrer">
             {game}
         </a>
     )
@@ -98,33 +98,6 @@ function Home() {
                             </div>
                         ))
                     }
-                    {/*<div className="col-12 col-md-4 py-5">*/}
-                    {/*    <div className="ratio ratio-16x9">*/}
-                    {/*        <img className="rounded rounded-3 img-fluid imgGames shadow"*/}
-                    {/*             src={ImgAC}*/}
-                    {/*             alt="Game wallpaper (Animal Crossing: New Horizons)"/>*/}
-                    {/*    </div>*/}
-                    {/*    <p className="h4 mt-5 mb-3">Add a character to the game</p>*/}
-                    {/*    <p>Invite characters to your island in the Animal Crossing™: New Horizons game.</p>*/}
-                    {/*</div>*/}
-                    {/*<div className="col-12 col-md-4 py-5">*/}
-                    {/*    <div className="ratio ratio-16x9">*/}
-                    {/*        <img className="rounded rounded-3 img-fluid imgGames shadow"*/}
-                    {/*             src={ImgSM3DW}*/}
-                    {/*             alt="Game wallpaper (Super Mario 3D World)"/>*/}
-                    {/*    </div>*/}
-                    {/*    <p className="h4 mt-5 mb-3">Get bonuses or special items</p>*/}
-                    {/*    <p>Unlock power-ups and other in-game enhancements in the Super Mario™ 3D World + Bowser’s Fury game.</p>*/}
-                    {/*</div>*/}
-                    {/*<div className="col-12 col-md-4 py-5">*/}
-                    {/*    <div className="ratio ratio-16x9">*/}
-                    {/*        <img className="rounded rounded-3 img-fluid imgGames shadow"*/}
-                    {/*             src={ImgSMBU}*/}
-                    {/*             alt="Game wallpaper (Super Smash Bros. Ultimate)"/>*/}
-                    {/*    </div>*/}
-                    {/*    <p className="h4 mt-5 mb-3">Level up or customize your character</p>*/}
-                    {/*    <p>Train and fight Figure Players in the Super Smash Bros.™ Ultimate game.</p>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         </div>

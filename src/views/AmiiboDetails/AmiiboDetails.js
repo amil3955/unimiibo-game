@@ -176,7 +176,7 @@ function AmiiboDetails() {
                                                             currentAmiibo[gameConsole].map((game, idx) => (
                                                                 <li key={idx} className="mb-4">
                                                                     <p className="mb-2">
-                                                                        <a href={nintendoShopUrl(game.gameName)}>
+                                                                        <a href={nintendoShopUrl(game.gameName)} target="_blank" rel="noopener noreferrer">
                                                                             {game.gameName}
                                                                         </a>
                                                                     </p>

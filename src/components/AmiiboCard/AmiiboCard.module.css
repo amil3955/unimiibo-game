@@ -1,11 +1,10 @@
 :root
 {
     --anim-params: all ease-in-out 0.2s;
-    --gradient-rotation: -50deg;
     --factor-radius: .25;
     --card-border-radius: calc(22% * var(--factor-radius)) / calc(15% * var(--factor-radius));
 
-    --saturate-val: 4;
+    --saturate-val: 1;
 }
 
 .myCard
@@ -67,89 +66,47 @@
     scale: 150% 100%;
 }
 
-.pinkGradient
-{
-    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(150deg);
-}
-
-.redGradient
-{
-    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(160deg);
-}
-
-.orangeGradient
-{
-    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(200deg);
-}
-
-.yellowGradient
-{
-    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(230deg);
-}
-
-.greenGradient
-{
-    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(310deg);
-}
-
-.blueGradient
-{
-    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(30deg);
-}
-
-.purpleGradient
-{
-    backdrop-filter: saturate(var(--saturate-val)) hue-rotate(80deg);
-}
-
-.greyGradient
-{
-    backdrop-filter: saturate(var(--saturate-val)) grayscale(1);
-}
-
-
-
-.pinkGradient::after
+.pink.gradient::after
 {
     background: var(--pink-gradient);
 }
 
-.redGradient::after
+.red.gradient::after
 {
     background: var(--red-gradient);
 }
 
-.orangeGradient::after
+.orange.gradient::after
 {
     background: var(--orange-gradient);
 }
 
-.yellowGradient::after
+.yellow.gradient::after
 {
     background: var(--yellow-gradient);
 }
 
-.greenGradient::after
+.green.gradient::after
 {
     background: var(--green-gradient);
 }
 
-.blueGradient::after
+.blue.gradient::after
 {
     background: var(--blue-gradient);
 }
 
-.purpleGradient::after
+.purple.gradient::after
 {
     background: var(--purple-gradient);
 }
 
-.greyGradient::after
+.grey.gradient::after
 {
     background: var(--grey-gradient);
 }
 
-.myCard .border
+.myCard .cardBorder
 {
     border-radius: var(--card-border-radius);
     left: 0;

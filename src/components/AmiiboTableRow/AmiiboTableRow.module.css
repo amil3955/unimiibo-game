@@ -12,13 +12,17 @@
     background-size: 2.5rem;
     background-position: center;
     padding: .05rem;
-    border-radius: 10%;
     transition: all .25s ease-in-out;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-width: 0.15rem;
+    border-radius: 14%;
+}
+
+.borderRadius
+{
+    border-radius: 10%;
 }
 
 tbody > tr
@@ -42,7 +46,7 @@ tr:hover > td
     width: 5rem;
     object-fit: contain;
     object-position: center;
-    padding: .6rem;
+    padding: .4rem;
     transition: all .25s ease-in-out;
 }
 

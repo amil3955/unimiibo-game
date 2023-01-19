@@ -2,48 +2,11 @@ import style from './AmiiboCard.module.css'
 import {Link} from "react-router-dom";
 import placeholder404 from '../../assets/Placeholder/amiibo_placeholder_404.png'
 import React, {useState} from "react";
-import {seriesMapPalette} from "../../utilities/Colors";
+import {colors, seriesMapPalette} from "../../utilities/Colors";
 import {strHashCode} from "../../utilities/Utils";
 
-const palette = {
-    pink: {
-        gradient: style.pinkGradient,
-        border: 'pinkBorder'
-    },
-    red: {
-        gradient: style.redGradient,
-        border: 'redBorder'
-    },
-    orange: {
-        gradient: style.orangeGradient,
-        border: 'orangeBorder'
-    },
-    yellow: {
-        gradient: style.yellowGradient,
-        border: 'yellowBorder'
-    },
-    green: {
-        gradient: style.greenGradient,
-        border: 'greenBorder'
-    },
-    blue: {
-        gradient: style.blueGradient,
-        border: 'blueBorder'
-    },
-    purple: {
-        gradient: style.purpleGradient,
-        border: 'purpleBorder'
-    },
-    grey: {
-        gradient: style.greyGradient,
-        border: 'greyBorder'
-    }
-};
-
-let paletteKeys = Object.keys(palette);
-
 function indexSeries(series) {
-    return strHashCode(series) % paletteKeys.length;
+    return strHashCode(series) % colors.length;
 }
 
 function AmiiboCard({amiibo, reactive = false}) {
@@ -52,13 +15,12 @@ function AmiiboCard({amiibo, reactive = false}) {
     const [isLoading, setIsLoading] = useState(true);
 
     let index = indexSeries(series);
-    let color = palette[seriesMapPalette[series]] ? seriesMapPalette[series] : paletteKeys[index];
-    let chosenPalette = palette[color];
+    let color = seriesMapPalette[series] ?? colors[index];
 
     const card = (
         <>
-            <div className={`${style.bgCard} ${chosenPalette.gradient}`}/>
-            <div className={`${style.border} ${chosenPalette.border}`}/>
+            <div className={`${style.bgCard} ${style.gradient} ${style[color]} hue-variance ${color}`}/>
+            <div className={`${style.cardBorder} my-border ${color}`}/>
             {!isLoading ? '' : (
                 <div className={`${style.loadingSpinner}`}>
                     <div className="text-center">

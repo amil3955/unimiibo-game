@@ -5,9 +5,9 @@
     --dark-orange: rgb(206, 93, 17);
     --dark-yellow: rgb(187, 173, 17);
     --dark-green: rgb(11, 172, 32);
-    --dark-blue: rgb(11, 86, 172);
+    --dark-blue: rgb(27, 100, 184);
     --dark-purple: rgb(97, 19, 182);
-    --dark-grey: rgb(52, 52, 52);
+    --dark-grey: rgb(42, 42, 42);
 
     --light-pink: rgb(224, 117, 179);
     --light-red: rgb(205, 72, 88);
@@ -18,6 +18,8 @@
     --light-purple: rgb(132, 72, 205);
     --light-grey: rgb(69, 69, 69);
 
+    --gradient-rotation: -100deg;
+
     --pink-gradient: linear-gradient(var(--gradient-rotation), var(--dark-pink) 0%, var(--light-pink) 100%);
     --red-gradient: linear-gradient(var(--gradient-rotation), var(--dark-red) 0%, var(--light-red) 100%);
     --orange-gradient: linear-gradient(var(--gradient-rotation), var(--dark-orange) 0%, var(--light-orange) 100%);
@@ -26,46 +28,8 @@
     --blue-gradient: linear-gradient(var(--gradient-rotation), var(--dark-blue) 0%, var(--light-blue) 100%);
     --purple-gradient: linear-gradient(var(--gradient-rotation), var(--dark-purple) 0%, var(--light-purple) 100%);
     --grey-gradient: linear-gradient(var(--gradient-rotation), var(--dark-grey) 0%, var(--light-grey) 100%);
-}
 
-.pinkBorder
-{
-    border: 0.15rem solid var(--light-pink);
-}
-
-.redBorder
-{
-    border: 0.15rem solid var(--light-red);
-}
-
-.orangeBorder
-{
-    border: 0.15rem solid var(--light-orange);
-}
-
-.yellowBorder
-{
-    border: 0.15rem solid var(--light-yellow);
-}
-
-.greenBorder
-{
-    border: 0.15rem solid var(--light-green);
-}
-
-.blueBorder
-{
-    border: 0.15rem solid var(--light-blue);
-}
-
-.purpleBorder
-{
-    border: 0.15rem solid var(--light-purple);
-}
-
-.greyBorder
-{
-    border: 0.15rem solid var(--light-grey);
+    --border-size: 0.15rem;
 }
 
 .pink
@@ -107,6 +71,91 @@
 {
     color: var(--light-grey);
 }
+
+/*------------------ BORDER --------------------*/
+
+.pink.my-border
+{
+    border: var(--border-size) solid var(--light-pink);
+}
+
+.red.my-border
+{
+    border: var(--border-size) solid var(--light-red);
+}
+
+.orange.my-border
+{
+    border: var(--border-size) solid var(--light-orange);
+}
+
+.yellow.my-border
+{
+    border: var(--border-size) solid var(--light-yellow);
+}
+
+.green.my-border
+{
+    border: var(--border-size) solid var(--light-green);
+}
+
+.blue.my-border
+{
+    border: var(--border-size) solid var(--light-blue);
+}
+
+.purple.my-border
+{
+    border: var(--border-size) solid var(--light-purple);
+}
+
+.grey.my-border
+{
+    border: var(--border-size) solid var(--light-grey);
+}
+
+/*------------------ HUE VARIANCE --------------------*/
+
+.pink.hue-variance
+{
+    backdrop-filter: hue-rotate(130deg);
+}
+
+.red.hue-variance
+{
+    backdrop-filter: hue-rotate(145deg);
+}
+
+.orange.hue-variance
+{
+    backdrop-filter: hue-rotate(190deg);
+}
+
+.yellow.hue-variance
+{
+    backdrop-filter: hue-rotate(215deg);
+}
+
+.green.hue-variance
+{
+    backdrop-filter: hue-rotate(300deg);
+}
+
+.blue.hue-variance
+{
+    backdrop-filter: hue-rotate(10deg);
+}
+
+.purple.hue-variance
+{
+    backdrop-filter: hue-rotate(60deg);
+}
+
+.grey.hue-variance
+{
+    backdrop-filter: grayscale(1);
+}
+
 
 * {
     /*background-color: rgba(0,0,0,0.05);*/

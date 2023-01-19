@@ -33,7 +33,7 @@ function AmiiboList({amiibos}) {
                 <thead>
                 <tr>
                     {headers.map((header) => (
-                        <th key={header} scope="col" className="text-secondary text-opacity-75">{mapNameKeys[header]}</th>
+                        <th key={header} scope="col" className="text-secondary fw-normal text-opacity-75">{mapNameKeys[header]}</th>
                     ))}
                 </tr>
                 </thead>
