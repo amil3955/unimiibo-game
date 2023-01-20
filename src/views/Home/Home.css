@@ -55,6 +55,14 @@
     transform: rotate(180deg);
 }
 
+.bottom-wave
+{
+    top: unset;
+    width: 100%;
+    bottom: -1px;
+    /*transform: rotate(0deg);*/
+}
+
 .wave-unimiibo svg {
     position: relative;
     display: block;
@@ -63,8 +71,17 @@
     transform: rotateY(180deg);
 }
 
+.bottom-wave svg
+{
+    width: 250%;
+}
+
 .wave-unimiibo .shapeFill {
     fill: rgb(var(--bs-dark-rgb));
+}
+
+.wave-unimiibo.bottom-wave .shapeFill {
+    fill: #FFFFFF;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -73,8 +90,18 @@
         top: -59px;
     }
 
+    .bottom-wave
+    {
+        top: unset;
+    }
+
     .wave-unimiibo svg {
         height: 60px;
+    }
+
+    .bottom-wave svg
+    {
+        width: 250%;
     }
 }
 
@@ -85,8 +112,18 @@
         top: -29px;
     }
 
+    .bottom-wave
+    {
+        top: unset;
+    }
+
     .wave-unimiibo svg {
-        width: 140%;
+        width: 200%;
         height: 30px;
+    }
+
+    .bottom-wave svg
+    {
+        width: 200%;
     }
 }
