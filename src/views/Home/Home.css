@@ -46,84 +46,66 @@
 
 
 .wave-unimiibo {
+
+    --wave-height: 50px;
+
     position: absolute;
-    top: -89px;
     left: 0;
+    right: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    transform: rotate(180deg);
 }
 
-.bottom-wave
+.wave-unimiibo.top-wave
 {
-    top: unset;
-    width: 100%;
+    top: calc(-1 * var(--wave-height) + 1px);
+}
+
+.wave-unimiibo.bottom-wave
+{
     bottom: -1px;
-    /*transform: rotate(0deg);*/
 }
 
 .wave-unimiibo svg {
+    transform: rotate(180deg);
     position: relative;
     display: block;
-    width: 200%;
-    height: 90px;
-    transform: rotateY(180deg);
+    height: var(--wave-height);
+}
+
+.top-wave svg {
+    width: 100%;
 }
 
 .bottom-wave svg
 {
-    width: 250%;
+    transform: rotate(180deg) scaleX(-1);
+    width: 100%;
 }
 
-.wave-unimiibo .shapeFill {
+.top-wave .shapeFill {
     fill: rgb(var(--bs-dark-rgb));
 }
 
-.wave-unimiibo.bottom-wave .shapeFill {
+.bottom-wave .shapeFill {
     fill: #FFFFFF;
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    .wave-unimiibo
-    {
-        top: -59px;
-    }
-
-    .bottom-wave
-    {
-        top: unset;
-    }
-
-    .wave-unimiibo svg {
-        height: 60px;
-    }
-
-    .bottom-wave svg
-    {
-        width: 250%;
+@media (min-width: 1023px) and (max-width: 1400px) {
+    .wave-unimiibo {
+        --wave-height: 40px;
     }
 }
 
-@media (max-width: 767px)
-{
-    .wave-unimiibo
-    {
-        top: -29px;
+@media (min-width: 768px) and (max-width: 1023px) {
+    .wave-unimiibo {
+        --wave-height: 30px;
     }
+}
 
-    .bottom-wave
-    {
-        top: unset;
-    }
-
-    .wave-unimiibo svg {
-        width: 200%;
-        height: 30px;
-    }
-
-    .bottom-wave svg
-    {
-        width: 200%;
+@media (max-width: 767px) {
+    .wave-unimiibo {
+        --wave-height: 20px;
     }
 }

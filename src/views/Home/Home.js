@@ -71,7 +71,7 @@ function Home() {
                 />
             </div>
             <div className="position-relative">
-                <div className="wave-unimiibo">
+                <div className="wave-unimiibo top-wave">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                          preserveAspectRatio="none">
                         <path
@@ -88,11 +88,11 @@ function Home() {
 
                 <div className="container-fluid bg-dark px-3 py-5">
                     <div className="row">
-                        <div className={`col-12 d-flex justify-content-center`}>
+                        <div className={`col-12 d-flex justify-content-center pt-5`}>
                             <img className="imgUnimiibo" src={LogoWhUnimiibo} alt="Logo Unimiibo"/>
                         </div>
                     </div>
-                    <div className="row mt-4">
+                    <div className="row my-4">
                         <div className="col-12 text-center text-light h3">
                             <p className="fw-light">A fun and original way to interact with your favorite characters and games</p>
                             <p className='h1 mt-5 py-3 py-md-5 px-3 lh-base fw-normal'>Connect, Touch and Collect!</p>
