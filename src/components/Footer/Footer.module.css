@@ -35,7 +35,7 @@
 }
 
 .waveFooter .shapeFill {
-    fill: #212529;
+    fill: rgb(var(--bs-dark-rgb));
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {

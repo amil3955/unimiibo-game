@@ -106,7 +106,7 @@ function AmiiboDetails() {
                             <div className="row mt-3 mt-md-4">
                                 <div className="col-12 d-flex justify-content-center px-4">
                                     <div className="cardWrapper">
-                                        <AmiiboCard amiibo={currentAmiibo}/>
+                                        <AmiiboCard amiibo={currentAmiibo} fixedSize={true} reactive={false}/>
                                     </div>
                                 </div>
                             </div>
@@ -119,17 +119,21 @@ function AmiiboDetails() {
                                     <div className="mt-3 mt-md-0">
                                         <p className="fs-6 mb-1 pb-1">
                                             <span>Official name: </span>
-                                            <span className="text-secondary text-opacity-75">{currentAmiibo.name}</span>
+                                            <span className="text-secondary text-opacity-75">
+                                                {currentAmiibo.name}
+                                            </span>
                                         </p>
                                         <p className="fs-6 mb-1 pb-1">
                                             <span>Original character: </span>
-                                            <span
-                                                className="text-secondary text-opacity-75">{currentAmiibo.character}</span>
+                                            <span className="text-secondary text-opacity-75">
+                                                {currentAmiibo.character}
+                                            </span>
                                         </p>
                                         <p className="fs-6 mb-1 pb-1">
                                             <span>Game series: </span>
-                                            <span
-                                                className="text-secondary text-opacity-75">{currentAmiibo.series}</span>
+                                            <span className="text-secondary text-opacity-75">
+                                                {currentAmiibo.series}
+                                            </span>
                                         </p>
                                     </div>
                                 </div>
@@ -139,13 +143,15 @@ function AmiiboDetails() {
                                     </p>
                                     {
                                         Object.keys(currentAmiibo.release).map((releaseZone) => (
-                                            <p key={releaseZone} className="mb-1 pb-1">
+                                            <p key={releaseZone}
+                                               className="mb-1 pb-1 d-flex justify-content-center align-items-center flex-wrap">
                                                 <img
                                                     src={mapReleaseZone[releaseZone].flag}
                                                     className="imgFlag"
                                                     alt={releaseZone + " tag"}/>
                                                 <span className="ms-2">
-                                                    {mapReleaseZone[releaseZone].name}: <span className="text-secondary text-opacity-75">{formatDate(currentAmiibo.release[releaseZone])}</span>
+                                                    {mapReleaseZone[releaseZone].name}:
+                                                    <span className="text-secondary text-opacity-75"> {formatDate(currentAmiibo.release[releaseZone])}</span>
                                                 </span>
                                             </p>
                                         ))
@@ -162,13 +168,13 @@ function AmiiboDetails() {
                             <div className="row mt-4 mb-5">
                                 {
                                     gameConsoles.map((gameConsole, i) => (
-                                        <div className="col-12 col-md-6 col-lg-4 px-3" key={i}>
+                                        <div className="col-12 col-md-6 col-lg-4 px-3 mt-4 mt-lg-0" key={i}>
                                             <p className="fw-bold text-center">{mapGameConsoles[gameConsole]}</p>
                                             {
                                                 currentAmiibo[gameConsole].length === 0 ?
                                                     <div className="ms-4 ps-2 mb-5">
                                                         <span
-                                                            className="text-secondary">No games for this platform...</span>
+                                                            className="text-secondary text-opacity-75">No games for this platform...</span>
                                                     </div>
                                                     :
                                                     <ul>
@@ -176,13 +182,14 @@ function AmiiboDetails() {
                                                             currentAmiibo[gameConsole].map((game, idx) => (
                                                                 <li key={idx} className="mb-4">
                                                                     <p className="mb-2">
-                                                                        <a href={nintendoShopUrl(game.gameName)} target="_blank" rel="noopener noreferrer">
+                                                                        <a href={nintendoShopUrl(game.gameName)}
+                                                                           target="_blank" rel="noopener noreferrer">
                                                                             {game.gameName}
                                                                         </a>
                                                                     </p>
                                                                     <p className="mb-1 pb-1">
                                                                         <span>Usage: </span><span
-                                                                        className="text-secondary">{game.amiiboUsage[0].Usage}</span>
+                                                                        className="text-secondary text-opacity-75">{game.amiiboUsage[0].Usage}</span>
                                                                     </p>
                                                                     <p className="d-flex mt-1 align-content-center">
                                                                         <span className="me-2">Read/Write:</span>

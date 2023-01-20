@@ -1,21 +1,20 @@
 .imgFlag
 {
-    --flag-size: 1.7rem;
     vertical-align: bottom;
-    width: var(--flag-size);
-    height: var(--flag-size);
-    filter: drop-shadow(0 0 0 rgba(0,0,0,1));
+    width: 2.5rem;
+    object-position: center;
+    object-fit: cover;
+    margin-bottom: 0.2rem;
 }
 
 .imgReadWrite
 {
-    border-radius: .2rem;
-    --flag-size: 1.3rem;
-    width: var(--flag-size);
-    height: var(--flag-size);
+    border-radius: .25rem;
+    height: 1.3rem;
+    aspect-ratio: 1/1;
 }
 
 .cardWrapper
 {
-    width: 17.5rem;
+    width: 17rem;
 }

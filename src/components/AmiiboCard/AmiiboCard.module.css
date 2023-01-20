@@ -2,7 +2,9 @@
 {
     --anim-params: all ease-in-out 0.2s;
     --factor-radius: .25;
+    --factor-radius-inner: calc(var(--factor-radius) + .075);
     --card-border-radius: calc(22% * var(--factor-radius)) / calc(15% * var(--factor-radius));
+    --card-border-radius-inner: calc(22% * var(--factor-radius-inner)) / calc(15% * var(--factor-radius-inner));
 
     --saturate-val: 1;
 }
@@ -15,40 +17,26 @@
     aspect-ratio: 15 / 22;
     transition: var(--anim-params);
     background-image: url('../../assets/LogoUnimiibo/unimiibo_logo_bg.png');
-    background-size: 3.5rem;
+    image-resolution: 300dpi;
+    background-size: 25%;
     background-repeat: repeat;
     background-position: center;
-}
-
-@media (width < 576px)
-{
-    .myCard
-    {
-        background-size: 17.5vw;
-    }
-}
-
-.myCard.myCardNormalPointer
-{
-    cursor: default;
 }
 
 .myCard:hover
 {
     z-index: 1;
     scale: 102%;
-    box-shadow: 0 10px 20px rgba(16, 37, 55, 0.5);
+    box-shadow: 0 10px 15px rgba(16, 37, 55, 0.35);
 }
 
 .myCard .bgCard
 {
-    border-radius: var(--card-border-radius);
+    border-radius: var(--card-border-radius-inner);
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    height: 100%;
-    width: 100%;
     position: absolute;
     overflow: hidden;
 }
@@ -165,22 +153,25 @@
 .myCardTextPosition .myCardTextWrapper
 {
     font-family: 'Rowdies', cursive;
+    font-size-adjust: .6;
     color: white;
-    padding: 10% 0;
     text-align: center;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-/* ----------------------------------------------- */
+.myCardTextPosition.big .myCardTextWrapper
+{
+    font-size-adjust: .45;
+}
 
 .myCardTextPosition .myCardTextWrapper .myCardTextName
 {
     font-weight: 300;
     font-size: 1.5rem;
-    letter-spacing: .05rem;
+    letter-spacing: .025rem;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextSeries
@@ -190,14 +181,53 @@
     letter-spacing: .1rem;
 }
 
-@media (max-width: 576px)
+.myCardTextPosition.big .myCardTextWrapper .myCardTextName
+{
+    font-size: 1.8rem;
+}
+
+.myCardTextPosition.big .myCardTextWrapper .myCardTextSeries
+{
+    font-size: 1.1rem;
+}
+
+@media (min-width: 768px) and (max-width: 992px)
 {
     .myCardTextPosition .myCardTextWrapper .myCardTextName
     {
-        font-size: calc(15vw - 1.5rem);
+        font-size: 1.2rem;
     }
+
     .myCardTextPosition .myCardTextWrapper .myCardTextSeries
     {
-        font-size: calc(9vw - 1rem);
+        font-size: .7rem;
+    }
+}
+
+
+@media (max-width: 576px)
+{
+    .myCardTextPosition .myCardTextWrapper .myCardTextName,
+    .myCardTextPosition.big .myCardTextWrapper .myCardTextName
+    {
+        font-size: calc(10vw - .5rem);
+    }
+    .myCardTextPosition .myCardTextWrapper .myCardTextSeries,
+    .myCardTextPosition.big .myCardTextWrapper .myCardTextSeries
+    {
+        font-size: calc(7vw - .5rem);
+    }
+}
+
+@media (min-width: 386px)
+{
+    .myCardTextPosition.big .myCardTextWrapper .myCardTextName
+    {
+        font-size: 1.4rem;
+    }
+
+    .myCardTextPosition.big .myCardTextWrapper .myCardTextSeries
+    {
+        font-size: .85rem;
     }
 }

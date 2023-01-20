@@ -9,7 +9,7 @@ function indexSeries(series) {
     return strHashCode(series) % colors.length;
 }
 
-function AmiiboCard({amiibo, reactive = false}) {
+function AmiiboCard({amiibo, reactive = true, fixedSize = false}) {
 
     const {id, name, character, series, img} = amiibo;
     const [isLoading, setIsLoading] = useState(true);
@@ -38,7 +38,7 @@ function AmiiboCard({amiibo, reactive = false}) {
                  onError={(e) => e.target.src = placeholder404}
                  onLoad={() => setIsLoading(false)}
             />
-            <div className={style.myCardTextPosition}>
+            <div className={`${style.myCardTextPosition} ${fixedSize ? style.big : ''}`}>
                 <div className={`${style.myCardTextWrapper}`}>
                     <div className={`${style.myCardTextName} text-truncate`}>{name}</div>
                     <div className={`${style.myCardTextSeries} text-truncate`}>{series}</div>
