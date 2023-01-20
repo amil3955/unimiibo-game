@@ -1,0 +1,39 @@
+.this  *
+{
+    background-color: rgba(0,0,0,0.05);
+    /*border: 1px solid black;*/
+}
+
+.question-wrapper
+{
+    display: flex;
+    border: 2px solid black;
+}
+
+.question-graphics
+{
+    position: relative;
+    flex-basis: 5rem;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.question-line
+{
+    position: relative;
+    background-color: #00a9ea;
+    width: 10%;
+    height: fit-content;
+    top: -4rem;
+    bottom: -4rem;
+}
+
+.question-texts
+{
+    border: 2px solid blue;
+    flex-grow: 1;
+}

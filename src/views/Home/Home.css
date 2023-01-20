@@ -35,11 +35,58 @@
     object-position: center;
     width: 100%;
     max-width: 35rem;
-    padding: 0 2rem;
+    padding: .5rem .5rem;
 }
 
 .imgGames
 {
     object-fit: cover;
     object-position: center;
+}
+
+
+.wave-unimiibo {
+    position: absolute;
+    top: -89px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave-unimiibo svg {
+    position: relative;
+    display: block;
+    width: 200%;
+    height: 90px;
+    transform: rotateY(180deg);
+}
+
+.wave-unimiibo .shapeFill {
+    fill: #212529;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .wave-unimiibo
+    {
+        top: -59px;
+    }
+
+    .wave-unimiibo svg {
+        height: 60px;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .wave-unimiibo
+    {
+        top: -29px;
+    }
+
+    .wave-unimiibo svg {
+        width: 140%;
+        height: 30px;
+    }
 }

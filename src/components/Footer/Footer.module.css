@@ -1,3 +1,8 @@
+.myFooter
+{
+    margin-top: 60px;
+}
+
 .footerImgs
 {
     margin: 0 .5rem;
@@ -10,3 +15,49 @@
      height: var(--size);
      background-color: white;
  }
+
+.waveFooter {
+    position: absolute;
+    top: -59px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.waveFooter svg {
+    position: relative;
+    display: block;
+    width: 180%;
+    height: 60px;
+    transform: rotateY(180deg);
+}
+
+.waveFooter .shapeFill {
+    fill: #212529;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .waveFooter
+    {
+        top: -39px;
+    }
+
+    .waveFooter svg {
+        height: 40px;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .waveFooter
+    {
+        top: -29px;
+    }
+
+    .waveFooter svg {
+        width: 160%;
+        height: 30px;
+    }
+}
