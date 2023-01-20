@@ -13,9 +13,9 @@ function Page404() {
                     <img src={img404} alt="Error 404" className="img404"/>
                 </div>
             </div>
-            <div className="row mb-5">
+            <div className="row my-5">
                 <div className="col text-center">
-                    <button className="btn btn-dark pt-2 fs-5" onClick={() => navigator('/')}>
+                    <button className="btn btn-dark pt-2 fs-5 fw-light" onClick={() => navigator('/')}>
                         <span className="me-2"><i className="bi bi-house"></i></span>Back to Home page</button>
                 </div>
             </div>

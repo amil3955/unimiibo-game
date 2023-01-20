@@ -10,6 +10,7 @@ export const colors = [
 ];
 
 export const seriesMapPalette = {
+    "-- unknown --": 'grey',
     "Super Mario": 'red',
     "Donkey Kong": 'orange',
     "The Legend of Zelda": 'green',

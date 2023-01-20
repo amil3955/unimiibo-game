@@ -2,7 +2,7 @@
 {
     --anim-params: all ease-in-out 0.2s;
     --factor-radius: .25;
-    --factor-radius-inner: calc(var(--factor-radius) + .075);
+    --factor-radius-inner: calc(var(--factor-radius) + .05);
     --card-border-radius: calc(22% * var(--factor-radius)) / calc(15% * var(--factor-radius));
     --card-border-radius-inner: calc(22% * var(--factor-radius-inner)) / calc(15% * var(--factor-radius-inner));
 
@@ -108,7 +108,7 @@
 
 .amiiboImg
 {
-    top: 1rem;
+    top: 4%;
     left: 0;
     right: 0;
     margin: auto;
@@ -170,14 +170,14 @@
 .myCardTextPosition .myCardTextWrapper .myCardTextName
 {
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     letter-spacing: .025rem;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextSeries
 {
     font-weight: 300;
-    font-size: .9rem;
+    font-size: .8rem;
     letter-spacing: .1rem;
 }
 
@@ -191,11 +191,11 @@
     font-size: 1.1rem;
 }
 
-@media (min-width: 768px) and (max-width: 992px)
+@media (min-width: 768px) and (max-width: 1200px)
 {
     .myCardTextPosition .myCardTextWrapper .myCardTextName
     {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .myCardTextPosition .myCardTextWrapper .myCardTextSeries
@@ -210,16 +210,16 @@
     .myCardTextPosition .myCardTextWrapper .myCardTextName,
     .myCardTextPosition.big .myCardTextWrapper .myCardTextName
     {
-        font-size: calc(10vw - .5rem);
+        font-size: calc(9vw - .5rem);
     }
     .myCardTextPosition .myCardTextWrapper .myCardTextSeries,
     .myCardTextPosition.big .myCardTextWrapper .myCardTextSeries
     {
-        font-size: calc(7vw - .5rem);
+        font-size: calc(6.5vw - .5rem);
     }
 }
 
-@media (min-width: 386px)
+@media (min-width: 414px)
 {
     .myCardTextPosition.big .myCardTextWrapper .myCardTextName
     {

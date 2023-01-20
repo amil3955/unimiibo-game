@@ -1,0 +1,19 @@
+.navButton
+{
+    --bs-navbar-toggler-focus-width: 0.1rem;
+    --bs-navbar-color: rgba(89, 96, 104, 0.2);
+    padding: .5rem !important;
+}
+
+.navButton span
+ {
+    width: 1.75rem;
+    height: 1.75rem;
+ }
+
+.navButton:focus
+{
+    box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) !important;
+    /*outline: none !important;*/
+    /*box-shadow: none !important;*/
+}

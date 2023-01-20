@@ -37,9 +37,7 @@ async function fetchData(id) {
         const amiiboNameTail = await fetchAmiiboDataByID(id);
         const currentAmiibo = await fetchAmiiboDataByNAME(amiiboNameTail.name, amiiboNameTail.tail);
 
-        return {
-            current: createAmiibo(currentAmiibo, true),
-        }
+        return createAmiibo(currentAmiibo, true);
     } catch (error) {
         return undefined;
     }
@@ -52,13 +50,14 @@ const mapReleaseZone = {
     'na': {name: 'North America', flag: NAFlag}
 }
 
+const gameConsoles = ['gamesSwitch', 'gamesWiiU', 'games3DS'];
+
 const mapGameConsoles = {
     'games3DS': 'Games for Nintendo 3DS platform',
     'gamesWiiU': 'Games for Nintendo WiiU platform',
     'gamesSwitch': 'Games for Nintendo Switch platform'
 }
 
-const gameConsoles = ['gamesSwitch', 'gamesWiiU', 'games3DS'];
 
 function getReadWriteIcon(write) {
     return write ? ReadWriteIcon : ReadOnlyIcon;
@@ -79,15 +78,14 @@ function AmiiboDetails() {
     const [currentAmiibo, setCurrentAmiibo] = useState(null);
 
     useEffect(() => {
-        (async () => {
-            const amiibos = await fetchData(params.id, setCurrentAmiibo);
-
-            if (amiibos) {
-                setCurrentAmiibo(amiibos.current);
-            } else {
-                navigator('/not-found');
-            }
-        })();
+        fetchData(params.id, setCurrentAmiibo)
+            .then(fetchedAmiibo => {
+                if (fetchedAmiibo) {
+                    setCurrentAmiibo(fetchedAmiibo);
+                } else {
+                    navigator('/not-found');
+                }
+            });
     }, [navigator, params.id])
 
     return (
@@ -97,13 +95,7 @@ function AmiiboDetails() {
                     (
                         <div className="container">
 
-                            <div className="row mt-4 mb-2 mb-lg-3 pt-0 pt-md-3">
-                                <div className="col ps-3 ms-1 ps-md-0 ms-md-0">
-                                    <p className="h1 fw-bold text-center">Amiibo "{currentAmiibo.name}"</p>
-                                </div>
-                            </div>
-
-                            <div className="row mt-3 mt-md-4">
+                            <div className="row mt-5">
                                 <div className="col-12 d-flex justify-content-center px-4">
                                     <div className="cardWrapper">
                                         <AmiiboCard amiibo={currentAmiibo} fixedSize={true} reactive={false}/>
@@ -113,8 +105,8 @@ function AmiiboDetails() {
 
                             <div className="row mt-3 mt-md-4 text-center">
                                 <div className="col-12 col-md-6 mt-5">
-                                    <p className="h3 fw-bold mb-3">
-                                        Amiibo details:
+                                    <p className="h3 fw-bold mb-3 d-inline-flex">
+                                        <i className="bi bi-search me-2"></i>Amiibo details:
                                     </p>
                                     <div className="mt-3 mt-md-0">
                                         <p className="fs-6 mb-1 pb-1">
@@ -138,8 +130,8 @@ function AmiiboDetails() {
                                     </div>
                                 </div>
                                 <div className="col-12 col-md-6 mt-5">
-                                    <p className="h3 fw-bold mb-3">
-                                        Release dates:
+                                    <p className="h3 fw-bold mb-3 d-inline-flex">
+                                        <i className="bi bi-flag me-2"></i>Release dates:
                                     </p>
                                     {
                                         Object.keys(currentAmiibo.release).map((releaseZone) => (
@@ -148,10 +140,11 @@ function AmiiboDetails() {
                                                 <img
                                                     src={mapReleaseZone[releaseZone].flag}
                                                     className="imgFlag"
-                                                    alt={releaseZone + " tag"}/>
+                                                    alt={releaseZone + " flag"}/>
                                                 <span className="ms-2">
                                                     {mapReleaseZone[releaseZone].name}:
-                                                    <span className="text-secondary text-opacity-75"> {formatDate(currentAmiibo.release[releaseZone])}</span>
+                                                    <span
+                                                        className="text-secondary text-opacity-75"> {formatDate(currentAmiibo.release[releaseZone])}</span>
                                                 </span>
                                             </p>
                                         ))
@@ -161,7 +154,7 @@ function AmiiboDetails() {
 
                             <div className="row mt-5 text-center">
                                 <div className="col-12">
-                                    <p className="h3 fw-bold">Amiibo games usage:</p>
+                                    <p className="h3 fw-bold d-inline-flex"><i className="bi bi-controller me-2"></i>Amiibo games usage:</p>
                                 </div>
                             </div>
 
@@ -179,28 +172,36 @@ function AmiiboDetails() {
                                                     :
                                                     <ul>
                                                         {
-                                                            currentAmiibo[gameConsole].map((game, idx) => (
-                                                                <li key={idx} className="mb-4">
-                                                                    <p className="mb-2">
-                                                                        <a href={nintendoShopUrl(game.gameName)}
-                                                                           target="_blank" rel="noopener noreferrer">
-                                                                            {game.gameName}
-                                                                        </a>
-                                                                    </p>
-                                                                    <p className="mb-1 pb-1">
-                                                                        <span>Usage: </span><span
-                                                                        className="text-secondary text-opacity-75">{game.amiiboUsage[0].Usage}</span>
-                                                                    </p>
-                                                                    <p className="d-flex mt-1 align-content-center">
-                                                                        <span className="me-2">Read/Write:</span>
-                                                                        <img
-                                                                            src={getReadWriteIcon(game.amiiboUsage[0].write)}
-                                                                            alt={game.amiiboUsage[0].write ? 'Lettura/Scrittura' : 'Scrittura'}
-                                                                            className="imgReadWrite"
-                                                                        />
-                                                                    </p>
-                                                                </li>
-                                                            ))
+                                                            currentAmiibo[gameConsole].map((game, idx) => {
+                                                                const {gameName, amiiboUsage} = game;
+                                                                const write = amiiboUsage[0].write;
+                                                                const usage = amiiboUsage[0].Usage;
+
+                                                                return (
+                                                                    <li key={idx} className="mb-4">
+                                                                        <p className="mb-2">
+                                                                            <a href={nintendoShopUrl(gameName)}
+                                                                               target="_blank"
+                                                                               rel="noopener noreferrer">
+                                                                                {gameName}
+                                                                            </a>
+                                                                        </p>
+                                                                        <p className="mb-1 pb-1">
+                                                                            <span>Usage: </span><span
+                                                                            className="text-secondary text-opacity-75">{usage}</span>
+                                                                        </p>
+                                                                        <p className="d-flex mt-1 align-content-center">
+                                                                            <span className="me-2">Read/Write:</span>
+                                                                            <img
+                                                                                title={write ? 'Lettura/Scrittura' : 'Scrittura'}
+                                                                                src={getReadWriteIcon(write)}
+                                                                                alt={write ? 'Lettura/Scrittura' : 'Scrittura'}
+                                                                                className="imgReadWrite"
+                                                                            />
+                                                                        </p>
+                                                                    </li>
+                                                                )
+                                                            })
                                                         }
                                                     </ul>
                                             }

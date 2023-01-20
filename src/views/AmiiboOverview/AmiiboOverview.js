@@ -82,11 +82,11 @@ function AmiiboOverview() {
                 <div className="col d-flex justify-content-center">
                     <div className="btn-group px-3 px-md-0" role="group" aria-label="Grid vs. List">
                         <button type="button"
-                                className={`pt-2 btn ${displayGrid ? 'btn-dark' : 'btn-outline-dark'}`}
+                                className={`pt-2 pb-1 btn ${displayGrid ? 'btn-dark' : 'btn-outline-dark fw-normal'}`}
                                 onClick={() => setDisplayGrid(true)}
-                        ><span className="me-2"><i className="bi bi-grid-3x2-gap-fill"></i></span>Grid</button>
+                        ><span className="me-2"><i className="bi bi-person-badge"></i></span>Card</button>
                         <button type="button"
-                                className={`pt-2 btn ${!displayGrid ? 'btn-dark' : 'btn-outline-dark'}`}
+                                className={`pt-2 pb-1 btn ${!displayGrid ? 'btn-dark' : 'btn-outline-dark fw-normal'}`}
                                 onClick={() => setDisplayGrid(false)}
                         ><span className="me-2"><i className="bi bi-list-ul"></i></span>List</button>
                     </div>

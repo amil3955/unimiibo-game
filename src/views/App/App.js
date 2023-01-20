@@ -21,7 +21,7 @@ function App() {
         {
             name: "Amiibo",
             link: "/amiibo",
-            icon: "bi-file-person",
+            icon: "bi-joystick",
             show: true,
             jsx: <AmiiboOverview/>
         },
@@ -34,7 +34,7 @@ function App() {
         {
             name: "About",
             link: "/about",
-            icon: "bi-info-square",
+            icon: "bi-patch-question",
             show: true,
             jsx: <About/>
         },

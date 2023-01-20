@@ -29,7 +29,7 @@
     --purple-gradient: linear-gradient(var(--gradient-rotation), var(--dark-purple) 0%, var(--light-purple) 100%);
     --grey-gradient: linear-gradient(var(--gradient-rotation), var(--dark-grey) 0%, var(--light-grey) 100%);
 
-    --border-size: 0.15rem;
+    --border-size: 0.1rem;
 }
 
 .pink
