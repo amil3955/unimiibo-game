@@ -34,14 +34,31 @@ function stringComparator(str1, str2)
     return str1.localeCompare(str2);
 }
 
-function compareAmiibo(a1, a2, {sortOrder, sortComparator})
+function countComparator(str1, str2, collection, key)
+{
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+
+    if(str1 === str2)
+        return 0;
+
+    const tot1 = collection.filter(amiibo => amiibo[key].toLowerCase() === str1).length;
+    const tot2 = collection.filter(amiibo => amiibo[key].toLowerCase() === str2).length;
+
+    if(tot1 === tot2)
+        return -str1.localeCompare(str2);
+
+    return tot1-tot2;
+}
+
+function compareAmiibo(amiibos, a1, a2, {sortOrder, sortComparator})
 {
     for(let sortRule of sortOrder)
     {
         const {key, orderASC} = sortRule;
 
         let comparison = sortComparator[key] ?
-            sortComparator[key](a1[key], a2[key]) :
+            sortComparator[key](a1[key], a2[key], amiibos, key) :
             a1[key] - a2[key];
 
         if(comparison !== 0)
@@ -58,18 +75,18 @@ function AmiiboOverview() {
         fetch("https://www.amiiboapi.com/api/amiibo/?type=Figure")
             .then(response => response.json())
             .then(data => data['amiibo'].map(amiibo => createAmiibo(amiibo, false)))
-            .then(data => data.sort((a1,a2) => compareAmiibo(a1,a2,{
+            .then(data => data.sort((a1,a2) => compareAmiibo(data, a1,a2,{
                 sortOrder: [
                     { key: 'series', orderASC: false },
-                    { key: 'character', orderASC: true },
+                    { key: 'character', orderASC: false },
                     { key: 'name', orderASC: true },
                     { key: 'release', orderASC: true },
                 ],
                 sortComparator: {
-                    release: dateComparator,
-                    series: stringComparator,
-                    character: stringComparator,
+                    series: countComparator,
+                    character: countComparator,
                     name: stringComparator,
+                    release: dateComparator,
                 }
             })))
             .then(data => setAmiibos(data));

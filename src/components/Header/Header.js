@@ -1,12 +1,20 @@
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useLocation} from "react-router-dom";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Container} from "react-bootstrap";
 import CompactLogo from '../../assets/LogoUnimiibo/unimiibo_logo_compact.png';
 import FullLogo from '../../assets/LogoUnimiibo/unimiibo_logo_small.png';
 import style from './Header.module.css';
+import {useEffect} from "react";
 
 function Header({navLinks}) {
+
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <div>
             <Navbar collapseOnSelect expand="md">
@@ -17,7 +25,7 @@ function Header({navLinks}) {
                     <Link className="navbar-brand d-md-none" to="/">
                         <img src={CompactLogo} alt="Icon logo Unimiibo" height="50"/>
                     </Link>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" className={style.navButton}/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mt-3 mt-md-0">
                             {navLinks.map((navLink, idx) => (

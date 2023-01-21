@@ -15,7 +15,7 @@
     aspect-ratio: 15 / 22;
     transition: var(--anim-params);
     background-image: url('../../assets/LogoUnimiibo/unimiibo_logo_bg.png');
-    image-resolution: 300dpi;
+    image-rendering: optimizeQuality;
     background-size: 25%;
     background-repeat: repeat;
     background-position: center;
