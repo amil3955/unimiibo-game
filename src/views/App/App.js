@@ -14,14 +14,20 @@ function App() {
         {
             name: "Home",
             link: "/",
-            icon: "bi-house",
+            icon: {
+                active: "bi-house-fill",
+                noActive: "bi-house",
+            },
             show: true,
             jsx: <Home/>
         },
         {
             name: "Amiibo",
             link: "/amiibo",
-            icon: "bi-joystick",
+            icon: {
+                active: "bi-joystick",
+                noActive: "bi-joystick",
+            },
             show: true,
             jsx: <AmiiboOverview/>
         },
@@ -34,7 +40,10 @@ function App() {
         {
             name: "About",
             link: "/about",
-            icon: "bi-patch-question",
+            icon: {
+                active: "bi-patch-question-fill",
+                noActive: "bi-patch-question",
+            },
             show: true,
             jsx: <About/>
         },

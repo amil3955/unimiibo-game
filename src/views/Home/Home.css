@@ -3,7 +3,7 @@
     width: 100%;
     padding-top: 1rem;
     object-position: top;
-    transition: opacity 3s ease-in-out;
+    transition: opacity 2s ease-in-out;
     animation: translateX 20s ease-in-out infinite;
     animation-direction: alternate;
     z-index: -1;
