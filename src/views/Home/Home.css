@@ -1,36 +1,55 @@
-.imgAmiibos
-{
+.imgAmiibos {
     object-fit: cover;
     width: 100%;
+    padding-top: 1rem;
     object-position: top;
-    transition: opacity 1.5s ease-out;
+    transition: opacity 3s ease-in-out;
+    animation: translateX 20s ease-in-out infinite;
+    animation-direction: alternate;
     z-index: -1;
+    scale: 1.1;
 }
 
-.imgAmiibosWrapper
-{
-    height: 35vh;
+@keyframes translateX {
+
+    0% {
+        transform: translate(2.5vw);
+    }
+    50% {
+        transform: translate(-2.5vw);
+    }
+
+    100% {
+        transform: translate(2.5vw);
+    }
 }
 
-@media (min-width: 768px)
-{
-    .imgAmiibosWrapper
-    {
+.imgAmiibosWrapper {
+    height: 40vh;
+    overflow: hidden;
+}
+
+.imgLoading {
+    scale: 1;
+}
+
+@media (min-width: 768px) {
+    .imgAmiibosWrapper {
+        height: 50vw;
+    }
+
+    .imgAmiibos {
+        animation-duration: 30s;
+    }
+}
+
+@media (min-width: 992px) {
+    .imgAmiibosWrapper {
         height: 40vw;
     }
 }
 
-@media (min-width: 992px)
-{
-    .imgAmiibosWrapper
-    {
-        height: 35vw;
-    }
-}
-
-
-.imgUnimiibo
-{
+.imgUnimiibo {
     object-fit: contain;
     object-position: center;
     width: 100%;
@@ -38,17 +57,17 @@
     padding: .5rem .5rem;
 }
 
-.imgGames
-{
+.imgGames {
     object-fit: cover;
     object-position: center;
 }
 
+.spacing {
+    letter-spacing: .15rem;
+}
 
 .wave-unimiibo {
-
-    --wave-height: 50px;
-
+    --wave-height: 100px;
     position: absolute;
     left: 0;
     right: 0;
@@ -57,39 +76,35 @@
     line-height: 0;
 }
 
-.wave-unimiibo.top-wave
-{
+.wave-unimiibo.top-wave {
     top: calc(-1 * var(--wave-height) + 1px);
 }
 
-.wave-unimiibo.bottom-wave
-{
+.wave-unimiibo.bottom-wave {
     bottom: -1px;
 }
 
 .wave-unimiibo svg {
-    transform: rotate(180deg);
     position: relative;
     display: block;
     height: var(--wave-height);
 }
 
 .top-wave svg {
+    width: 120%;
+}
+
+.bottom-wave svg {
+    transform: scaleX(-1);
     width: 100%;
 }
 
-.bottom-wave svg
-{
-    transform: rotate(180deg) scaleX(-1);
-    width: 100%;
-}
-
-.top-wave .shapeFill {
+.top-wave .shape-fill {
     fill: rgb(var(--bs-dark-rgb));
 }
 
-.bottom-wave .shapeFill {
-    fill: #FFFFFF;
+.bottom-wave .shape-fill {
+    fill: white;
 }
 
 @media (min-width: 1023px) and (max-width: 1400px) {
@@ -106,6 +121,10 @@
 
 @media (max-width: 767px) {
     .wave-unimiibo {
-        --wave-height: 20px;
+        --wave-height: 15px;
     }
 }
+
+/*.wave-unimiibo {*/
+/*    --wave-height: 0;*/
+/*}*/

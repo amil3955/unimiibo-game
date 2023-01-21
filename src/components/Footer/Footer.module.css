@@ -1,20 +1,17 @@
-.myFooter
-{
+.myFooter {
     margin-top: 60px;
 }
 
-.footerImgs
-{
+.footerImgs {
     margin: 0 .5rem;
 }
 
-.footerImgs img
- {
-     --size: 50px;
-     width: var(--size);
-     height: var(--size);
-     background-color: white;
- }
+.footerImgs img {
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+    background-color: white;
+}
 
 .waveFooter {
     position: absolute;
@@ -39,8 +36,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .waveFooter
-    {
+    .waveFooter {
         top: -39px;
     }
 
@@ -49,10 +45,8 @@
     }
 }
 
-@media (max-width: 767px)
-{
-    .waveFooter
-    {
+@media (max-width: 767px) {
+    .waveFooter {
         top: -29px;
     }
 

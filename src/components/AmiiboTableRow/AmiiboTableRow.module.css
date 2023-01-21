@@ -1,12 +1,10 @@
-.imgWrapper
-{
+.imgWrapper {
     padding: 1rem !important;
     display: flex;
     justify-content: center;
 }
 
-.imgWrapper .imgWrapperBg
-{
+.imgWrapper .imgWrapperBg {
     background-image: url('../../assets/LogoUnimiibo/unimiibo_logo_bg.png');
     background-repeat: repeat;
     background-size: 2.5rem;
@@ -20,28 +18,23 @@
     border-radius: 14%;
 }
 
-.borderRadius
-{
+.borderRadius {
     border-radius: 10%;
 }
 
-tbody > tr
-{
+tbody > tr {
     cursor: pointer;
 }
 
-tr:hover > .imgWrapper > .imgWrapperBg
-{
+tr:hover > .imgWrapper > .imgWrapperBg {
     scale: 1.15;
 }
 
-tr:hover > td
-{
+tr:hover > td {
     --bs-table-accent-bg: rgba(223, 228, 230, 0.32);
 }
 
-.imgWrapper .imgWrapperBg .imgAmiibo
-{
+.imgWrapper .imgWrapperBg .imgAmiibo {
     height: 5rem;
     width: 5rem;
     object-fit: contain;
@@ -50,14 +43,12 @@ tr:hover > td
     transition: all .25s ease-in-out;
 }
 
-tr:hover > .imgWrapper > .imgWrapperBg > .imgAmiibo
-{
+tr:hover > .imgWrapper > .imgWrapperBg > .imgAmiibo {
     scale: 1.5;
     transform: translate(0, -.5rem);
 }
 
-.loadingSpinner
-{
+.loadingSpinner {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -67,7 +58,6 @@ tr:hover > .imgWrapper > .imgWrapperBg > .imgAmiibo
     justify-content: center;
 }
 
-.textAmiiboName
-{
+.textAmiiboName {
     font-weight: 300;
 }

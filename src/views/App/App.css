@@ -1,5 +1,4 @@
-:root
-{
+:root {
     --dark-pink: rgb(181, 54, 107);
     --dark-red: rgb(172, 11, 11);
     --dark-orange: rgb(206, 93, 17);
@@ -32,127 +31,103 @@
     --border-size: 0.1rem;
 }
 
-.pink
-{
+.pink {
     color: var(--light-pink);
 }
 
-.red
-{
+.red {
     color: var(--light-red);
 }
 
-.orange
-{
+.orange {
     color: var(--light-orange);
 }
 
-.yellow
-{
+.yellow {
     color: var(--light-yellow);
 }
 
-.green
-{
+.green {
     color: var(--light-green);
 }
 
-.blue
-{
+.blue {
     color: var(--light-blue);
 }
 
-.purple
-{
+.purple {
     color: var(--light-purple);
 }
 
-.grey
-{
+.grey {
     color: var(--light-grey);
 }
 
 /*------------------ BORDER --------------------*/
 
-.pink.my-border
-{
+.pink.my-border {
     border: var(--border-size) solid var(--light-pink);
 }
 
-.red.my-border
-{
+.red.my-border {
     border: var(--border-size) solid var(--light-red);
 }
 
-.orange.my-border
-{
+.orange.my-border {
     border: var(--border-size) solid var(--light-orange);
 }
 
-.yellow.my-border
-{
+.yellow.my-border {
     border: var(--border-size) solid var(--light-yellow);
 }
 
-.green.my-border
-{
+.green.my-border {
     border: var(--border-size) solid var(--light-green);
 }
 
-.blue.my-border
-{
+.blue.my-border {
     border: var(--border-size) solid var(--light-blue);
 }
 
-.purple.my-border
-{
+.purple.my-border {
     border: var(--border-size) solid var(--light-purple);
 }
 
-.grey.my-border
-{
+.grey.my-border {
     border: var(--border-size) solid var(--light-grey);
 }
 
 /*------------------ HUE VARIANCE --------------------*/
 
-.pink.hue-variance
-{
+.pink.hue-variance {
     backdrop-filter: hue-rotate(130deg);
 }
 
-.red.hue-variance
-{
+.red.hue-variance {
     backdrop-filter: hue-rotate(145deg);
 }
 
-.orange.hue-variance
-{
+.orange.hue-variance {
     backdrop-filter: hue-rotate(190deg);
 }
 
-.yellow.hue-variance
-{
+.yellow.hue-variance {
     backdrop-filter: hue-rotate(215deg);
 }
 
-.green.hue-variance
-{
+.green.hue-variance {
     backdrop-filter: hue-rotate(300deg);
 }
 
-.blue.hue-variance
-{
+.blue.hue-variance {
     backdrop-filter: hue-rotate(10deg);
 }
 
-.purple.hue-variance
-{
+.purple.hue-variance {
     backdrop-filter: hue-rotate(60deg);
 }
 
-.grey.hue-variance
-{
+.grey.hue-variance {
     backdrop-filter: grayscale(1);
 }
 
