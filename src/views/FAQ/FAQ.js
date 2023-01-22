@@ -1,4 +1,6 @@
-import './About.css'
+import './FAQ.css'
+import FaqPortrait from '../../assets/Background/faq-portrait.jpg';
+import FaqLanding from '../../assets/Background/faq-landing.jpg';
 
 const questions = [
     {
@@ -67,7 +69,8 @@ const questions = [
                     className="emphasize">additional content</span>. For example, the Mario amiibo figure will give you
                 a special racing suit for your Mii™ character when used with the Mario Kart 8 Deluxe game.</p>
             <p className="section-question">Read/Write compatible, on the other hand, means that you can get <span
-                className="emphasize">additional content <span className="fw-bold">and</span> save certain game data</span> to the amiibo. For example,
+                className="emphasize">additional content <span
+                className="fw-bold">and</span> save certain game data</span> to the amiibo. For example,
                 you can customize your character and then save it to your Mario amiibo in Super Smash Bros. Ultimate.
             </p>
             <p className="section-question">One amiibo can hold save data for <span className="emphasize">one game at a time</span>.
@@ -105,47 +108,72 @@ const questionsSet = [
     questions.filter((q, i) => i % 2 !== 0),
 ]
 
-function About() {
+function FAQ() {
     return (
-        <div className="container">
-            <div className="row pt-4">
-                <div className="col py-3">
-                    <p className="h2 text-center text-uppercase fw-light">Frequently Asked Questions</p>
+        <>
+            {/*<div className="container">*/}
+            {/*    <div className="row py-5">*/}
+            {/*        <div className="col">*/}
+            {/*            <p className="h2 text-center text-uppercase fw-light faq-text">Frequently Asked Questions</p>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div className="d-md-none img-wrapper mt-3">
+                <img className="mario-question-img" src={FaqPortrait} alt="Mario Question Portrait"/>
+            </div>
+
+            <div className="d-md-block d-none img-wrapper img-landing-wrapper mt-5">
+                <img className="mario-question-img" src={FaqLanding} alt="Mario Question Landscape"/>
+            </div>
+
+            <div className="container">
+                <div className="row mt-5 gx-md-3 gx-xl-5 mb-3 mb-md-5">
+                    {
+                        questionsSet.map((qColumns, iClass) => (
+                            <div className={`col-12 col-md-6 ps-0 questions-column-${iClass}`} key={iClass}>
+                                {
+                                    qColumns.map(({question, answerJSX}, idx) => (
+                                        <div className="question-wrapper" key={idx}>
+                                            <div className="question-graphics">
+                                                <div className="question-icon">
+                                                    {/*<span className="d-md-none">*/}
+                                                    {/*    <i className={`bi bi-${(idx + iClass) * 2 + 1}-square-fill`}></i>*/}
+                                                    {/*</span>*/}
+                                                    {/*<span className="d-md-block d-none">*/}
+                                                    {/*    <i className={`bi bi-${(idx + 1) + 4 * (iClass)}-square-fill`}></i>*/}
+                                                    {/*</span>*/}
+
+                                                    <i className="bi bi-question-square-fill"></i>
+                                                </div>
+                                                <div className="question-line"></div>
+                                            </div>
+                                            <div className="question-texts ps-2 pe-3 pe-md-2 pe-xl-0 text">
+                                                <div className="question fs-6 fw-bold">
+
+                                                    <span className="d-md-none">
+                                                        {'[' + ((idx + 1) + 4 * (iClass)) + '] '}
+                                                    </span>
+                                                    <span className="d-md-inline d-none">
+                                                        {'[' + ((idx) * 2 + iClass + 1) + '] '}
+                                                    </span>
+                                                    {question}
+                                                </div>
+                                                <div className="answer text-dark fw-light">
+                                                    {answerJSX}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
-            <div className="row gx-md-3 gx-xl-5 mb-3 mb-md-5">
-                {
-                    questionsSet.map((qColumns, iClass) => (
-                        <div className={`col-12 col-md-6 ps-0 questions-column-${iClass}`} key={iClass}>
-                            {
-                                qColumns.map(({question, answerJSX}, idx) => (
-                                    <div className="question-wrapper" key={idx}>
-                                        <div className="question-graphics">
-                                            <div className="question-icon">
-                                                <i className="bi bi-patch-question-fill"></i>
-                                            </div>
-                                            <div className="question-line"></div>
-                                        </div>
-                                        <div className="question-texts ps-2 pe-3 pe-md-2 pe-xl-0 text">
-                                            <div className="question fs-6 fw-bold">
-                                                {question}
-                                            </div>
-                                            <div className="answer text-dark fw-light">
-                                                {answerJSX}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    ))
-                }
 
-            </div>
-
-
-        </div>
+        </>
     );
 }
 
-export default About;
+export default FAQ;

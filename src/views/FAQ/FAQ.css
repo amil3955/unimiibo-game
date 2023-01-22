@@ -110,17 +110,100 @@
 .question-texts {
     flex-grow: 1;
     flex-shrink: 1;
-    width: 100%;
+    width: 100%;text-align: justify;
 }
 
 .question-texts .question {
     font-family: 'Acme', sans-serif;
     letter-spacing: .1rem;
-    padding-top: .65rem;
+    padding-top: .55rem;
     padding-bottom: 1rem;
     color: var(--color);
 }
 
 .question-texts .answer {
     padding-bottom: 2rem;
+}
+
+.landing-wrapper
+{
+    position: relative;
+    justify-content: space-between;
+    height: 40rem;
+    overflow: hidden;
+}
+
+.landing-box
+{
+    position: absolute;
+    object-fit: contain;
+    object-position: left top;
+    left: 0;
+    width: 100%;
+    max-width: 30rem;
+    height: 50%;
+}
+
+.landing-mario
+{
+    position: absolute;
+    object-fit: contain;
+    object-position: right bottom;
+    right: 0;
+    width: 100%;
+    max-width: 50rem;
+    height: 100%;
+}
+
+@media (max-width: 776px)
+{
+    .landing-box
+    {
+        object-fit: contain;
+        object-position: bottom;
+        right: 0;
+        margin: 0 auto;
+        height: 50%;
+    }
+
+    .landing-mario
+    {
+        object-position: top;
+        left: 0;
+        bottom: 0;
+        margin: 50% auto 0;
+        height: 50%;
+    }
+}
+
+.landing-text
+{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+
+.faq-text
+{
+    font-family: 'Acme', sans-serif;
+    letter-spacing: .1rem;
+}
+
+.img-wrapper
+{
+    width: 100%;
+    height: min(30rem, 90vw);
+}
+
+.img-landing-wrapper
+{
+    height: min(22.5rem, 40vw);
+}
+
+.mario-question-img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
 }

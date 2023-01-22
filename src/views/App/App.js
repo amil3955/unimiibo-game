@@ -3,7 +3,7 @@ import {HashRouter, Route, Routes} from "react-router-dom";
 import Home from "../Home/Home";
 import AmiiboOverview from "../AmiiboOverview/AmiiboOverview";
 import AmiiboDetails from "../AmiiboDetails/AmiiboDetails";
-import About from "../About/About"
+import FAQ from "../FAQ/FAQ"
 import Page404 from "../Page404/Page404";
 import MainTemplate from "../../components/MainTemplate/MainTemplate";
 import './App.css'
@@ -45,7 +45,7 @@ function App() {
                 noActive: "bi-patch-question",
             },
             show: true,
-            jsx: <About/>
+            jsx: <FAQ/>
         },
         {
             name: "*",

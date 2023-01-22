@@ -5,7 +5,8 @@
     --card-border-radius: calc(22% * var(--factor-radius)) / calc(15% * var(--factor-radius));
     --card-border-radius-inner: calc(22% * var(--factor-radius-inner)) / calc(15% * var(--factor-radius-inner));
 
-    --saturate-val: 1;
+    --font-size: 1.5rem;
+    --font-size-small: 0.6em;
 }
 
 .myCard {
@@ -133,67 +134,59 @@
 }
 
 .myCardTextPosition .myCardTextWrapper {
-    font-family: 'Acme', sans-serif;
-    font-size-adjust: .105;
+    font-size-adjust: .52;
     color: white;
     text-align: center;
     width: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.myCardTextPosition.big .myCardTextWrapper {
-    font-size-adjust: .108;
+    justify-content: center;
+    font-size: var(--font-size);
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextName {
-    font-size: 1.5rem;
-    letter-spacing: .15rem;
+    font-family: 'Stick No Bills', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: .05rem;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextSeries {
-    font-size: .8rem;
-    letter-spacing: .1rem;
+    font-size: var(--font-size-small);
 }
 
-.myCardTextPosition.big .myCardTextWrapper .myCardTextName {
-    font-size: 1.8rem;
-}
-
-.myCardTextPosition.big .myCardTextWrapper .myCardTextSeries {
-    font-size: 1.1rem;
-}
-
-@media (min-width: 767px) and (max-width: 1200px) {
-    .myCardTextPosition .myCardTextWrapper .myCardTextName {
-        font-size: 1.1rem;
-    }
-
-    .myCardTextPosition .myCardTextWrapper .myCardTextSeries {
-        font-size: .7rem;
+@media (1200px <= width <= 1399.7px) {
+    .myCardTextPosition .myCardTextWrapper {
+        --font-size: 1.247rem;
     }
 }
 
+@media (767px <= width <= 1199.7px) {
+    .myCardTextPosition .myCardTextWrapper {
+        --font-size: 1rem;
+    }
+}
+
+@media (575px <= width <= 766.7px) {
+    .myCardTextPosition .myCardTextWrapper {
+        --font-size: 1.3rem;
+    }
+}
 
 @media (max-width: 575px) {
-    .myCardTextPosition .myCardTextWrapper .myCardTextName,
-    .myCardTextPosition.big .myCardTextWrapper .myCardTextName {
-        font-size: calc(9vw - .5rem);
-    }
-
-    .myCardTextPosition .myCardTextWrapper .myCardTextSeries,
-    .myCardTextPosition.big .myCardTextWrapper .myCardTextSeries {
-        font-size: calc(6.5vw - .5rem);
+    .myCardTextPosition .myCardTextWrapper {
+        --font-size: calc(10.75vw - .75rem);
     }
 }
 
-@media (min-width: 414px) {
-    .myCardTextPosition.big .myCardTextWrapper .myCardTextName {
-        font-size: 1.4rem;
-    }
+.myCardTextPosition.big .myCardTextWrapper {
+    --font-size: 1.45rem;
+    font-size-adjust: .51;
+}
 
-    .myCardTextPosition.big .myCardTextWrapper .myCardTextSeries {
-        font-size: .85rem;
+@media (max-width: 324px) {
+    .myCardTextPosition.big .myCardTextWrapper {
+        --font-size: calc(10.75vw - .75rem);
     }
 }
+

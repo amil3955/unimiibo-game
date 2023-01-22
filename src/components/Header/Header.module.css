@@ -14,10 +14,9 @@
 }
 
 .navLink {
-    --transition-duration: .15s;
+    --transition-duration: .2s;
     position: relative;
     color: rgba(var(--bs-dark-rgb), 0.65);
-    transition: all var(--transition-duration) linear;
 }
 
 .navLink:hover {
@@ -39,10 +38,7 @@
     background-color: rgba(var(--bs-dark-rgb), 0.05);
 }
 
-.navLinkActive {
-    color: white;
-}
-
+.navLinkActive,
 .navLinkActive:hover {
     color: white;
 }

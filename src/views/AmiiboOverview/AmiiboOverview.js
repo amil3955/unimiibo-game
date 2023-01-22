@@ -64,6 +64,8 @@ function compareAmiibo(amiibos, a1, a2, {sortOrder, sortComparator})
         if(comparison !== 0)
             return orderASC ? comparison : -comparison;
     }
+
+    return 0;
 }
 
 function AmiiboOverview() {
@@ -79,8 +81,8 @@ function AmiiboOverview() {
                 sortOrder: [
                     { key: 'series', orderASC: false },
                     { key: 'character', orderASC: false },
-                    { key: 'name', orderASC: true },
                     { key: 'release', orderASC: true },
+                    { key: 'name', orderASC: true },
                 ],
                 sortComparator: {
                     series: countComparator,

@@ -40,8 +40,8 @@ function AmiiboCard({amiibo, reactive = true, fixedSize = false}) {
             />
             <div className={`${style.myCardTextPosition} ${fixedSize ? style.big : ''}`}>
                 <div className={`${style.myCardTextWrapper}`}>
+                    <div className={`${style.myCardTextSeries} text-truncate opacity-75`}>{series}</div>
                     <div className={`${style.myCardTextName} text-truncate`}>{name}</div>
-                    <div className={`${style.myCardTextSeries} text-truncate`}>{series}</div>
                 </div>
             </div>
         </>
