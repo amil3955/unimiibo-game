@@ -62,8 +62,9 @@
     object-position: center;
 }
 
-.spacing {
-    letter-spacing: .15rem;
+.font-acme {
+    font-family: 'Acme', sans-serif;
+    letter-spacing: .3rem;
 }
 
 .wave-unimiibo {

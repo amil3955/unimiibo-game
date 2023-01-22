@@ -88,8 +88,8 @@ function Home() {
                     </div>
                     <div className="row my-md-3">
                         <div className="col-12 text-center text-light h3">
-                            <p className="fw-normal">A fun and original way to interact with your favorite characters and games</p>
-                            <p className='h1 mt-5 mb-4 py-5 lh-base fw-light text-uppercase'>Connect, Touch and Collect!</p>
+                            <p className="fw-light pt-3 pt-md-0">A fun and original way to interact with your favorite characters and games</p>
+                            <p className='h1 mt-5 mb-4 py-5 lh-base text-uppercase font-acme'>Connect, Touch and Collect!</p>
                         </div>
                     </div>
                 </div>

@@ -100,11 +100,11 @@
 /*------------------ HUE VARIANCE --------------------*/
 
 .pink.hue-variance {
-    backdrop-filter: hue-rotate(130deg);
+    backdrop-filter: hue-rotate(120deg);
 }
 
 .red.hue-variance {
-    backdrop-filter: hue-rotate(145deg);
+    backdrop-filter: hue-rotate(140deg);
 }
 
 .orange.hue-variance {
@@ -124,7 +124,7 @@
 }
 
 .purple.hue-variance {
-    backdrop-filter: hue-rotate(60deg);
+    backdrop-filter: hue-rotate(70deg);
 }
 
 .grey.hue-variance {

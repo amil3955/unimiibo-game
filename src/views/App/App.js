@@ -38,7 +38,7 @@ function App() {
             jsx: <AmiiboDetails/>
         },
         {
-            name: "About",
+            name: "F.A.Q.",
             link: "/about",
             icon: {
                 active: "bi-patch-question-fill",

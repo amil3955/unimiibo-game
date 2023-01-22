@@ -133,8 +133,8 @@
 }
 
 .myCardTextPosition .myCardTextWrapper {
-    font-family: 'Rowdies', cursive;
-    font-size-adjust: .6;
+    font-family: 'Acme', sans-serif;
+    font-size-adjust: .105;
     color: white;
     text-align: center;
     width: 90%;
@@ -144,17 +144,15 @@
 }
 
 .myCardTextPosition.big .myCardTextWrapper {
-    font-size-adjust: .45;
+    font-size-adjust: .108;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextName {
-    font-weight: 300;
-    font-size: 1.3rem;
-    letter-spacing: .025rem;
+    font-size: 1.5rem;
+    letter-spacing: .15rem;
 }
 
 .myCardTextPosition .myCardTextWrapper .myCardTextSeries {
-    font-weight: 300;
     font-size: .8rem;
     letter-spacing: .1rem;
 }
@@ -167,7 +165,7 @@
     font-size: 1.1rem;
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 767px) and (max-width: 1200px) {
     .myCardTextPosition .myCardTextWrapper .myCardTextName {
         font-size: 1.1rem;
     }
@@ -178,7 +176,7 @@
 }
 
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
     .myCardTextPosition .myCardTextWrapper .myCardTextName,
     .myCardTextPosition.big .myCardTextWrapper .myCardTextName {
         font-size: calc(9vw - .5rem);
