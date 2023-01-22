@@ -1,6 +1,7 @@
 import './FAQ.css'
 import FaqPortrait from '../../assets/Background/faq-portrait.jpg';
 import FaqLanding from '../../assets/Background/faq-landing.jpg';
+import UnimiiboLoading from "../../components/UnimiiboLoading/UnimiiboLoading";
 
 const questions = [
     {
@@ -111,24 +112,32 @@ const questionsSet = [
 function FAQ() {
     return (
         <>
-            {/*<div className="container">*/}
-            {/*    <div className="row py-5">*/}
-            {/*        <div className="col">*/}
-            {/*            <p className="h2 text-center text-uppercase fw-light faq-text">Frequently Asked Questions</p>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="position-relative">
 
-            <div className="d-md-none img-wrapper mt-3">
-                <img className="mario-question-img" src={FaqPortrait} alt="Mario Question Portrait"/>
+                <div className="h-100 d-flex flex-column justify-content-center position-absolute start-0 end-0">
+                    <UnimiiboLoading displayText={false} big={true} alwaysInBack={true} my={0} py={0}/>
+                </div>
+
+                <div className="d-md-none img-wrapper mt-3">
+                    <img className="mario-question-img" src={FaqPortrait} alt="Mario Question Portrait"/>
+                </div>
+
+                <div className="d-md-block d-none img-wrapper img-landing-wrapper mt-5">
+                    <img className="mario-question-img" src={FaqLanding} alt="Mario Question Landscape"/>
+                </div>
+
             </div>
 
-            <div className="d-md-block d-none img-wrapper img-landing-wrapper mt-5">
-                <img className="mario-question-img" src={FaqLanding} alt="Mario Question Landscape"/>
+            <div className="bg-danger">
+                <div className="py-4 shapes-circle">
+                    <div className="pt-2 fs-1 text-center text-uppercase text-white faq-text">
+                        Frequently Asked Questions
+                    </div>
+                </div>
             </div>
 
             <div className="container">
-                <div className="row mt-5 gx-md-3 gx-xl-5 mb-3 mb-md-5">
+                <div className="row mt-3 mt-md-5 gx-md-3 gx-xl-5 mb-3 mb-md-5">
                     {
                         questionsSet.map((qColumns, iClass) => (
                             <div className={`col-12 col-md-6 ps-0 questions-column-${iClass}`} key={iClass}>
@@ -151,11 +160,11 @@ function FAQ() {
                                             <div className="question-texts ps-2 pe-3 pe-md-2 pe-xl-0 text">
                                                 <div className="question fs-6 fw-bold">
 
-                                                    <span className="d-md-none">
-                                                        {'[' + ((idx + 1) + 4 * (iClass)) + '] '}
+                                                    <span className="d-md-none ">
+                                                        {((idx + 1) + 4 * (iClass)) + '. '}
                                                     </span>
                                                     <span className="d-md-inline d-none">
-                                                        {'[' + ((idx) * 2 + iClass + 1) + '] '}
+                                                        {((idx) * 2 + iClass + 1) + '. '}
                                                     </span>
                                                     {question}
                                                 </div>

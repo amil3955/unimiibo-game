@@ -5,6 +5,10 @@
     height: var(--size);
 }
 
+.loaderWrapper.alwaysInBack {
+    z-index: -100 !important;
+}
+
 .loaderWrapper.big {
     --size: 8rem;
 }

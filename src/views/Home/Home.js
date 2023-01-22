@@ -80,7 +80,7 @@ function Home() {
                 {/*    </svg>*/}
                 {/*</div>*/}
 
-                <div className="container-fluid bg-dark px-3 pt-5">
+                <div className="container-fluid bg-dark shapes-star px-3 pt-5">
                     <div className="row">
                         <div className={`col-12 d-flex justify-content-center pt-md-5`}>
                             <img className="imgUnimiibo" src={LogoWhUnimiibo} alt="Logo Unimiibo"/>

@@ -104,7 +104,7 @@
 }
 
 .red.hue-variance {
-    backdrop-filter: hue-rotate(140deg);
+    backdrop-filter: hue-rotate(150deg);
 }
 
 .orange.hue-variance {

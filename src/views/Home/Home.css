@@ -63,7 +63,6 @@
 }
 
 .font-acme {
-    font-family: 'Acme', sans-serif;
     letter-spacing: .3rem;
 }
 
@@ -126,6 +125,14 @@
     }
 }
 
-/*.wave-unimiibo {*/
-/*    --wave-height: 0;*/
-/*}*/
+.shapes-star {
+    background-image: url('../../assets/Background/star-small.svg');
+    background-position: center;
+    background-size: cover;
+}
+
+@media (min-width: 767px) {
+    .shapes-star {
+        background-image: url('../../assets/Background/star-big.svg');
+    }
+}

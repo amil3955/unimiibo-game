@@ -1,0 +1,9 @@
+<svg id="visual" viewBox="0 0 900 450" width="900" height="450" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <g fill="#ffffff" opacity="0.1">
+        <circle r="128" cx="475" cy="356"></circle>
+        <circle r="96" cx="806" cy="235"></circle>
+        <circle r="121" cx="607" cy="5"></circle>
+        <circle r="109" cx="114" cy="190"></circle>
+        <circle r="115" cx="17" cy="432"></circle>
+    </g>
+</svg>

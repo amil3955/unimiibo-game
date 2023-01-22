@@ -97,12 +97,12 @@
 }
 
 
-.row .questions-column-1 .question-wrapper:nth-last-child(1)  .question-graphics  .question-line {
+.row .questions-column-1 .question-wrapper:nth-last-child(1) .question-graphics .question-line {
     width: 0;
 }
 
 @media (min-width: 768px) {
-    .row .questions-column-0 .question-wrapper:nth-last-child(1)  .question-graphics  .question-line {
+    .row .questions-column-0 .question-wrapper:nth-last-child(1) .question-graphics .question-line {
         width: 0;
     }
 }
@@ -110,7 +110,8 @@
 .question-texts {
     flex-grow: 1;
     flex-shrink: 1;
-    width: 100%;text-align: justify;
+    width: 100%;
+    text-align: justify;
 }
 
 .question-texts .question {
@@ -125,16 +126,14 @@
     padding-bottom: 2rem;
 }
 
-.landing-wrapper
-{
+.landing-wrapper {
     position: relative;
     justify-content: space-between;
     height: 40rem;
     overflow: hidden;
 }
 
-.landing-box
-{
+.landing-box {
     position: absolute;
     object-fit: contain;
     object-position: left top;
@@ -144,8 +143,7 @@
     height: 50%;
 }
 
-.landing-mario
-{
+.landing-mario {
     position: absolute;
     object-fit: contain;
     object-position: right bottom;
@@ -155,10 +153,8 @@
     height: 100%;
 }
 
-@media (max-width: 776px)
-{
-    .landing-box
-    {
+@media (max-width: 776px) {
+    .landing-box {
         object-fit: contain;
         object-position: bottom;
         right: 0;
@@ -166,8 +162,7 @@
         height: 50%;
     }
 
-    .landing-mario
-    {
+    .landing-mario {
         object-position: top;
         left: 0;
         bottom: 0;
@@ -176,34 +171,42 @@
     }
 }
 
-.landing-text
-{
+.landing-text {
     position: absolute;
     bottom: 5%;
     left: 5%;
 }
 
-.faq-text
-{
-    font-family: 'Acme', sans-serif;
+.faq-text {
+    /*font-family: 'Candara', sans-serif;*/
     letter-spacing: .1rem;
+    /*font-weight: bold;*/
 }
 
-.img-wrapper
-{
+.img-wrapper {
     width: 100%;
     height: min(30rem, 90vw);
 }
 
-.img-landing-wrapper
-{
+.img-landing-wrapper {
     height: min(22.5rem, 40vw);
 }
 
-.mario-question-img
-{
+.mario-question-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center;
+}
+
+.shapes-circle {
+    background-image: url('../../assets/Background/circle-small.svg');
+    background-position: center;
+    background-size: cover;
+}
+
+@media (min-width: 767px) {
+    .shapes-circle {
+        background-image: url('../../assets/Background/circle-big.svg');
+    }
 }

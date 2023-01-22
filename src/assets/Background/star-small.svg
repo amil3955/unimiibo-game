@@ -1,0 +1,18 @@
+<svg id="visual" viewBox="0 0 900 900" width="900" height="900" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <g fill="#ffffff" opacity="0.1">
+        <path d="M0 -100L22.5 -30.9L95.1 -30.9L36.3 11.8L58.8 80.9L0 38.2L-58.8 80.9L-36.3 11.8L-95.1 -30.9L-22.5 -30.9Z"
+              transform="translate(118 662)" opacity="0.1"></path>
+        <path d="M0 -31.1L7 -9.6L29.6 -9.6L11.3 3.7L18.3 25.2L0 11.9L-18.3 25.2L-11.3 3.7L-29.6 -9.6L-7 -9.6Z"
+              transform="translate(45 364)" opacity="0.5"></path>
+        <path d="M0 -51L11.4 -15.7L48.5 -15.7L18.5 6L30 41.2L0 19.5L-30 41.2L-18.5 6L-48.5 -15.7L-11.4 -15.7Z"
+              transform="translate(176 88)"></path>
+        <path d="M0 -60.4L13.6 -18.7L57.4 -18.7L21.9 7.1L35.5 48.9L0 23.1L-35.5 48.9L-21.9 7.1L-57.4 -18.7L-13.6 -18.7Z"
+              transform="translate(551 570)" opacity="0.5"></path>
+        <path d="M0 -74.6L16.7 -23L70.9 -23L27.1 8.8L43.8 60.3L0 28.5L-43.8 60.3L-27.1 8.8L-70.9 -23L-16.7 -23Z"
+              transform="translate(652 243)" opacity="0.5"></path>
+        <path d="M0 -72.7L16.3 -22.5L69.1 -22.5L26.4 8.6L42.7 58.8L0 27.8L-42.7 58.8L-26.4 8.6L-69.1 -22.5L-16.3 -22.5Z"
+              transform="translate(617 830)"></path>
+        <path d="M0 -90.6L20.3 -28L86.2 -28L32.9 10.7L53.3 73.3L0 34.6L-53.3 73.3L-32.9 10.7L-86.2 -28L-20.3 -28Z"
+              transform="translate(870 544)"></path>
+    </g>
+</svg>
