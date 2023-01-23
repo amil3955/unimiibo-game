@@ -63,11 +63,12 @@ function Home() {
                         <UnimiiboLoading displayText={false} big={true} my={0} py={0}/>
                     </div>
                 )}
-                <img className={`imgAmiibos h-100 position-absolute ${isLoadingImg ? 'opacity-0 imgLoading' : 'opacity-100'}`}
-                     src={AmiiboBg}
-                     alt="Home background"
-                     onError={(e) => console.error(e)}
-                     onLoad={() => setIsLoadingImg(false)}
+                <img
+                    className={`imgAmiibos h-100 position-absolute ${isLoadingImg ? 'opacity-0 imgLoading' : 'opacity-100'}`}
+                    src={AmiiboBg}
+                    alt="Home background"
+                    onError={(e) => console.error(e)}
+                    onLoad={() => setIsLoadingImg(false)}
                 />
             </div>
 
@@ -88,8 +89,10 @@ function Home() {
                     </div>
                     <div className="row my-md-3">
                         <div className="col-12 text-center text-light h3">
-                            <p className="fw-light pt-3 pt-md-0">A fun and original way to interact with your favorite characters and games</p>
-                            <p className='h1 mt-5 mb-4 py-5 lh-base text-uppercase font-acme'>Connect, Touch and Collect!</p>
+                            <p className="fw-light pt-3 pt-md-0">A fun and original way to interact with your favorite
+                                characters and games</p>
+                            <p className='h1 mt-5 mb-4 py-5 lh-base text-uppercase font-acme'>Connect, Touch and
+                                Collect!</p>
                         </div>
                     </div>
                 </div>

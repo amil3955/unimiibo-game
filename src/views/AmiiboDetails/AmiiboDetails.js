@@ -106,9 +106,9 @@ function AmiiboDetails() {
                             <div className="row mt-3 mt-md-4 text-center">
                                 <div className="col-12 col-md-6 mt-5">
                                     <p className="h3 fw-bold mb-3 d-inline-flex">
-                                        <i className="bi bi-search me-2"></i>Amiibo details:
+                                        <i className="bi bi-person-badge me-2"></i>Amiibo details:
                                     </p>
-                                    <div className="mt-3 mt-md-0">
+                                    <div className="mt-0">
                                         <p className="fs-6 mb-1 pb-1">
                                             <span>Official name: </span>
                                             <span className="text-secondary text-opacity-75">
@@ -131,7 +131,7 @@ function AmiiboDetails() {
                                 </div>
                                 <div className="col-12 col-md-6 mt-5">
                                     <p className="h3 fw-bold mb-3 d-inline-flex">
-                                        <i className="bi bi-flag me-2"></i>Release dates:
+                                        <i className="bi bi-globe-americas me-2"></i>Release dates:
                                     </p>
                                     {
                                         Object.keys(currentAmiibo.release).map((releaseZone) => (
@@ -152,16 +152,15 @@ function AmiiboDetails() {
                                 </div>
                             </div>
 
-                            <div className="row mt-5 text-center">
-                                <div className="col-12">
-                                    <p className="h3 fw-bold d-inline-flex"><i className="bi bi-controller me-2"></i>Amiibo games usage:</p>
+                            <div className="row mt-5">
+                                <div className="col-12 mb-3 text-center">
+                                    <p className="h3 fw-bold d-inline-flex">
+                                        <i className="bi bi-controller me-2"></i>Amiibo games usage:
+                                    </p>
                                 </div>
-                            </div>
-
-                            <div className="row mt-4 mb-5">
                                 {
                                     gameConsoles.map((gameConsole, i) => (
-                                        <div className="col-12 col-md-6 col-lg-4 px-3 mt-4 mt-lg-0" key={i}>
+                                        <div className="col-12 col-md-6 col-lg-4 px-3 mb-4 mb-lg-0" key={i}>
                                             <p className="fw-bold text-center">{mapGameConsoles[gameConsole]}</p>
                                             {
                                                 currentAmiibo[gameConsole].length === 0 ?
@@ -193,9 +192,9 @@ function AmiiboDetails() {
                                                                         <p className="d-flex mt-1 align-content-center">
                                                                             <span className="me-2">Read/Write:</span>
                                                                             <img
-                                                                                title={write ? 'Lettura/Scrittura' : 'Scrittura'}
+                                                                                title={write ? 'Read/Write' : 'Read-Only'}
                                                                                 src={getReadWriteIcon(write)}
-                                                                                alt={write ? 'Lettura/Scrittura' : 'Scrittura'}
+                                                                                alt={write ? 'Read/Write' : 'Read-Only'}
                                                                                 className="imgReadWrite"
                                                                             />
                                                                         </p>

@@ -19,11 +19,11 @@ function AmiiboList({amiibos}) {
     let headers = [...keys];
 
     let idxID = headers.indexOf('id');
-    if(idxID !== -1) headers.splice(idxID,1);
+    if (idxID !== -1) headers.splice(idxID, 1);
     let idxRelease = headers.indexOf('release');
-    if(idxRelease !== -1) headers.splice(idxRelease,1);
+    if (idxRelease !== -1) headers.splice(idxRelease, 1);
     let idxImg = headers.indexOf('img');
-    if(idxImg !== -1) headers.splice(idxImg,1);
+    if (idxImg !== -1) headers.splice(idxImg, 1);
 
     headers = ['img', ...headers];
 
@@ -33,7 +33,8 @@ function AmiiboList({amiibos}) {
                 <thead>
                 <tr>
                     {headers.map((header) => (
-                        <th key={header} scope="col" className="text-secondary fw-normal text-opacity-75">{mapNameKeys[header]}</th>
+                        <th key={header} scope="col"
+                            className="text-secondary fw-normal text-opacity-75">{mapNameKeys[header]}</th>
                     ))}
                 </tr>
                 </thead>

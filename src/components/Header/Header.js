@@ -9,7 +9,7 @@ import {useEffect} from "react";
 
 function Header({navLinks}) {
 
-    const { pathname } = useLocation();
+    const {pathname} = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -34,9 +34,10 @@ function Header({navLinks}) {
                                     href={navLink.link}
                                     as={NavLink}
                                     to={navLink.link}
-                                    className='nav-link me-2'
+                                    className='nav-link mx-1 mx-lg-3 px-0 py-1 py-md-0'
                                     children={({isActive}) => (
-                                        <span className={`d-inline-flex px-3 pb-1 pt-2 ${style.navLink} ${isActive ? style.navLinkActive : ''}`}>
+                                        <span
+                                            className={`d-inline-flex px-3 pb-1 pt-2 ${style.navLink} ${isActive ? style.navLinkActive : ''}`}>
                                             <i className={`bi ${isActive ? navLink.icon.active : navLink.icon.noActive} me-2`}></i>{navLink.name}
                                         </span>
                                     )}

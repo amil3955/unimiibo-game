@@ -1,10 +1,8 @@
-export function strHashCode(str)
-{
+export function strHashCode(str) {
     let hash = 0,
         i, chr;
     if (str.length === 0) return hash;
-    for (i = 0; i < str.length; i++)
-    {
+    for (i = 0; i < str.length; i++) {
         chr = str.charCodeAt(i);
         hash = ((hash << 5) - hash) + chr;
         hash |= 0;
@@ -12,8 +10,7 @@ export function strHashCode(str)
     return Math.abs(hash);
 }
 
-export function createAmiibo(amiiboData, hasGameInfo)
-{
+export function createAmiibo(amiiboData, hasGameInfo) {
     let amiibo = {
         id: amiiboData.head + amiiboData.tail,
         name: amiiboData.name ?? "-- unknown --",
@@ -23,7 +20,7 @@ export function createAmiibo(amiiboData, hasGameInfo)
         release: amiiboData.release,
     }
 
-    if(hasGameInfo) {
+    if (hasGameInfo) {
         amiibo = {
             ...amiibo,
             games3DS: amiiboData.games3DS,
@@ -35,7 +32,6 @@ export function createAmiibo(amiiboData, hasGameInfo)
     return amiibo;
 }
 
-export function nintendoShopUrl(game)
-{
+export function nintendoShopUrl(game) {
     return `https://www.nintendo.com/search/?q=${encodeURIComponent(game)}&p=1&cat=gme&sort=df`
 }

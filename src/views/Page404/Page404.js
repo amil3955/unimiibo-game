@@ -16,7 +16,8 @@ function Page404() {
             <div className="row my-5">
                 <div className="col text-center">
                     <button className="btn btn-dark pt-2 fs-5 fw-light" onClick={() => navigator('/')}>
-                        <span className="me-2"><i className="bi bi-house"></i></span>Back to Home page</button>
+                        <span className="me-2"><i className="bi bi-house"></i></span>Back to Home page
+                    </button>
                 </div>
             </div>
         </div>
