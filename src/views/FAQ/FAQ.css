@@ -91,7 +91,6 @@
 .question-line {
     background: linear-gradient(to bottom, var(--color) 30%, transparent 95%);
     width: 0.2rem;
-    margin-right: 0.15rem;
     border-radius: 10rem;
     height: 100%;
 }
@@ -178,9 +177,7 @@
 }
 
 .faq-text {
-    /*font-family: 'Candara', sans-serif;*/
     letter-spacing: .1rem;
-    /*font-weight: bold;*/
 }
 
 .img-wrapper {
