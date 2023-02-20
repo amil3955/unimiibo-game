@@ -44,7 +44,7 @@ informazioni relative alle statuette di Nintendo.
 
 Di seguito verranno mostrati alcuni esempi di chiamate utilizzate da Unimiibo.
 
-### \[GET\] Lista Amiibo:
+### \[ GET \] Lista Amiibo
 
 > https://www.amiiboapi.com/api/amiibo/?type=Figure
 
@@ -91,7 +91,7 @@ o l'immagine.
 }
 ```
 
-### \[GET\] Dettagli singola Amiibo:
+### \[ GET \] Dettagli singola Amiibo
 
 > https://www.amiiboapi.com/api/amiibo/?name=Link&showusage
 
@@ -181,4 +181,70 @@ Necessita del nome della statuetta come parametro query.
 
 ## Frammenti di codice
 
-In questa sezione verranno mostrate piccole porzioni di codice
+In questa sezione verranno mostrate piccole porzioni di codice, e perche sono state ritenute
+significative.
+
+### Concatenazione di chiamate all'API
+
+Nel file [AmiiboDetails.js](/src/views/AmiiboDetails/AmiiboDetails.js), che corrisponde alla pagina di
+visualizzazione dei dettagli di una specifica Amiibo, è stato necessario eseguire due chiamate al servizio
+AmiiboAPI per poter recuperare tutte le informazioni necessarie.
+
+La particolarità, però, è che la
+costruzione della URI della seconda chiamata dipendeva dal risultato ottenuto dalla prima.
+Il problema è stato affrontato tramite il meccanismo di **Async/Await** e delle **Promise**, concetti
+avanzati della programmazione JavaScript che però hanno permesso di scrivere una soluzione elegante
+per il problema in questione.
+
+```jsx
+useEffect(() => {
+    fetchData(params.id)
+        .then(fetchedAmiibo => {
+            if (fetchedAmiibo) {
+                setCurrentAmiibo(fetchedAmiibo);
+            } else {
+                navigator('/not-found');
+            }
+        });
+}, [navigator, params.id])
+```
+
+In questo modo viene utilizzato solo uno *useEffect*, al cui interno vengono recuperate le informazioni
+della Amiibo corrente oppure si viene reindirizzati alla pagina `'/not-found'`, che corrisponde
+alla nota pagina 404.
+
+La funzione `fetchData` è così definita:
+
+```jsx
+async function fetchData(id) {
+    try {
+        const amiiboNameTail = await fetchAmiiboDataByID(id);
+        const currentAmiibo = await fetchAmiiboDataByNAME(amiiboNameTail.name, amiiboNameTail.tail);
+
+        return createAmiibo(currentAmiibo, true);
+    } catch (error) {
+        return undefined;
+    }
+}
+```
+
+In questo modo è possibile eseguire le due chiamate in modo asincrono ma comunque in modo sequenziale,
+rendendo quindi possibile utilizzare i dati della prima chiamata per creare la seconda.
+Le funzioni `fetchAmiiboDataByID` e `fetchAmiiboDataByNAME` utilizzano il meccanismo Async/Await.
+
+Tutte le funzioni definite come asincrone restituiscono un oggeto di tipo `Promise`, il cui valore
+può essere recuperato tramite la concatenazione del metodo `then()` che viene utilizzato come callback.
+
+
+### La palette di colori delle Amiibo
+
+In Unimiibo, a tutte le Amiibo appartenenti allo stesso franchise (ovvero alla stessa serie, come Pokémon)
+è stato associato lo stesso colore.
+
+| Serie Videoludica   | Colore              |
+|---------------------|---------------------|
+| Super Mario         | `rgb(172, 11, 11)`  |
+| The Legend Of Zelda | `rgb(11, 172, 32)`  |
+| Animal Crossing     | `rgb(187, 173, 17)` |
+| Splatoon            | `rgb(206, 93, 17)`  |
+| ...                 | ...                 |

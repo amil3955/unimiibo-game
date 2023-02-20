@@ -78,7 +78,7 @@ function AmiiboDetails() {
     const [currentAmiibo, setCurrentAmiibo] = useState(null);
 
     useEffect(() => {
-        fetchData(params.id, setCurrentAmiibo)
+        fetchData(params.id)
             .then(fetchedAmiibo => {
                 if (fetchedAmiibo) {
                     setCurrentAmiibo(fetchedAmiibo);
