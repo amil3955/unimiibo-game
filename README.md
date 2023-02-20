@@ -40,12 +40,17 @@ di stile CSS, nella modalità classica (no moduli).
 ## Descrizione API
 
 L'API utilizzata è [AmiiboAPI](https://amiiboapi.com/), un servizio che permette di recuperare tante
-informazioni relative alle statuette di Nintendo. Di seguito verranno mostrati alcuni esempi
+informazioni relative alle statuette di Nintendo.
 
-### \[GET\] Lista Amiibo
+Di seguito verranno mostrati alcuni esempi di chiamate utilizzate da Unimiibo.
+
+### \[GET\] Lista Amiibo:
+
+> https://www.amiiboapi.com/api/amiibo/?type=Figure
 
 Recupera una lista di tutte le Amiibo disponibili con alcune delle informazioni principali, come il nome
 o l'immagine.
+
 ```json5
 {
   "amiibo": [
@@ -86,7 +91,9 @@ o l'immagine.
 }
 ```
 
-### \[GET\] Dettagli singola Amiibo
+### \[GET\] Dettagli singola Amiibo:
+
+> https://www.amiiboapi.com/api/amiibo/?name=Link&showusage
 
 Recupera tutte le informazioni associate a una specifica Amiibo, compresi tutti i bonus per ogni gioco
 e per ogni piattaforma compatibile.
