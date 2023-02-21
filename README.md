@@ -241,10 +241,47 @@ può essere recuperato tramite la concatenazione del metodo `then()` che viene u
 In Unimiibo, a tutte le Amiibo appartenenti allo stesso franchise (ovvero alla stessa serie, come Pokémon)
 è stato associato lo stesso colore.
 
-| Serie Videoludica   | Colore              |
-|---------------------|---------------------|
-| Super Mario         | `rgb(172, 11, 11)`  |
-| The Legend Of Zelda | `rgb(11, 172, 32)`  |
-| Animal Crossing     | `rgb(187, 173, 17)` |
-| Splatoon            | `rgb(206, 93, 17)`  |
-| ...                 | ...                 |
+Il colore principale associato a ogni franchise è definito in un oggetto JavaScript nel file
+[Colors.js](/src/utilities/Colors.js)
+
+```jsx
+export const seriesMapPalette = {
+    "Animal Crossing": 'yellow',
+    "ARMS": 'green',
+    "Banjo Kazooie": 'orange',
+    "Bayonetta": 'pink',
+    
+    //...
+    
+    "Super Mario": 'red',
+    "The Legend of Zelda": 'green',
+    "Wii Fit": 'blue',
+    "Xenoblade": 'red',
+};
+```
+
+Tuttavia, per garantire che possa venire associato un colore anche alle serie non presenti, si
+è scelto di utilizzare un metodo basato sull'hash di una stringa, in modo da ottenere come risultato
+un colore casuale ma deterministico.
+
+Un colore viene scelto, quindi, nel seguente modo:
+
+```jsx
+function indexSeries(series) {
+    return strHashCode(series) % colors.length;
+}
+```
+
+dove `strHashCode` è una funzione definita in [Utils.js](/src/utilities/Utils.js) e calcola un hash
+numerico per una stringa data come parametro, che viene utilizzato per creare un indice utilizzabile
+nell'array `colors` (definito in [Colors.js](/src/utilities/Colors.js)).
+
+In questo modo anche personaggi che potranno essere aggiunti in futuro alla lista delle Amiibo e che
+provengono da franchise nuovi potranno essere associato a un colore casuale ma sempre uguale.
+
+
+### Le card Amiibo
+
+![Card Amiibo hover effect](/docs/card_on_hover.png)
+
+
