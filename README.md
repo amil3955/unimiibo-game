@@ -418,43 +418,45 @@ permette di navigare correttamente il sito senza la necessità di dovervi accede
 dalla URI della pagina principale e, soprattutto, che permette di far funzionare correttamente
 il tasto *indietro* dei browser e la pagina *Not Found* (404);
 
-* Unimiibo è raggiungibile all'indirizzo https://disteroby.github.io/unimiibo/ ed è stata testata
+
+## Compatibilità con i browser moderni
+Unimiibo è raggiungibile all'indirizzo https://disteroby.github.io/unimiibo/ ed è stata testata
 sui seguenti browser (versione più recente al momento della scrittura di questo documento):
 
 1. **Google Chrome**:
    * Computer
-     * Windows :heavy_check_mark:
-     * macOS :white_circle:
+     * :heavy_check_mark:Windows 
+     * :white_circle:macOS 
    * Tablet
-     * Android :white_circle:
-     * iOS :heavy_check_mark:
+     * :white_circle:Android 
+     * :heavy_check_mark:iOS 
    * Smartphone
-      * Android :heavy_check_mark:
-      * iOS :large_orange_diamond:
+      * :heavy_check_mark:Android
+      * :white_circle:iOS
 
 2. **Mozilla Firefox**:
    * Computer
-      * Windows :heavy_check_mark:
-      * macOS :white_circle:
+      * :heavy_check_mark:Windows
+      * :white_circle:macOS
    * Tablet
-      * Android :white_circle:
-      * iOS :heavy_check_mark:
+      * :white_circle:Android
+      * :heavy_check_mark:iOS
    * Smartphone
-      * Android :heavy_check_mark:
-      * iOS :large_orange_diamond:
+      * :heavy_check_mark:Android
+      * :white_circle:iOS
 
 3. **Microsoft Edge**:
    * Computer
-      * Windows :heavy_check_mark:
-      * macOS :white_circle:
+      * :heavy_check_mark:Windows
+      * :white_circle:macOS
    * Tablet
-      * Android :white_circle:
-      * iOS :heavy_check_mark:
+      * :white_circle:Android
+      * :heavy_check_mark:iOS
    * Smartphone
-      * Android :heavy_check_mark:
-      * iOS :large_orange_diamond:
+      * :heavy_check_mark:Android
+      * :white_circle:iOS
 
-* Legenda:
+Legenda:
   * :heavy_check_mark:: totalmente compatibile
   * :large_orange_diamond:: parzialmente compatibile (problemi legati al CSS)
   * :x:: non compatibile
