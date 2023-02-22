@@ -2,6 +2,7 @@
 
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="/src/assets/LogoUnimiibo/unimiibo_logo_wh.png">
+ <source media="(prefers-color-scheme: light)" srcset="/src/assets/LogoUnimiibo/unimiibo_logo.png">
  <img alt="Unimiibo Logo" src="/src/assets/LogoUnimiibo/unimiibo_logo.png">
 </picture>
 
