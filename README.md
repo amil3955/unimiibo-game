@@ -421,16 +421,41 @@ il tasto *indietro* dei browser e la pagina *Not Found* (404);
 * Unimiibo è raggiungibile all'indirizzo https://disteroby.github.io/unimiibo/ ed è stata testata
 sui seguenti browser (versione più recente al momento della scrittura di questo documento):
 
-|                | Google Chrome                                        | Mozilla Firefox                                | Microsoft Edge                                 |
-|----------------|------------------------------------------------------|------------------------------------------------|------------------------------------------------|
-| **Computer**   | Windows:heavy_check_mark:, macOS:white_circle:       | Windows:heavy_check_mark:, macOS:white_circle: | Windows:heavy_check_mark:, macOS:white_circle: |
-| **Tablet**     | Android:heavy_check_mark:, iOS:heavy_check_mark:     | Android:heavy_check_mark:, iOS:white_circle:   | Android:heavy_check_mark:, iOS:white_circle:   |
-| **Smartphone** | Android:heavy_check_mark:, iOS:large_orange_diamond: | Android:heavy_check_mark:, iOS:white_circle:   | Android:heavy_check_mark:, iOS:white_circle:   |
+1. **Google Chrome**:
+   * Computer
+     * Windows :heavy_check_mark:
+     * macOS :white_circle:
+   * Tablet
+     * Android :white_circle:
+     * iOS :heavy_check_mark:
+   * Smartphone
+      * Android :heavy_check_mark:
+      * iOS :large_orange_diamond:
 
+2. **Mozilla Firefox**:
+   * Computer
+      * Windows :heavy_check_mark:
+      * macOS :white_circle:
+   * Tablet
+      * Android :white_circle:
+      * iOS :heavy_check_mark:
+   * Smartphone
+      * Android :heavy_check_mark:
+      * iOS :large_orange_diamond:
 
-Legenda:
+3. **Microsoft Edge**:
+   * Computer
+      * Windows :heavy_check_mark:
+      * macOS :white_circle:
+   * Tablet
+      * Android :white_circle:
+      * iOS :heavy_check_mark:
+   * Smartphone
+      * Android :heavy_check_mark:
+      * iOS :large_orange_diamond:
 
-* :heavy_check_mark:: totalmente compatibile
-* :large_orange_diamond:: parzialmente compatibile
-* :x:: non compatibile
-* :white_circle:: non testato
+* Legenda:
+  * :heavy_check_mark:: totalmente compatibile
+  * :large_orange_diamond:: parzialmente compatibile (problemi legati al CSS)
+  * :x:: non compatibile
+  * :white_circle:: non testato
