@@ -79,8 +79,8 @@ function AmiiboOverview() {
                 sortComparator: {
                     series: countComparator,
                     character: countComparator,
-                    name: stringComparator,
                     release: dateComparator,
+                    name: stringComparator,
                 }
             })))
             .then(data => setAmiibos(data));

@@ -6,7 +6,7 @@
 </picture>
 
 
-Unimiibo è una semplice web application per la visualizzazione delle Amiibo, particolari "statuette"
+[Unimiibo](https://disteroby.github.io/unimiibo/) è una semplice web application per la visualizzazione delle Amiibo, particolari "statuette"
 prodotte direttamente da Nintendo per tanti franchise famosi di sua proprietà, come Super Mario,
 The Legend of Zelda e Pokémon.
 
@@ -280,8 +280,157 @@ In questo modo anche personaggi che potranno essere aggiunti in futuro alla list
 provengono da franchise nuovi potranno essere associato a un colore casuale ma sempre uguale.
 
 
-### Le card Amiibo
+### Ordine di visualizzazione delle Amiibo
 
-![Card Amiibo hover effect](/docs/card_on_hover.png)
+Nella pagina **Amiibo** è possibile visualizzare una lista di tutte le statuette presenti attualmente in
+commercio. L'ordine di visualizzazione di default, tuttavia, non è basato su nessuna regola specifica e
+rischia di confondere l'utente.
+
+Si è quindi pensato a un modo per definire regole complesse e personalizzabili di sorting, al fine di
+organizzare la lista delle Amiibo secondo una certa logica:
+
+1. Le Amiibo vengono ordinate in base al numero di statuette appartenenti allo stesso franchise
+(campo **series**), in ordine decrescente.
+   * Ad esempio, le Amiibo visualizzate per prime saranno tutte quelle appartenenti al franchise di
+Super Mario (29 statuette)
+
+2. A parità di franchise, le Amiibo visualizzabili per prime saranno quelle relative ai personaggi 
+(campo **character**) con più statuette prodotte, in ordine descrescente.
+   * Nel franchise di Super Mario, le Amiibo di Mario (9 in totale) saranno le prime a essere visualizzate
+
+3. A parità di personaggio, le Amiibo verrano visualizzate in ordine creascente in base alla data
+di uscita (campo **release**). Poichè talvolta sono presenti date diverse in base alla zona geografica,
+viene considerata la meno recente.
+   * Tra le Amiibo di Mario, la prima visualizzata sarà quella uscita nel 06/12/2014
+
+4. Infine, a parità di data di uscita, le Amiibo verrano mostrate secondo ordinamento lessicografico 
+crescente del nome (campo **name**).
+   * Tra le Amiibo di Mario (uscite in giappone nel 10/09/2015) verrà mostrata prima "8-Bit Mario Classic Color"
+e poi "8-Bit Mario Modern Color"
+
+Il codice che realizza questa funzionalità è mostrato di seguito.
+
+```jsx
+fetch("https://www.amiiboapi.com/api/amiibo/?type=Figure")
+   .then(response => response.json())
+   .then(data => data['amiibo'].map(amiibo => createAmiibo(amiibo, false)))
+   .then(data => data.sort((a1, a2) => compareAmiibo(data, a1, a2, {
+      sortOrder: [
+         {key: 'series', orderASC: false},
+         {key: 'character', orderASC: false},
+         {key: 'release', orderASC: true},
+         {key: 'name', orderASC: true},
+      ],
+      sortComparator: {
+         series: countComparator,
+         character: countComparator,
+         release: dateComparator,
+         name: stringComparator,
+      }
+   })))
+   .then(data => setAmiibos(data));
+```
+
+La funzione `compareAmiibo` consente di stabilire l'ordinamento di due generiche Amiibo, basandosi sulle
+regole definite precedentemente. Nello specifico, accetta come parametro due Amiibo e un oggetto
+contenente sia le regole relative all'ordinamento dei paramentri di sorting che le funzioni che nel pratico
+realizzano i singoli ordinamenti. Di seguito viene mostrato il codice della funzione.
+
+```jsx
+function compareAmiibo(amiibos, a1, a2, {sortOrder, sortComparator}) {
+   for (let sortRule of sortOrder) {
+      const {key, orderASC} = sortRule;
+
+      let comparison = sortComparator[key] ?
+              sortComparator[key](a1[key], a2[key], amiibos, key) :
+              a1[key] - a2[key];
+
+      if (comparison !== 0)
+         return orderASC ? comparison : -comparison;
+   }
+
+   return 0;
+}
+```
+
+Le funzioni *compare* restituiscono un valore positivo o un valore negativo (tipicamente **1** e **-1**) 
+in base all'ordinamento tra il primo e il secondo oggetto, oppure **0** nel caso in cui i due oggetti 
+siano uguali secondo un certo criterio. Nel caso preso in esame, in maniera sequenziale vengono calcolati
+i valori di comparazione fino a quando uno di questi è diverso da zero (oppure se non esistono ulteriori
+criteri di ordinamento).
+Qualora non fosse stata definita una specifica funzione di *compare* per uno specifico campo, allora
+verrebbe svolta una normale *compare* tra due valori numerici. 
+
+Esempi di funzioni *compare*:
+
+```jsx
+function countComparator(str1, str2, collection, key) {
+   str1 = str1.toLowerCase();
+   str2 = str2.toLowerCase();
+   
+   if (str1 === str2)
+      return 0;
+   
+   const tot1 = collection.filter(amiibo => amiibo[key].toLowerCase() === str1).length;
+   const tot2 = collection.filter(amiibo => amiibo[key].toLowerCase() === str2).length;
+   
+   return tot1 - tot2;
+}
+```
+
+```jsx
+function stringComparator(str1, str2) {
+   return str1.localeCompare(str2);
+}
+```
 
 
+## Dettagli vari rilevanti
+
+* Unimiibo è totalmente **responsive**, il che vuol dire che può essere visualizzabile su schermi di
+device di qualsiasi dimensioni (smartphone, tablet, laptop, computer, ecc..), grazie all'utilizzo 
+di **Bootstrap** (vanilla). In particolari occasioni (ad esempio per l'*header*) è stata utilizzata
+la versione di Bootstrap per React e non la versione "vanilla";
+
+* Per una visualizzazione ottimale, l'interfaccia grafica ad esempio può variare tra dispositivi *mobile*
+e *computers*. Infatti, nella pagina **FAQ** è presente un'immagine di Super Mario che differisce in base
+alla dimensione dello schermo, non variandone il significato ma riarrangiando il contenuto;
+
+* Gran parte delle immagini presenti in Unimiibo sfrutta il meccanismo di **lazy loading**, che permette
+(se supportato dal browser) di scaricare la risorsa dalla rete solo se visibile all'utente. Ciò garantisce
+migliori performance e, tramite un effetto di *fade in*, non infastidisce l'utente con brutti effetti 
+"*pop in*" (comparsa improvvisa);
+
+* Durante l'attesa che un'immagine venga caricata, viene visualizzata un'animazione *ad hoc* di loading
+basata sul logo di Unimiibo. L'animazione è stata realizzata come **componente React** in modo da essere
+utilizzata in più parti del progetto, favorendo un riuso del codice e in linea con la filosofia di React;
+
+* Se si prova a visualizzare una pagina inesistente oppure relativa a un'Amiibo con id sconosciuto si verrà
+automaticamente reindirizzati alla pagina **Not Found** (o pagina 404);
+
+* Il deploy di Unimiibo viene fatto tramite il servizio di Github chiamato **Github Pages**, che utilizza
+il comando `npm run deploy` per creare una build otimizzata per la fase di produzione. Il deploy è
+automatizzato da Github e richiede uno sforzo minimo da parte dello sviluppatore.
+
+* La tecnologia di Github Pages non è (ancora) compatibile con le funzionalità del **BrowserRouter** 
+offerto dalla libreria *react-router-dom*, quindi si è scelto di utilizzare un **HashRouter** che
+permette di navigare correttamente il sito senza la necessità di dovervi accedere obbligatoriamente
+dalla URI della pagina principale e, soprattutto, che permette di far funzionare correttamente
+il tasto *indietro* dei browser e la pagina *Not Found* (404);
+
+* Unimiibo è raggiungibile al seguente indirizzo https://disteroby.github.io/unimiibo/ ed è stata testata
+sui seguenti browser:
+
+|                | Google Chrome                | Mozilla Firefox | Microsoft Edge |
+|----------------|------------------------------|-----------------|----------------|
+| **Computer**   | Windows (:heavy_check_mark:) |                 |                |
+| **Tablet**     |                              |                 |                |
+| **Smartphone** |                              |                 |                |
+
+
+Legenda:
+
+* :heavy_check_mark:: totalmente compatibile
+* :large_orange_diamond:: parzialmente compatibile
+* :x:: non compatibile
+* ::: non testato
