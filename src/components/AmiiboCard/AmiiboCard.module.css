@@ -20,6 +20,8 @@
     background-size: 25%;
     background-repeat: repeat;
     background-position: center;
+    color: rgba(0,0,0,0);
+    text-decoration: none;
 }
 
 .myCard:hover {

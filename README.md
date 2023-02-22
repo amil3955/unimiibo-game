@@ -425,40 +425,33 @@ Unimiibo è raggiungibile all'indirizzo https://disteroby.github.io/unimiibo/ ed
 sui seguenti browser (versione più recente al momento della scrittura di questo documento):
 
 1. **Google Chrome**:
-   * Computer
-     * :heavy_check_mark: Windows 
-     * :white_circle: macOS 
-   * Tablet
-     * :white_circle: Android 
-     * :heavy_check_mark: iOS 
-   * Smartphone
-      * :heavy_check_mark: Android
-      * :large_orange_diamond: iOS
+    * Computer
+        * :heavy_check_mark: Windows
+    * Tablet
+        * :heavy_check_mark: iOS
+    * Smartphone
+        * :heavy_check_mark: Android
+        * :large_orange_diamond: iOS
 
 2. **Mozilla Firefox**:
-   * Computer
-      * :heavy_check_mark: Windows
-      * :white_circle: macOS
-   * Tablet
-      * :white_circle: Android
-      * :heavy_check_mark: iOS
-   * Smartphone
-      * :heavy_check_mark: Android
-      * :white_circle: iOS
+    * Computer
+        * :heavy_check_mark: Windows
+    * Tablet
+        * :heavy_check_mark: iOS
+    * Smartphone
+        * :heavy_check_mark: Android
+        * :large_orange_diamond: iOS
 
 3. **Microsoft Edge**:
-   * Computer
-      * :heavy_check_mark: Windows
-      * :white_circle: macOS
-   * Tablet
-      * :white_circle: Android
-      * :heavy_check_mark: iOS
-   * Smartphone
-      * :heavy_check_mark: Android
-      * :white_circle: iOS
+    * Computer
+        * :heavy_check_mark: Windows
+    * Tablet
+        * :heavy_check_mark: iOS
+    * Smartphone
+        * :heavy_check_mark: Android
+        * :large_orange_diamond: iOS
 
 Legenda:
-  * :heavy_check_mark:: totalmente compatibile
-  * :large_orange_diamond:: parzialmente compatibile (problemi legati al CSS)
-  * :x:: non compatibile
-  * :white_circle:: non testato
+  * :heavy_check_mark: totalmente compatibile
+  * :large_orange_diamond: parzialmente compatibile (problemi legati al CSS)
+  * :x: non compatibile
