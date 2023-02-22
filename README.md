@@ -394,12 +394,12 @@ la versione di Bootstrap per React e non la versione "vanilla";
 
 * Per una visualizzazione ottimale, l'interfaccia grafica ad esempio può variare tra dispositivi *mobile*
 e *computers*. Infatti, nella pagina **FAQ** è presente un'immagine di Super Mario che differisce in base
-alla dimensione dello schermo, non variandone il significato ma riarrangiando il contenuto;
+alla dimensione dello schermo, non cambiando il significato ma riarrangiando il contenuto;
 
 * Gran parte delle immagini presenti in Unimiibo sfrutta il meccanismo di **lazy loading**, che permette
 (se supportato dal browser) di scaricare la risorsa dalla rete solo se visibile all'utente. Ciò garantisce
 migliori performance e, tramite un effetto di *fade in*, non infastidisce l'utente con brutti effetti 
-"*pop in*" (comparsa improvvisa);
+di comparsa improvvisa;
 
 * Durante l'attesa che un'immagine venga caricata, viene visualizzata un'animazione *ad hoc* di loading
 basata sul logo di Unimiibo. L'animazione è stata realizzata come **componente React** in modo da essere
@@ -432,7 +432,7 @@ sui seguenti browser (versione più recente al momento della scrittura di questo
      * :heavy_check_mark: iOS 
    * Smartphone
       * :heavy_check_mark: Android
-      * :white_circle: iOS
+      * :large_orange_diamond: iOS
 
 2. **Mozilla Firefox**:
    * Computer
