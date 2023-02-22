@@ -6,9 +6,9 @@
 </picture>
 
 
-[Unimiibo](https://disteroby.github.io/unimiibo/) è una semplice web application per la visualizzazione delle Amiibo, particolari "statuette"
-prodotte direttamente da Nintendo per tanti franchise famosi di sua proprietà, come Super Mario,
-The Legend of Zelda e Pokémon.
+[Unimiibo](https://disteroby.github.io/unimiibo/) è una semplice web application per la visualizzazione 
+delle Amiibo, particolari "statuette" prodotte direttamente da Nintendo per tanti franchise famosi di 
+sua proprietà, come Super Mario, The Legend of Zelda e Pokémon.
 
 Le Amiibo possono essere considerate anche come semplici oggetti da collezione, ma sono molto di più:
 infatti, ogni Amiibo è dotata di un tag NFC che le permette di comunicare direttamente con le console
@@ -305,8 +305,8 @@ viene considerata la meno recente.
 
 4. Infine, a parità di data di uscita, le Amiibo verrano mostrate secondo ordinamento lessicografico 
 crescente del nome (campo **name**).
-   * Tra le Amiibo di Mario (uscite in giappone nel 10/09/2015) verrà mostrata prima "8-Bit Mario Classic Color"
-e poi "8-Bit Mario Modern Color"
+   * Tra le Amiibo di Mario (uscite in giappone nel 10/09/2015) verrà mostrata prima "8-Bit Mario 
+Classic Color" e poi "8-Bit Mario Modern Color"
 
 Il codice che realizza questa funzionalità è mostrato di seguito.
 
@@ -418,14 +418,14 @@ permette di navigare correttamente il sito senza la necessità di dovervi accede
 dalla URI della pagina principale e, soprattutto, che permette di far funzionare correttamente
 il tasto *indietro* dei browser e la pagina *Not Found* (404);
 
-* Unimiibo è raggiungibile al seguente indirizzo https://disteroby.github.io/unimiibo/ ed è stata testata
-sui seguenti browser:
+* Unimiibo è raggiungibile all'indirizzo https://disteroby.github.io/unimiibo/ ed è stata testata
+sui seguenti browser (versione più recente al momento della scrittura di questo documento):
 
-|                | Google Chrome                | Mozilla Firefox | Microsoft Edge |
-|----------------|------------------------------|-----------------|----------------|
-| **Computer**   | Windows (:heavy_check_mark:) |                 |                |
-| **Tablet**     |                              |                 |                |
-| **Smartphone** |                              |                 |                |
+|                | Google Chrome                                        | Mozilla Firefox                                 | Microsoft Edge                                  |
+|----------------|------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
+| **Computer**   | Windows:heavy_check_mark:, macOS:grey_question:      | Windows:heavy_check_mark:, macOS:grey_question: | Windows:heavy_check_mark:, macOS:grey_question: |
+| **Tablet**     | Android:heavy_check_mark:, iOS:heavy_check_mark:     | Android:heavy_check_mark:, iOS:grey_question:   | Android:heavy_check_mark:, iOS:grey_question:   |
+| **Smartphone** | Android:heavy_check_mark:, iOS:large_orange_diamond: | Android:heavy_check_mark:, iOS:grey_question:   | Android:heavy_check_mark:, iOS:grey_question:   |
 
 
 Legenda:
@@ -433,4 +433,4 @@ Legenda:
 * :heavy_check_mark:: totalmente compatibile
 * :large_orange_diamond:: parzialmente compatibile
 * :x:: non compatibile
-* ::: non testato
+* :grey_question:: non testato
