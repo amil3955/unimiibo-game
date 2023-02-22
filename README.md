@@ -425,36 +425,36 @@ sui seguenti browser (versione più recente al momento della scrittura di questo
 
 1. **Google Chrome**:
    * Computer
-     * :heavy_check_mark:Windows 
-     * :white_circle:macOS 
+     * :heavy_check_mark: Windows 
+     * :white_circle: macOS 
    * Tablet
-     * :white_circle:Android 
-     * :heavy_check_mark:iOS 
+     * :white_circle: Android 
+     * :heavy_check_mark: iOS 
    * Smartphone
-      * :heavy_check_mark:Android
-      * :white_circle:iOS
+      * :heavy_check_mark: Android
+      * :white_circle: iOS
 
 2. **Mozilla Firefox**:
    * Computer
-      * :heavy_check_mark:Windows
-      * :white_circle:macOS
+      * :heavy_check_mark: Windows
+      * :white_circle: macOS
    * Tablet
-      * :white_circle:Android
-      * :heavy_check_mark:iOS
+      * :white_circle: Android
+      * :heavy_check_mark: iOS
    * Smartphone
-      * :heavy_check_mark:Android
-      * :white_circle:iOS
+      * :heavy_check_mark: Android
+      * :white_circle: iOS
 
 3. **Microsoft Edge**:
    * Computer
-      * :heavy_check_mark:Windows
-      * :white_circle:macOS
+      * :heavy_check_mark: Windows
+      * :white_circle: macOS
    * Tablet
-      * :white_circle:Android
-      * :heavy_check_mark:iOS
+      * :white_circle: Android
+      * :heavy_check_mark: iOS
    * Smartphone
-      * :heavy_check_mark:Android
-      * :white_circle:iOS
+      * :heavy_check_mark: Android
+      * :white_circle: iOS
 
 Legenda:
   * :heavy_check_mark:: totalmente compatibile
