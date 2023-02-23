@@ -7,50 +7,52 @@
 </picture>
 
 
-[Unimiibo](https://disteroby.github.io/unimiibo/) è una semplice web application per la visualizzazione 
-delle Amiibo, ovvero particolari "statuette" prodotte direttamente da Nintendo per tanti franchise famosi di 
-sua proprietà, come Super Mario, The Legend of Zelda e Pokémon.
+[Unimiibo](https://disteroby.github.io/unimiibo/) è una web application per la visualizzazione 
+di **Amiibo**, ovvero particolari "statuette" prodotte direttamente da Nintendo per tanti franchise
+famosi di sua proprietà come Super Mario, The Legend of Zelda e Pokémon.
 
-Le Amiibo possono essere considerate anche come semplici oggetti da collezione, ma sono molto di più:
-infatti, ogni Amiibo è dotata di un tag NFC che le permette di comunicare direttamente con le console
-di casa Nintendo (come Nintendo 3DS, Nintendo Wii U e la più recente Nintendo Switch), per ottenere
-bonus e vantaggi esclusivi in tanti giochi diversi.
+Le Amiibo a prima vista possono sembrare normali oggetti da collezione, ma in realtà sono molto 
+di più: infatti, ogni Amiibo è dotata di un *tag NFC* che le consente di comunicare direttamente con
+le console di casa Nintendo (come Nintendo 3DS, Nintendo Wii U e Nintendo Switch),
+per ottenere bonus e vantaggi esclusivi in tantissimi videogiochi.
 
 
 ## La struttura del progetto
 
 Dal momento che Unimiibo è un progetto complesso, è stato necessario fin da subito definire una
-struttura precisa per l'organizzazione delle risorse (come file di codice, o immagini).
+struttura precisa per l'organizzazione delle risorse (come file di codice sorgente, immagini, ecc...).
+
+Le directory principali del progetto sono:
 
 * **assets**: contiene tutte le risorse multimediali utilizzate per la creazione
 di Unimiibo. É a sua volta suddivisa in sotto-directory, in modo da accorpare risorse semanticamente
 simili.
 
 * **components**: comprende sia componenti specifici per il progetto Unimiibo che componenti
-generici (direttamente utilizzabili, quindi, anche in progetti diversi o con minimi cambiamenti del 
+generici (direttamente utilizzabili, quindi, anche in progetti diversi con lievissimi cambiamenti del 
 codice o addirittura così come sono). I componenti sono organizzati in sotto-directory in modo da
-associare a ogni file di codice anche il relativo foglio di stile (vengono utilizzati i moduli CSS).
+accorpare a ogni file di codice anche il relativo foglio di stile (vengono utilizzati i moduli CSS).
 
 * **utilities**: racchiude tutti quei file javascript che contengono funzionalità generiche o
-dati globali utilizzabili in parti diverse del progetto.
+dati globali utilizzabili in diverse parti del progetto.
 
 * **views**: l'insieme di tutte le pagine della web application. Ogni pagina ha un relativo foglio 
 di stile CSS, nella modalità classica (no moduli).
 
 
-## Descrizione API
+## Descrizione API esterna
 
 L'API utilizzata è [AmiiboAPI](https://amiiboapi.com/), un servizio che permette di recuperare tante
 informazioni relative alle statuette di Nintendo.
 
 Di seguito verranno mostrati alcuni esempi di chiamate utilizzate da Unimiibo.
 
-### \[ GET \] Lista Amiibo
+### Lista Amiibo \[ GET \]
 
-> https://www.amiiboapi.com/api/amiibo/?type=Figure
+> URL: https://www.amiiboapi.com/api/amiibo/?type=Figure
 
-Recupera una lista di tutte le Amiibo disponibili con alcune delle informazioni principali, come il nome
-o l'immagine.
+Recupera una lista di tutte le Amiibo disponibili contenente alcune delle informazioni principali, 
+come ad esempio il nome o l'immagine.
 
 ```json5
 {
@@ -92,14 +94,14 @@ o l'immagine.
 }
 ```
 
-### \[ GET \] Dettagli singola Amiibo
+### Dettagli singola Amiibo \[ GET \]
 
-> https://www.amiiboapi.com/api/amiibo/?name=Link&showusage
+> URL: https://www.amiiboapi.com/api/amiibo/?name=Link&showusage
 
 Recupera tutte le informazioni associate a una specifica Amiibo, compresi tutti i bonus per ogni gioco
 e per ogni piattaforma compatibile.
 
-Necessita del nome della statuetta come parametro query.
+Necessita del **nome** della statuetta come parametro query, non dell'**ID**.
 
 ```json5
 {
@@ -182,8 +184,8 @@ Necessita del nome della statuetta come parametro query.
 
 ## Frammenti di codice
 
-In questa sezione verranno mostrate piccole porzioni di codice, e perche sono state ritenute
-significative.
+In questa sezione verranno mostrate piccole porzioni di codice e le motivazioni per le quali
+sono state ritenute significative.
 
 ### Concatenazione di chiamate all'API
 
@@ -191,10 +193,11 @@ Nel file [AmiiboDetails.js](/src/views/AmiiboDetails/AmiiboDetails.js), che corr
 visualizzazione dei dettagli di una specifica Amiibo, è stato necessario eseguire due chiamate al servizio
 AmiiboAPI per poter recuperare tutte le informazioni necessarie.
 
-La particolarità, però, è che la
-costruzione della URI della seconda chiamata dipendeva dal risultato ottenuto dalla prima.
+La particolarità, però, è che la costruzione della URI della seconda chiamata dipende dal 
+risultato ottenuto dalla prima.
+
 Il problema è stato affrontato tramite il meccanismo di **Async/Await** e delle **Promise**, concetti
-avanzati della programmazione JavaScript che però hanno permesso di scrivere una soluzione elegante
+avanzati della programmazione JavaScript che hanno permesso di scrivere una soluzione elegante
 per il problema in questione.
 
 ```jsx
@@ -210,9 +213,9 @@ useEffect(() => {
 }, [navigator, params.id])
 ```
 
-In questo modo viene utilizzato solo uno *useEffect*, al cui interno vengono recuperate le informazioni
-della Amiibo corrente oppure si viene reindirizzati alla pagina `'/not-found'`, che corrisponde
-alla nota pagina 404.
+In questo modo viene utilizzato un solo *useEffect*, al cui interno vengono recuperate le informazioni
+della Amiibo corrente. Se l'ID non dovesse corrispondere a nessuna Amiibo valida allora si verrebbe
+reindirizzati al path `'/not-found'`, ovvero la nota pagina 404.
 
 La funzione `fetchData` è così definita:
 
@@ -233,17 +236,17 @@ In questo modo è possibile eseguire le due chiamate in modo asincrono ma comunq
 rendendo quindi possibile utilizzare i dati della prima chiamata per creare la seconda.
 Le funzioni `fetchAmiiboDataByID` e `fetchAmiiboDataByNAME` utilizzano il meccanismo Async/Await.
 
-Tutte le funzioni definite come asincrone restituiscono un oggeto di tipo `Promise`, il cui valore
-può essere recuperato tramite la concatenazione del metodo `then()` che viene utilizzato come callback.
+Tutte le funzioni definite `async` restituiscono un oggetto di tipo `Promise`, il cui valore
+può essere recuperato tramite l'utilizzo del metodo `then`, che viene utilizzato come callback.
 
 
 ### La palette di colori delle Amiibo
 
 In Unimiibo, a tutte le Amiibo appartenenti allo stesso franchise (ovvero alla stessa serie, come Pokémon)
-è stato associato lo stesso colore.
+viene associato lo stesso colore.
 
-Il colore principale associato a ogni franchise è definito in un oggetto JavaScript nel file
-[Colors.js](/src/utilities/Colors.js)
+Il colore principale di ogni franchise è definito in un oggetto JavaScript nel file
+[Colors.js](/src/utilities/Colors.js):
 
 ```jsx
 export const seriesMapPalette = {
@@ -261,11 +264,11 @@ export const seriesMapPalette = {
 };
 ```
 
-Tuttavia, per garantire che possa venire associato un colore anche alle serie non presenti, si
-è scelto di utilizzare un metodo basato sull'hash di una stringa, in modo da ottenere come risultato
-un colore casuale ma deterministico.
+Tuttavia, per garantire che possa venire associato un colore anche alle serie non presenti nell'elenco,
+si è scelto di utilizzare un metodo basato sull'hash di una stringa, in modo da ottenere come risultato
+un colore che appaia come "casuale" ma che sia invece deterministico e replicabile.
 
-Un colore viene scelto, quindi, nel seguente modo:
+Il colore (per serie non in elenco) viene scelto, quindi, nel seguente modo:
 
 ```jsx
 function indexSeries(series) {
@@ -273,12 +276,12 @@ function indexSeries(series) {
 }
 ```
 
-dove `strHashCode` è una funzione definita in [Utils.js](/src/utilities/Utils.js) e calcola un hash
-numerico per una stringa data come parametro, che viene utilizzato per creare un indice utilizzabile
-nell'array `colors` (definito in [Colors.js](/src/utilities/Colors.js)).
+dove `strHashCode` è una funzione che è definita in [Utils.js](/src/utilities/Utils.js) e che calcola un hash
+numerico per una stringa passata come parametro, che viene poi utilizzato per creare un indice per
+l'array `colors` (definito in [Colors.js](/src/utilities/Colors.js)).
 
-In questo modo anche personaggi che potranno essere aggiunti in futuro alla lista delle Amiibo e che
-provengono da franchise nuovi potranno essere associato a un colore casuale ma sempre uguale.
+In questo modo anche personaggi che potranno saranno aggiunti in futuro alla lista delle Amiibo e che
+provengono da franchise nuovi potranno essere associati a un colore "casuale" ma che sia sempre lo stesso.
 
 
 ### Ordine di visualizzazione delle Amiibo
@@ -287,29 +290,30 @@ Nella pagina **Amiibo** è possibile visualizzare una lista di tutte le statuett
 commercio. L'ordine di visualizzazione di default, tuttavia, non è basato su nessuna regola specifica e
 rischia di confondere l'utente.
 
-Si è quindi pensato a un modo per definire regole complesse e personalizzabili di sorting, al fine di
-organizzare la lista delle Amiibo secondo una certa logica:
+È stato quindi necessario pensare a un modo per definire regole di sorting complesse e personalizzabili,
+al fine di organizzare la lista delle Amiibo secondo una certa logica, mostrata di seguito.
 
 1. Le Amiibo vengono ordinate in base al numero di statuette appartenenti allo stesso franchise
 (campo **series**), in ordine decrescente.
-   * Ad esempio, le Amiibo visualizzate per prime saranno tutte quelle appartenenti al franchise di
-Super Mario (29 statuette)
+   * Le Amiibo visualizzate per prime saranno tutte quelle appartenenti al franchise di
+Super Mario (che comprende ben 29 statuette)
 
-2. A parità di franchise, le Amiibo visualizzabili per prime saranno quelle relative ai personaggi 
-(campo **character**) con più statuette prodotte, in ordine descrescente.
+2. A parità di franchise, le Amiibo visualizzabili per prime saranno quelle relative ai singoli personaggi 
+(campo **character**) raffigurati in un numero maggiore di statuette, in ordine decrescente.
    * Nel franchise di Super Mario, le Amiibo di Mario (9 in totale) saranno le prime a essere visualizzate
 
-3. A parità di personaggio, le Amiibo verrano visualizzate in ordine creascente in base alla data
-di uscita (campo **release**). Poichè talvolta sono presenti date diverse in base alla zona geografica,
-viene considerata la meno recente.
-   * Tra le Amiibo di Mario, la prima visualizzata sarà quella uscita nel 06/12/2014
+3. A parità di personaggio, le Amiibo verranno visualizzate in ordine crescente in base alla data
+di uscita (campo **release**). Poiché spesso sono presenti date diverse in base alla zona geografica,
+viene considerata la meno recente (e diversa da `null`).
+   * Tra le Amiibo di Mario, la prima visualizzata sarà quella uscita nel 06/12/2014,
+ovvero la meno recente
 
-4. Infine, a parità di data di uscita, le Amiibo verrano mostrate secondo ordinamento lessicografico 
+4. Infine, a parità di data di uscita, le Amiibo verranno mostrate secondo ordinamento lessicografico 
 crescente del nome (campo **name**).
-   * Tra le Amiibo di Mario (uscite in giappone nel 10/09/2015) verrà mostrata prima "8-Bit Mario 
+   * Tra le Amiibo di Mario uscite in Giappone nel 10/09/2015 verrà mostrata prima "8-Bit Mario 
 Classic Color" e poi "8-Bit Mario Modern Color"
 
-Il codice che realizza questa funzionalità è mostrato di seguito.
+Il codice che realizza questo specifico ordinamento è mostrato di seguito.
 
 ```jsx
 fetch("https://www.amiiboapi.com/api/amiibo/?type=Figure")
@@ -333,9 +337,14 @@ fetch("https://www.amiiboapi.com/api/amiibo/?type=Figure")
 ```
 
 La funzione `compareAmiibo` consente di stabilire l'ordinamento di due generiche Amiibo, basandosi sulle
-regole definite precedentemente. Nello specifico, accetta come parametro due Amiibo e un oggetto
-contenente sia le regole relative all'ordinamento dei paramentri di sorting che le funzioni che nel pratico
-realizzano i singoli ordinamenti. Di seguito viene mostrato il codice della funzione.
+regole definite precedentemente. Nello specifico, essa accetta come parametro:
+1. La lista di tutte le Amiibo;
+2. Le due Amiibo da confrontare;
+3. Un oggetto contenente sia le regole relative all'ordinamento dei parametri di sorting
+(campo `sortOrder`), sia le funzioni che nel pratico realizzano i singoli ordinamenti
+(campo `sortComparator`). 
+
+L'implementazione è la seguente:
 
 ```jsx
 function compareAmiibo(amiibos, a1, a2, {sortOrder, sortComparator}) {
@@ -354,12 +363,14 @@ function compareAmiibo(amiibos, a1, a2, {sortOrder, sortComparator}) {
 }
 ```
 
-Le funzioni *compare* restituiscono un valore positivo o un valore negativo (tipicamente **1** e **-1**) 
+Le funzioni *compare* restituiscono un valore positivo o negativo (tipicamente **1** e **-1**) 
 in base all'ordinamento tra il primo e il secondo oggetto, oppure **0** nel caso in cui i due oggetti 
-siano uguali secondo un certo criterio. Nel caso preso in esame, in maniera sequenziale vengono calcolati
-i valori di comparazione fino a quando uno di questi è diverso da zero (oppure se non esistono ulteriori
-criteri di ordinamento).
-Qualora non fosse stata definita una specifica funzione di *compare* per uno specifico campo, allora
+siano uguali (secondo un certo criterio).
+
+Nel caso preso in esame, in maniera sequenziale vengono calcolati i valori di comparazione 
+fino a quando uno di questi è diverso da zero (oppure se non esistono ulteriori criteri di ordinamento).
+
+Qualora non fosse stata definita una precisa funzione di *compare* per uno specifico campo, allora
 verrebbe svolta una normale *compare* tra due valori numerici. 
 
 Esempi di funzioni *compare*:
@@ -390,39 +401,48 @@ function stringComparator(str1, str2) {
 
 * Unimiibo è totalmente **responsive**, il che vuol dire che può essere visualizzabile su schermi di
 device di qualsiasi dimensioni (smartphone, tablet, laptop, computer, ecc..), grazie all'utilizzo 
-di **Bootstrap** (vanilla). In particolari occasioni (ad esempio per l'*header*) è stata utilizzata
-la versione di Bootstrap per React e non la versione "vanilla";
+di **Bootstrap** (vanilla). Tuttavia, in particolari occasioni (come ad esempio per l'*header*)
+è stata utilizzata la versione di Bootstrap per React e non la versione "vanilla";
 
-* Per una visualizzazione ottimale, l'interfaccia grafica ad esempio può variare tra dispositivi *mobile*
-e *computers*. Infatti, nella pagina **FAQ** è presente un'immagine di Super Mario che differisce in base
-alla dimensione dello schermo, non cambiando il significato ma riarrangiando il contenuto;
+* Per garantire una visualizzazione ottimale, l'interfaccia grafica può variare tra dispositivi *mobile*
+e *computers*. Ad esempio, nella pagina **FAQ** è presente un'immagine di Super Mario che differisce in
+base alla dimensione dello schermo, che mantiene il medesimo significato ma con il contenuto
+disposto diversamente;
 
 * Gran parte delle immagini presenti in Unimiibo sfrutta il meccanismo di **lazy loading**, che permette
 (se supportato dal browser) di scaricare la risorsa dalla rete solo se visibile all'utente. Ciò garantisce
-migliori performance e, tramite un effetto di *fade in*, non infastidisce l'utente con brutti effetti 
-di comparsa improvvisa;
+migliori performance e, tramite un effetto di *fade in*, non infastidisce l'utente con sgradevoli effetti 
+di "comparsa improvvisa";
 
-* Durante l'attesa che un'immagine venga caricata, viene visualizzata un'animazione *ad hoc* di loading
+* Durante l'attesa che un'immagine venga caricata, viene visualizzata un'animazione di loading *ad hoc*
 basata sul logo di Unimiibo. L'animazione è stata realizzata come **componente React** in modo da essere
 utilizzata in più parti del progetto, favorendo un riuso del codice e in linea con la filosofia di React;
 
-* Se si prova a visualizzare una pagina inesistente oppure relativa a un'Amiibo con id sconosciuto si verrà
-automaticamente reindirizzati alla pagina **Not Found** (o pagina 404);
+* Se si prova a visualizzare una pagina inesistente oppure relativa a un'Amiibo con id sconosciuto si 
+viene automaticamente reindirizzati alla pagina **Not Found** (o pagina 404);
 
-* Il deploy di Unimiibo viene fatto tramite il servizio di Github chiamato **Github Pages**, che utilizza
-il comando `npm run deploy` per creare una build otimizzata per la fase di produzione. Il deploy è
-automatizzato da Github e richiede uno sforzo minimo da parte dello sviluppatore.
+* I tanti collegamenti ipertestuali che puntano all'esterno di Unimiibo hanno come comportamento
+quello di aprire una nuova scheda del browser, per non perdere il flusso di navigazione all'interno
+della web application. Si noti, inoltre, che ogni link che punta al sito di Nintendo permette di
+raggiungere il **vero negozio di Nintendo**, pertanto eventuali acquisti effettuati al suo interno
+utilizzerebbero **soldi reali** e quindi non sono da considerare a solo scopo dimostrativo;
 
-* La tecnologia di Github Pages non è (ancora) compatibile con le funzionalità del **BrowserRouter** 
-offerto dalla libreria *react-router-dom*, quindi si è scelto di utilizzare un **HashRouter** che
-permette di navigare correttamente il sito senza la necessità di dovervi accedere obbligatoriamente
-dalla URI della pagina principale e, soprattutto, che permette di far funzionare correttamente
-il tasto *indietro* dei browser e la pagina *Not Found* (404);
+* Il deploy di Unimiibo viene fatto tramite un servizio di Github chiamato **Github Pages**, che utilizza
+il comando `npm run deploy` per creare una build ottimizzata per la fase di produzione, che in assenza
+di errori viene pubblicata nel giro di un minuto. Il deploy è totalmente automatizzato da Github
+e richiede uno sforzo minimo o nullo da parte dello sviluppatore.
+
+* Purtroppo la tecnologia di Github Pages non è (ancora) compatibile con le funzionalità del
+**BrowserRouter** offerto dalla libreria *react-router-dom*, quindi si è scelto di utilizzare un 
+**HashRouter** che permette di navigare correttamente nel sito senza la necessità di dovervi accedere 
+obbligatoriamente dalla URI della pagina principale e, soprattutto, che permette di far funzionare
+correttamente sia la pagina *Not Found* (404) che il tasto *indietro* dei browser;
 
 
 ## Compatibilità con i browser moderni
-Unimiibo è raggiungibile all'indirizzo https://disteroby.github.io/unimiibo/ ed è stata testata
-sui seguenti browser (versione più recente al momento della scrittura di questo documento):
+Unimiibo è raggiungibile pubblicamente all'indirizzo https://disteroby.github.io/unimiibo/ ed è stata
+testata sui seguenti browser (nella loro versione più recente al momento della scrittura
+di questo documento):
 
 1. **Google Chrome**:
     * Computer
