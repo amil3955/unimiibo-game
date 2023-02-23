@@ -8,7 +8,7 @@
 
 
 [Unimiibo](https://disteroby.github.io/unimiibo/) è una semplice web application per la visualizzazione 
-delle Amiibo, particolari "statuette" prodotte direttamente da Nintendo per tanti franchise famosi di 
+delle Amiibo, ovvero particolari "statuette" prodotte direttamente da Nintendo per tanti franchise famosi di 
 sua proprietà, come Super Mario, The Legend of Zelda e Pokémon.
 
 Le Amiibo possono essere considerate anche come semplici oggetti da collezione, ma sono molto di più:
@@ -431,7 +431,7 @@ sui seguenti browser (versione più recente al momento della scrittura di questo
         * :heavy_check_mark: iOS
     * Smartphone
         * :heavy_check_mark: Android
-        * :large_orange_diamond: iOS
+        * :heavy_check_mark: iOS
 
 2. **Mozilla Firefox**:
     * Computer
@@ -440,7 +440,7 @@ sui seguenti browser (versione più recente al momento della scrittura di questo
         * :heavy_check_mark: iOS
     * Smartphone
         * :heavy_check_mark: Android
-        * :large_orange_diamond: iOS
+        * :heavy_check_mark: iOS
 
 3. **Microsoft Edge**:
     * Computer
@@ -449,9 +449,9 @@ sui seguenti browser (versione più recente al momento della scrittura di questo
         * :heavy_check_mark: iOS
     * Smartphone
         * :heavy_check_mark: Android
-        * :large_orange_diamond: iOS
+        * :heavy_check_mark: iOS
 
 Legenda:
-  * :heavy_check_mark: totalmente compatibile
-  * :large_orange_diamond: parzialmente compatibile (problemi legati al CSS)
-  * :x: non compatibile
+  * :heavy_check_mark: Totalmente compatibile
+  * :large_orange_diamond: Parzialmente compatibile (problemi legati al CSS)
+  * :x: Non compatibile

@@ -1,20 +1,20 @@
 :root {
     --dark-pink: rgb(181, 54, 107);
-    --dark-red: rgb(172, 11, 11);
+    --dark-red: rgb(189, 19, 44);
     --dark-orange: rgb(206, 93, 17);
     --dark-yellow: rgb(187, 173, 17);
     --dark-green: rgb(11, 172, 32);
-    --dark-blue: rgb(27, 100, 184);
-    --dark-purple: rgb(97, 19, 182);
+    --dark-blue: rgb(27, 124, 184);
+    --dark-purple: rgb(113, 31, 203);
     --dark-grey: rgb(42, 42, 42);
 
     --light-pink: rgb(224, 117, 179);
-    --light-red: rgb(205, 72, 88);
+    --light-red: rgb(217, 80, 97);
     --light-orange: rgb(249, 130, 51);
     --light-yellow: rgb(230, 203, 93);
     --light-green: rgb(85, 210, 121);
-    --light-blue: rgb(72, 147, 205);
-    --light-purple: rgb(132, 72, 205);
+    --light-blue: rgb(72, 167, 205);
+    --light-purple: rgb(157, 81, 216);
     --light-grey: rgb(69, 69, 69);
 
     --gradient-rotation: -100deg;
@@ -95,44 +95,4 @@
 
 .grey.my-border {
     border: var(--border-size) solid var(--light-grey);
-}
-
-/*------------------ HUE VARIANCE --------------------*/
-
-.pink.hue-variance {
-    backdrop-filter: hue-rotate(120deg);
-}
-
-.red.hue-variance {
-    backdrop-filter: hue-rotate(150deg);
-}
-
-.orange.hue-variance {
-    backdrop-filter: hue-rotate(190deg);
-}
-
-.yellow.hue-variance {
-    backdrop-filter: hue-rotate(215deg);
-}
-
-.green.hue-variance {
-    backdrop-filter: hue-rotate(300deg);
-}
-
-.blue.hue-variance {
-    backdrop-filter: hue-rotate(10deg);
-}
-
-.purple.hue-variance {
-    backdrop-filter: hue-rotate(70deg);
-}
-
-.grey.hue-variance {
-    backdrop-filter: grayscale(1);
-}
-
-
-* {
-    /*background-color: rgba(0,0,0,0.05);*/
-    /*border: 1px solid black;*/
 }

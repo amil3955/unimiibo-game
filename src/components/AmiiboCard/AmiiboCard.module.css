@@ -15,11 +15,6 @@
     width: 100%;
     aspect-ratio: 15 / 22;
     transition: var(--anim-params);
-    background-image: url('../../assets/LogoUnimiibo/unimiibo_logo_bg.png');
-    image-rendering: optimizeQuality;
-    background-size: 25%;
-    background-repeat: repeat;
-    background-position: center;
     color: rgba(0,0,0,0);
     text-decoration: none;
 }
@@ -40,6 +35,42 @@
     bottom: 0;
     position: absolute;
     overflow: hidden;
+    image-rendering: optimizeQuality;
+    background-size: 25%;
+    background-repeat: repeat;
+    background-position: center;
+}
+
+.myCard .bgCard.pink {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_pink.jpg');
+}
+
+.myCard .bgCard.red {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_red.jpg');
+}
+
+.myCard .bgCard.orange {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_orange.jpg');
+}
+
+.myCard .bgCard.yellow {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_yellow.jpg');
+}
+
+.myCard .bgCard.green {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_green.jpg');
+}
+
+.myCard .bgCard.blue {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_blue.jpg');
+}
+
+.myCard .bgCard.purple {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_purple.jpg');
+}
+
+.myCard .bgCard.grey {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_gray.jpg');
 }
 
 .myCard .bgCard::after {

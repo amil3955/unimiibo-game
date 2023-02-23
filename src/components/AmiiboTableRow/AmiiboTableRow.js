@@ -26,9 +26,9 @@ function AmiiboTableRow({amiibo, fields}) {
                             ) :
                             (
                                 <td className={`${style.imgWrapper}`}>
-                                    <div className={`${style.imgWrapperBg}`}>
+                                    <div className={`${style.imgWrapperBg} ${style[color]}`}>
                                         <div
-                                            className={`hue-variance ${color} my-border ${color} ${style.borderRadius}`}>
+                                            className={`my-border ${color} ${style.borderRadius}`}>
                                             {isLoading && (
                                                 <div className={`${style.loadingSpinner}`}>
                                                     <div className="text-center">

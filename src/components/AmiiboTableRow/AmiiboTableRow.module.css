@@ -5,7 +5,6 @@
 }
 
 .imgWrapper .imgWrapperBg {
-    background-image: url('../../assets/LogoUnimiibo/unimiibo_logo_bg.png');
     background-repeat: repeat;
     background-size: 2.5rem;
     background-position: center;
@@ -16,6 +15,38 @@
     justify-content: center;
     align-items: center;
     border-radius: 14%;
+}
+
+.imgWrapper .imgWrapperBg.pink {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_pink.jpg');
+}
+
+.imgWrapper .imgWrapperBg.red {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_red.jpg');
+}
+
+.imgWrapper .imgWrapperBg.orange {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_orange.jpg');
+}
+
+.imgWrapper .imgWrapperBg.yellow {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_yellow.jpg');
+}
+
+.imgWrapper .imgWrapperBg.green {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_green.jpg');
+}
+
+.imgWrapper .imgWrapperBg.blue {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_blue.jpg');
+}
+
+.imgWrapper .imgWrapperBg.purple {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_purple.jpg');
+}
+
+.imgWrapper .imgWrapperBg.grey {
+    background-image: url('../../assets/Card/unimiibo_logo_bg_gray.jpg');
 }
 
 .borderRadius {
