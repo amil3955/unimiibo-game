@@ -281,7 +281,7 @@ dove `strHashCode` è una funzione che è definita in [Utils.js](/src/utilities/
 numerico per una stringa passata come parametro, che viene poi utilizzato per creare un indice per
 l'array `colors` (definito in [Colors.js](/src/utilities/Colors.js)).
 
-In questo modo anche personaggi che potranno saranno aggiunti in futuro alla lista delle Amiibo dell'API
+In questo modo anche personaggi che saranno aggiunti in futuro alla lista delle Amiibo dell'API
 e che provengono da franchise nuovi potranno essere associati a un colore "casuale" 
 ma che sia sempre lo stesso.
 
@@ -416,9 +416,10 @@ disposto diversamente;
 migliori performance e, tramite un effetto di *fade in*, non infastidisce l'utente con sgradevoli effetti 
 di "comparsa improvvisa";
 
-* Durante l'attesa che un'immagine venga caricata, viene visualizzata un'animazione di loading *ad hoc*
-basata sul logo di Unimiibo. L'animazione è stata realizzata come **componente React** in modo da essere
-utilizzata in più parti del progetto, favorendo un riuso del codice e in linea con la filosofia di React;
+* Durante l'attesa che un'immagine venga caricata, ad esempio, viene visualizzata un'animazione di loading 
+*ad hoc* basata sul logo di Unimiibo. L'animazione è stata realizzata come **componente React** in modo da 
+essere utilizzata in più parti del progetto, favorendo un riuso del codice e in linea con la filosofia 
+di React;
 
 * Se si prova a visualizzare una pagina inesistente oppure relativa a un'Amiibo con id sconosciuto si 
 viene automaticamente reindirizzati alla pagina **Not Found** (o pagina 404);
@@ -432,13 +433,13 @@ utilizzerebbero **soldi reali** e quindi non sono da considerare a solo scopo di
 * Il deploy di Unimiibo viene fatto tramite un servizio di Github chiamato **Github Pages**, che utilizza
 il comando `npm run deploy` per creare una build ottimizzata per la fase di produzione, che in assenza
 di errori viene pubblicata nel giro di un minuto. Il deploy è totalmente automatizzato da Github
-e richiede uno sforzo minimo o nullo da parte dello sviluppatore.
+e richiede uno sforzo minimo o nullo da parte dello sviluppatore;
 
 * Purtroppo la tecnologia di Github Pages non è (ancora) compatibile con le funzionalità del
 **BrowserRouter** offerto dalla libreria *react-router-dom*, quindi si è scelto di utilizzare un 
 **HashRouter** che permette di navigare correttamente nel sito senza la necessità di dovervi accedere 
 obbligatoriamente dalla URI della pagina principale e, soprattutto, che permette di far funzionare
-correttamente sia la pagina *Not Found* (404) che il tasto *indietro* dei browser;
+correttamente sia la pagina *Not Found* (404) di Unimiibo che il tasto *indietro* dei browser.
 
 
 ## Compatibilità con i browser moderni
