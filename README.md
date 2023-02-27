@@ -17,9 +17,9 @@ le console di casa Nintendo (come Nintendo 3DS, Nintendo Wii U e Nintendo Switch
 per ottenere bonus e vantaggi esclusivi in tantissimi videogiochi.
 
 
-## La struttura del progetto
+## Struttura del progetto
 
-Dal momento che Unimiibo è un progetto complesso, è stato necessario fin da subito definire una
+Dal momento che Unimiibo è un progetto complesso, è stato necessario definire una
 struttura precisa per l'organizzazione delle risorse (come file di codice sorgente, immagini, ecc...).
 
 Le directory principali del progetto sono:
@@ -33,8 +33,8 @@ generici (direttamente utilizzabili, quindi, anche in progetti diversi con lievi
 codice o addirittura così come sono). I componenti sono organizzati in sotto-directory in modo da
 accorpare a ogni file di codice anche il relativo foglio di stile (vengono utilizzati i moduli CSS).
 
-* **utilities**: racchiude tutti quei file javascript che contengono funzionalità generiche o
-dati globali utilizzabili in diverse parti del progetto.
+* **utilities**: racchiude tutti quei file javascript che contengono preferenze globali e
+funzionalità generiche richiamabili in diverse parti del progetto.
 
 * **views**: l'insieme di tutte le pagine della web application. Ogni pagina ha un relativo foglio 
 di stile CSS, nella modalità classica (no moduli).
@@ -184,12 +184,13 @@ Necessita del **nome** della statuetta come parametro query, non dell'**ID**.
 
 ## Frammenti di codice
 
-In questa sezione verranno mostrate piccole porzioni di codice e le motivazioni per le quali
-sono state ritenute significative.
+In questa sezione verranno mostrate piccole porzioni significative di codice per facilitare
+la comprensione di alcune funzionalità complesse del progetto.
+
 
 ### Concatenazione di chiamate all'API
 
-Nel file [AmiiboDetails.js](/src/views/AmiiboDetails/AmiiboDetails.js), che corrisponde alla pagina di
+Nel file [AmiiboDetails.js](/src/views/AmiiboDetails/AmiiboDetails.js), che è associato alla pagina di
 visualizzazione dei dettagli di una specifica Amiibo, è stato necessario eseguire due chiamate al servizio
 AmiiboAPI per poter recuperare tutte le informazioni necessarie.
 
@@ -215,7 +216,7 @@ useEffect(() => {
 
 In questo modo viene utilizzato un solo *useEffect*, al cui interno vengono recuperate le informazioni
 della Amiibo corrente. Se l'ID non dovesse corrispondere a nessuna Amiibo valida allora si verrebbe
-reindirizzati al path `'/not-found'`, ovvero la nota pagina 404.
+reindirizzati al path `'/not-found'`, ovvero alla nota pagina per la gestione dell'errore 404.
 
 La funzione `fetchData` è così definita:
 
@@ -234,7 +235,7 @@ async function fetchData(id) {
 
 In questo modo è possibile eseguire le due chiamate in modo asincrono ma comunque in modo sequenziale,
 rendendo quindi possibile utilizzare i dati della prima chiamata per creare la seconda.
-Le funzioni `fetchAmiiboDataByID` e `fetchAmiiboDataByNAME` utilizzano il meccanismo Async/Await.
+Le funzioni `fetchAmiiboDataByID` e `fetchAmiiboDataByNAME` utilizzano il meccanismo **Async/Await**.
 
 Tutte le funzioni definite `async` restituiscono un oggetto di tipo `Promise`, il cui valore
 può essere recuperato tramite l'utilizzo del metodo `then`, che viene utilizzato come callback.
@@ -268,7 +269,7 @@ Tuttavia, per garantire che possa venire associato un colore anche alle serie no
 si è scelto di utilizzare un metodo basato sull'hash di una stringa, in modo da ottenere come risultato
 un colore che appaia come "casuale" ma che sia invece deterministico e replicabile.
 
-Il colore (per serie non in elenco) viene scelto, quindi, nel seguente modo:
+Il colore (per serie non presenti in elenco) viene scelto, quindi, nel seguente modo:
 
 ```jsx
 function indexSeries(series) {
@@ -280,8 +281,9 @@ dove `strHashCode` è una funzione che è definita in [Utils.js](/src/utilities/
 numerico per una stringa passata come parametro, che viene poi utilizzato per creare un indice per
 l'array `colors` (definito in [Colors.js](/src/utilities/Colors.js)).
 
-In questo modo anche personaggi che potranno saranno aggiunti in futuro alla lista delle Amiibo e che
-provengono da franchise nuovi potranno essere associati a un colore "casuale" ma che sia sempre lo stesso.
+In questo modo anche personaggi che potranno saranno aggiunti in futuro alla lista delle Amiibo dell'API
+e che provengono da franchise nuovi potranno essere associati a un colore "casuale" 
+ma che sia sempre lo stesso.
 
 
 ### Ordine di visualizzazione delle Amiibo
@@ -401,7 +403,7 @@ function stringComparator(str1, str2) {
 
 * Unimiibo è totalmente **responsive**, il che vuol dire che può essere visualizzabile su schermi di
 device di qualsiasi dimensioni (smartphone, tablet, laptop, computer, ecc..), grazie all'utilizzo 
-di **Bootstrap** (vanilla). Tuttavia, in particolari occasioni (come ad esempio per l'*header*)
+di **Bootstrap** (vanilla). Inoltre, in particolari occasioni (come ad esempio per l'*header*)
 è stata utilizzata la versione di Bootstrap per React e non la versione "vanilla";
 
 * Per garantire una visualizzazione ottimale, l'interfaccia grafica può variare tra dispositivi *mobile*
