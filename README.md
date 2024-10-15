@@ -1,10 +1,3 @@
-# Unimiibo
-
-<picture>
- <source media="(prefers-color-scheme: dark)" srcset="/src/assets/LogoUnimiibo/unimiibo_logo_wh.png">
- <source media="(prefers-color-scheme: light)" srcset="/src/assets/LogoUnimiibo/unimiibo_logo.png">
-</picture>
-
 ## Project structure
 
 Since Unimiibo is a complex project, it was necessary to define a
