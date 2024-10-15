@@ -5,14 +5,6 @@
  <source media="(prefers-color-scheme: light)" srcset="/src/assets/LogoUnimiibo/unimiibo_logo.png">
 </picture>
 
-"statuettes" produced directly by Nintendo for many of its famous
-franchises such as Super Mario, The Legend of Zelda and Pokémon.
-
-Amiibo at first glance may seem like normal collectibles, but in reality they are much
-more: in fact, each Amiibo is equipped with an *NFC tag* that allows it to communicate directly with
-Nintendo home consoles (such as Nintendo 3DS, Nintendo Wii U and Nintendo Switch),
-to obtain bonuses and exclusive advantages in many video games.
-
 ## Project structure
 
 Since Unimiibo is a complex project, it was necessary to define a
